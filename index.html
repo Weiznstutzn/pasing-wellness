@@ -540,6 +540,7 @@
     .date-btn:hover,.date-btn.selected { border-color:var(--gold);background:#fff7eb;box-shadow:inset 0 0 0 1px var(--gold); }
     .time-area { margin-top:25px;padding-top:24px;border-top:1px solid #e5dac9; }
     .time-btn { min-width:78px; }
+    .dynamic-slot-note { margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.55; }
     .wizard-actions { display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:32px;padding-top:24px;border-top:1px solid #e7dccd; }
     .wizard-btn { min-height:46px;padding:12px 20px;border:0;cursor:pointer;text-transform:uppercase;letter-spacing:1.2px;font-size:10px;font-weight:700;transition:.2s; }
     .wizard-btn.primary { background:var(--brown);color:white; }
@@ -1275,9 +1276,9 @@
   <div class="container">
     <div class="section-label" style="color:white;">Online-Terminbuchung</div>
     <h2>Ihre Auszeit buchen.</h2>
-    <p>Wählen Sie Behandlung, Dauer und einen freien Termin. In dieser V0.4 können Sie den kompletten Ablauf bereits testen.</p>
+    <p>Wählen Sie Behandlung, Dauer und einen freien Termin. In dieser V0.4.1 können Sie den kompletten Ablauf bereits testen.</p>
 
-    <div class="booking-demo-badge">V0.4 · Demo – noch keine echte Speicherung oder E-Mail</div>
+    <div class="booking-demo-badge">V0.4.1 · Demo – dynamische Terminlogik, noch keine echte Speicherung oder E-Mail</div>
 
     <div class="booking-wizard" id="bookingWizard">
       <div class="booking-progress" aria-label="Buchungsschritte">
@@ -1318,11 +1319,12 @@
         <div class="wizard-heading">
           <span class="wizard-kicker">Schritt 2</span>
           <h3>Wann möchten Sie kommen?</h3>
-          <p>Online buchbar bis 14 Tage im Voraus. Zwischen zwei Terminen planen wir 15 Minuten Puffer.</p>
+          <p>Online buchbar bis 14 Tage im Voraus. Die freien Startzeiten werden dynamisch aus Behandlungsdauer und 15 Minuten Puffer berechnet.</p>
         </div>
         <div class="date-options" id="dateOptions"></div>
         <div class="time-area" id="timeArea" hidden>
           <h4>Freie Startzeiten</h4>
+          <p class="dynamic-slot-note" id="dynamicSlotNote"></p>
           <div class="time-options" id="timeOptions"></div>
         </div>
         <div class="wizard-actions">
@@ -1458,6 +1460,11 @@
     aroma: {name:'Thai-Aromaölmassage', prices:{60:70,90:95,120:125}},
     thai: {name:'Thai-Massage', prices:{60:75,90:105,120:135}}
   };
+  const BUFFER_MINUTES = 15;
+  const SLOT_STEP_MINUTES = 15;
+  // In V0.5 werden diese Buchungen aus der Cloudflare-Datenbank geladen.
+  // Format: { date:'YYYY-MM-DD', start:'15:00', treatmentMinutes:90 }
+  const existingBookings = [];
   const state = {service:null,duration:null,addon:false,date:null,time:null};
   const treatmentOptions=document.getElementById('treatmentOptions');
   const durationSection=document.getElementById('durationSection');
@@ -1467,6 +1474,7 @@
   const dateOptions=document.getElementById('dateOptions');
   const timeArea=document.getElementById('timeArea');
   const timeOptions=document.getElementById('timeOptions');
+  const dynamicSlotNote=document.getElementById('dynamicSlotNote');
 
   Object.entries(services).forEach(([key,s])=>{
     const b=document.createElement('button'); b.type='button'; b.className='treatment-card'; b.dataset.service=key;
@@ -1510,13 +1518,47 @@
       b.onclick=()=>{state.date=new Date(d);state.time=null;dateOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');renderTimes(d);};dateOptions.appendChild(b);
     }
   }
+  function toMinutes(time){
+    const [h,m]=time.split(':').map(Number);
+    return h*60+m;
+  }
+  function isoDate(d){
+    const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');
+    return `${y}-${m}-${day}`;
+  }
+  function intervalsOverlap(aStart,aEnd,bStart,bEnd){
+    return aStart < bEnd && bStart < aEnd;
+  }
+  function isStartAvailable(d,startMinutes,treatmentMinutes){
+    // Eine neue Buchung blockiert Behandlungsdauer + 15 Minuten Puffer.
+    const reservedEnd=startMinutes+treatmentMinutes+BUFFER_MINUTES;
+    const dateKey=isoDate(d);
+    return !existingBookings.some(booking=>{
+      if(booking.date!==dateKey) return false;
+      const bookedStart=toMinutes(booking.start);
+      const bookedEnd=bookedStart+booking.treatmentMinutes+BUFFER_MINUTES;
+      return intervalsOverlap(startMinutes,reservedEnd,bookedStart,bookedEnd);
+    });
+  }
   function renderTimes(d){
-    timeOptions.innerHTML='';timeArea.hidden=false; const day=d.getDay(); const open=day===0?10:14, close=day===0?16:20;
-    const total=state.duration+(state.addon?30:0);
-    for(let m=open*60;m+total<=close*60;m+=15){
+    timeOptions.innerHTML='';timeArea.hidden=false;
+    const day=d.getDay();
+    const open=day===0?10:14, close=day===0?16:20;
+    const treatmentMinutes=state.duration+(state.addon?30:0);
+    const reservedMinutes=treatmentMinutes+BUFFER_MINUTES;
+    dynamicSlotNote.textContent=`Gewählte Behandlung: ${treatmentMinutes} Min. · danach ${BUFFER_MINUTES} Min. Puffer. Der Zeitraum wird insgesamt ${reservedMinutes} Min. blockiert.`;
+
+    // Startzeiten werden nicht als starre 60-Minuten-Slots behandelt.
+    // Wir prüfen alle 15 Minuten, ob die KOMPLETTE Behandlungszeit in die Öffnungszeit passt
+    // und ob Behandlung + Puffer mit keiner vorhandenen Buchung kollidieren.
+    for(let m=open*60;m+treatmentMinutes<=close*60;m+=SLOT_STEP_MINUTES){
+      if(!isStartAvailable(d,m,treatmentMinutes)) continue;
       const hh=String(Math.floor(m/60)).padStart(2,'0'),mm=String(m%60).padStart(2,'0'),label=`${hh}:${mm}`;
       const b=document.createElement('button');b.type='button';b.className='time-btn';b.textContent=label;
       b.onclick=()=>{state.time=label;timeOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');document.querySelector('[data-panel="2"] [data-next="3"]').disabled=false;};timeOptions.appendChild(b);
+    }
+    if(!timeOptions.children.length){
+      timeOptions.innerHTML='<span style="font-size:13px;color:var(--muted)">Für diese Auswahl ist an diesem Tag kein passender Termin mehr frei.</span>';
     }
   }
   function validateForm(){
@@ -1530,8 +1572,11 @@
   }
   function renderSummary(id){
     const el=document.getElementById(id),p=priceInfo();const d=state.date.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'2-digit',year:'numeric'});
-    const duration=state.duration+(state.addon?30:0); const rows=[
-      ['Behandlung',services[state.service].name],['Dauer',`${state.duration} Minuten${state.addon?' + 30 Min. Ohrenkerzen':''}`],['Termin',`${d} · ${state.time} Uhr`],['Gesamtdauer',`${duration} Minuten`],
+    const duration=state.duration+(state.addon?30:0);
+    const startM=toMinutes(state.time), blockedUntilM=startM+duration+BUFFER_MINUTES;
+    const blockedUntil=`${String(Math.floor(blockedUntilM/60)).padStart(2,'0')}:${String(blockedUntilM%60).padStart(2,'0')}`;
+    const rows=[
+      ['Behandlung',services[state.service].name],['Dauer',`${state.duration} Minuten${state.addon?' + 30 Min. Ohrenkerzen':''}`],['Termin',`${d} · ${state.time} Uhr`],['Behandlungsdauer',`${duration} Minuten`],['Puffer danach',`${BUFFER_MINUTES} Minuten · blockiert bis ${blockedUntil} Uhr`],
       ['Name',document.getElementById('customerName').value.trim()],['Telefon',document.getElementById('customerPhone').value.trim()],['E-Mail',document.getElementById('customerEmail').value.trim()]
     ];
     if(p.promo) rows.splice(2,0,['Eröffnungsangebot','Neukunde · 60 Min. Ganzkörpermassage 59 €']);
