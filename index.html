@@ -642,29 +642,43 @@
       color: var(--brown-light);
     }
 
-    .team-card {
-      width: min(620px, 100%);
+    .team-profile {
+      width: min(900px, 100%);
       margin: 0 auto;
-      padding: 38px;
-      background: rgba(255,255,255,.62);
+      display: grid;
+      grid-template-columns: minmax(260px, 380px) 1fr;
+      background: rgba(255,255,255,.72);
       border: 1px solid #e7dccb;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      text-align: left;
     }
 
-    .team-mark {
-      width: 82px;
-      height: 82px;
-      border-radius: 50%;
-      margin: 0 auto 22px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--gold-light);
-      color: var(--gold);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 30px;
+    .team-photo-wrap {
+      min-height: 470px;
+      background: #e9dfd2;
+    }
+
+    .team-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 470px;
+      display: block;
+      object-fit: cover;
+      object-position: center 24%;
+    }
+
+    .team-info {
+      padding: 52px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
     }
 
     .team h3 {
-      font-size: 25px;
+      font-size: clamp(30px, 4vw, 40px);
+      margin: 10px 0 20px;
     }
 
     .team-role {
@@ -672,14 +686,15 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-top: 8px;
     }
 
-    .team-small {
-      max-width: 480px;
-      margin: 14px auto 0;
-      color: var(--muted);
-      font-size: 13px;
+    .team-info p {
+      color: var(--brown-light);
+      margin-bottom: 16px;
+    }
+
+    .team-info .btn {
+      margin-top: 12px;
     }
 
     /* BOOKING */
@@ -948,6 +963,24 @@
         min-height: 400px;
       }
 
+      .team-profile {
+        grid-template-columns: 1fr;
+      }
+
+      .team-photo-wrap,
+      .team-photo {
+        min-height: 0;
+      }
+
+      .team-photo {
+        aspect-ratio: 4 / 5;
+        object-position: center 22%;
+      }
+
+      .team-info {
+        padding: 38px 32px 42px;
+      }
+
       .booking-card {
         grid-template-columns: 1fr;
       }
@@ -1032,8 +1065,12 @@
         min-height: 310px;
       }
 
-      .team-card {
-        padding: 30px 22px;
+      .team-info {
+        padding: 32px 24px 36px;
+      }
+
+      .team-info .btn {
+        width: 100%;
       }
 
       .launch-offer {
@@ -1264,17 +1301,32 @@
     <h2>Unser Team</h2>
 
     <p class="team-text">
-      Pasing Wellness befindet sich aktuell im Aufbau. Informationen und Fotos
-      unseres Teams stellen wir Ihnen vor der Neueröffnung hier vor.
+      Bei Pasing Wellness steht Ihre persönliche Auszeit im Mittelpunkt.
+      Lernen Sie hier die Masseurin kennen, die Sie bei Ihrem Termin betreut.
     </p>
 
-    <div class="team-card">
-      <div class="team-mark">PW</div>
-      <h3>Wir stellen uns bald vor.</h3>
-      <div class="team-role">Pasing Wellness · München-Pasing</div>
-      <p class="team-small">
-        So zeigen wir bis dahin bewusst kein fremdes Personenfoto als vermeintliches Teammitglied.
-      </p>
+    <div class="team-profile">
+      <div class="team-photo-wrap">
+        <img
+          src="masseurin.png"
+          alt="Masseurin bei Pasing Wellness in München-Pasing"
+          class="team-photo"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="team-info">
+        <div class="team-role">Ihre Masseurin bei Pasing Wellness</div>
+        <h3>Persönlich für Sie da.</h3>
+        <p>
+          Mit Ruhe, Aufmerksamkeit und viel Zeit für Ihr Wohlbefinden erwartet
+          Sie eine persönliche Betreuung in entspannter Atmosphäre.
+        </p>
+        <p>
+          Weitere Informationen zur Masseurin und ihrer Erfahrung ergänzen wir in Kürze.
+        </p>
+        <a href="#buchen" class="btn btn-gold">Termin buchen</a>
+      </div>
     </div>
   </div>
 </section>
