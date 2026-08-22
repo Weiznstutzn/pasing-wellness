@@ -375,6 +375,110 @@
       color: var(--gold);
     }
 
+    .service-grid.priced {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service.priced-service {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-row {
+      margin-top: auto;
+      padding-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      border-top: 1px solid #dfd3c2;
+    }
+
+    .price-box {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .price-time {
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .price-value {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      color: var(--brown);
+    }
+
+    .launch-offer {
+      margin-top: 28px;
+      padding: 34px 38px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      background: var(--brown);
+      color: white;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--gold);
+    }
+
+    .launch-kicker {
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .launch-offer h3 {
+      color: white;
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .launch-offer p {
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+    }
+
+    .launch-price {
+      min-width: 165px;
+      text-align: right;
+    }
+
+    .launch-price strong {
+      display: block;
+      color: var(--gold-light);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42px;
+      line-height: 1;
+      font-weight: normal;
+    }
+
+    .launch-price span {
+      display: block;
+      margin-top: 7px;
+      color: rgba(255,255,255,.72);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+    }
+
+    .launch-offer .btn {
+      margin-top: 18px;
+      background: var(--gold);
+      color: white;
+    }
+
+    .launch-offer .btn:hover {
+      background: #9e753d;
+    }
+
     /* STUDIO */
 
     .studio {
@@ -721,8 +825,17 @@
         border-bottom: 0;
       }
 
-      .service-grid {
+      .service-grid,
+      .service-grid.priced {
         grid-template-columns: 1fr;
+      }
+
+      .launch-offer {
+        grid-template-columns: 1fr;
+      }
+
+      .launch-price {
+        text-align: left;
       }
 
       .service {
@@ -817,6 +930,18 @@
         padding: 30px 22px;
       }
 
+      .launch-offer {
+        padding: 28px 24px;
+      }
+
+      .launch-offer h3 {
+        font-size: 25px;
+      }
+
+      .launch-price strong {
+        font-size: 38px;
+      }
+
       .booking-slot {
         padding: 23px 22px;
       }
@@ -837,6 +962,7 @@
   </style>
 </head>
 
+<!-- Pasing Wellness V0.3 -->
 <body>
 
 <header>
@@ -916,55 +1042,65 @@
       <div class="section-label">Unsere Anwendungen</div>
       <h2>Massagen für Ihre Auszeit</h2>
       <p>
-        Das endgültige Massageangebot sowie Behandlungsdauer und Preise werden
-        aktuell für die Neueröffnung zusammengestellt.
+        Wählen Sie zwischen vier wohltuenden Anwendungen – jeweils als 60- oder 90-minütige Auszeit.
       </p>
-      <span class="section-note">Voraussichtliches Angebot · Details folgen</span>
     </div>
 
-    <div class="service-grid">
-      <div class="service">
+    <div class="service-grid priced">
+      <div class="service priced-service">
         <div class="service-number">01</div>
-        <h3>Traditionelle Thai-Massage</h3>
-        <p>Klassische thailändische Massagetechniken mit gezieltem Druck und sanften Dehnungen.</p>
-        <span class="duration">Dauer & Preis folgen</span>
+        <h3>Wellness- & Entspannungsmassage</h3>
+        <p>Eine ruhige, wohltuende Massage zum Loslassen, Abschalten und Entspannen.</p>
+        <div class="price-row" aria-label="Preise Wellness- und Entspannungsmassage">
+          <div class="price-box"><span class="price-time">60 Minuten</span><span class="price-value">65 €</span></div>
+          <div class="price-box"><span class="price-time">90 Minuten</span><span class="price-value">90 €</span></div>
+        </div>
       </div>
 
-      <div class="service">
+      <div class="service priced-service">
         <div class="service-number">02</div>
-        <h3>Thai-Öl-Massage</h3>
-        <p>Entspannende Massage mit Öl für ein besonders wohltuendes und ruhiges Körpergefühl.</p>
-        <span class="duration">Dauer & Preis folgen</span>
+        <h3>Ganzkörpermassage</h3>
+        <p>Eine umfassende Massage für den ganzen Körper – ideal für eine ausgedehnte Wohlfühlpause.</p>
+        <div class="price-row" aria-label="Preise Ganzkörpermassage">
+          <div class="price-box"><span class="price-time">60 Minuten</span><span class="price-value">70 €</span></div>
+          <div class="price-box"><span class="price-time">90 Minuten</span><span class="price-value">95 €</span></div>
+        </div>
       </div>
 
-      <div class="service">
+      <div class="service priced-service">
         <div class="service-number">03</div>
-        <h3>Aromaöl-Massage</h3>
-        <p>Sanfte Massage kombiniert mit ausgewählten aromatischen Ölen für tiefe Entspannung.</p>
-        <span class="duration">Dauer & Preis folgen</span>
+        <h3>Aromaölmassage</h3>
+        <p>Sanfte Massage mit wohltuendem Öl für ein besonders entspanntes und angenehmes Körpergefühl.</p>
+        <div class="price-row" aria-label="Preise Aromaölmassage">
+          <div class="price-box"><span class="price-time">60 Minuten</span><span class="price-value">70 €</span></div>
+          <div class="price-box"><span class="price-time">90 Minuten</span><span class="price-value">95 €</span></div>
+        </div>
       </div>
 
-      <div class="service">
+      <div class="service priced-service">
         <div class="service-number">04</div>
-        <h3>Rücken & Nacken</h3>
-        <p>Eine gezielte Auszeit für besonders beanspruchte Bereiche von Rücken, Schultern und Nacken.</p>
-        <span class="duration">Dauer & Preis folgen</span>
-      </div>
-
-      <div class="service">
-        <div class="service-number">05</div>
-        <h3>Fußmassage</h3>
-        <p>Wohltuende Massage für müde Füße und Beine – ideal als kurze Erholung zwischendurch.</p>
-        <span class="duration">Dauer & Preis folgen</span>
-      </div>
-
-      <div class="service">
-        <div class="service-number">06</div>
-        <h3>Hot Stone</h3>
-        <p>Entspannung durch wohltuende Wärme und sanfte Massage mit erwärmten Steinen.</p>
-        <span class="duration">Dauer & Preis folgen</span>
+        <h3>Thai-Massage</h3>
+        <p>Traditionelle thailändische Massagetechniken mit gezieltem Druck und wohltuenden Dehnungen.</p>
+        <div class="price-row" aria-label="Preise Thai-Massage">
+          <div class="price-box"><span class="price-time">60 Minuten</span><span class="price-value">75 €</span></div>
+          <div class="price-box"><span class="price-time">90 Minuten</span><span class="price-value">105 €</span></div>
+        </div>
       </div>
     </div>
+
+    <div class="launch-offer">
+      <div>
+        <div class="launch-kicker">Eröffnungsangebot</div>
+        <h3>60 Min. Ganzkörpermassage</h3>
+        <p>Zum Start von Pasing Wellness erhalten Sie die 60-minütige Ganzkörpermassage zum Einführungspreis.</p>
+        <a href="#buchen" class="btn">Termin buchen</a>
+      </div>
+      <div class="launch-price">
+        <strong>59 €</strong>
+        <span>statt 70 €</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
