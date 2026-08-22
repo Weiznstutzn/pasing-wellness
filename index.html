@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pasing Wellness – Thai Massage & Wellness in München-Pasing. Neueröffnung voraussichtlich im Oktober 2026. Online-Terminbuchung in Vorbereitung.">
+  <meta name="description" content="Pasing Wellness – Thai Massage & Wellness in München-Pasing. Neueröffnung voraussichtlich im Oktober 2026. Online-Terminbuchung für Massage-Termine in Vorbereitung.">
   <meta name="theme-color" content="#3e2c24">
   <title>Pasing Wellness | Thai Massage in München-Pasing</title>
 
@@ -389,7 +389,7 @@
       margin-top: auto;
       padding-top: 24px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 10px;
       border-top: 1px solid #dfd3c2;
     }
@@ -478,6 +478,96 @@
     .launch-offer .btn:hover {
       background: #9e753d;
     }
+
+
+    .addon-note {
+      margin-top: 26px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      background: #fbf7f0;
+      border: 1px solid #e8dccb;
+      color: var(--brown);
+    }
+    .addon-note > div { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+    .addon-note strong { font-family: Georgia, serif; font-size: 20px; font-weight: normal; }
+    .addon-note span:not(.addon-kicker) { color: var(--gold); font-size:13px; }
+    .addon-kicker { color:var(--gold); text-transform:uppercase; letter-spacing:2px; font-size:9px; font-weight:700; }
+    .addon-note p { color:var(--muted); font-size:12px; font-style:italic; }
+
+    .booking { padding: 105px 0 120px; }
+    .booking-demo-badge {
+      display:inline-block; margin: -8px auto 28px; padding:7px 12px; border:1px solid rgba(255,255,255,.32);
+      font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:rgba(255,255,255,.9);
+    }
+    .booking-wizard {
+      width:min(980px,100%); margin:0 auto; background:var(--white); color:var(--text); text-align:left;
+      box-shadow:0 22px 55px rgba(60,38,27,.23); border-top:4px solid var(--brown);
+    }
+    .booking-progress { display:grid; grid-template-columns:repeat(4,1fr); background:#f1e8da; border-bottom:1px solid #e2d5c3; }
+    .progress-step { padding:18px 12px; display:flex; align-items:center; justify-content:center; gap:9px; color:#9a897b; font-size:11px; text-transform:uppercase; letter-spacing:1px; }
+    .progress-step span { width:25px;height:25px;border-radius:50%;display:grid;place-items:center;border:1px solid #cdbda8;font-family:Georgia,serif;font-size:13px; }
+    .progress-step.active { color:var(--brown); background:#fffaf3; }
+    .progress-step.active span { background:var(--gold);color:white;border-color:var(--gold); }
+    .wizard-panel { display:none; padding:44px 48px 40px; }
+    .wizard-panel.active { display:block; }
+    .wizard-heading { margin-bottom:28px; }
+    .wizard-heading h3 { font-size:32px; margin:4px 0 8px; }
+    .wizard-heading p { color:var(--muted); font-size:13px; }
+    .wizard-kicker { color:var(--gold); text-transform:uppercase; letter-spacing:2px; font-size:9px; font-weight:700; }
+    .treatment-options { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
+    .treatment-card { border:1px solid #e2d6c5;background:#fff;padding:20px 20px 17px;cursor:pointer;transition:.2s;position:relative; }
+    .treatment-card:hover { border-color:var(--gold-light);transform:translateY(-2px); }
+    .treatment-card.selected { border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold);background:#fffaf2; }
+    .treatment-card h4 { font-family:Georgia,serif;font-size:19px;font-weight:normal;color:var(--brown);margin-bottom:5px; }
+    .treatment-card small { color:var(--muted);font-size:11px; }
+    .wizard-subsection { margin-top:28px;padding-top:25px;border-top:1px solid #e5dac9; }
+    .wizard-subsection h4,.time-area h4 { font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--brown);margin-bottom:12px; }
+    .choice-row,.time-options { display:flex;gap:10px;flex-wrap:wrap; }
+    .choice-btn,.time-btn { border:1px solid #d9cbb8;background:white;color:var(--brown);padding:11px 15px;cursor:pointer;font-size:13px;transition:.2s; }
+    .choice-btn:hover,.time-btn:hover,.choice-btn.selected,.time-btn.selected { border-color:var(--gold);background:var(--gold);color:white; }
+    .addon-choice { display:flex;align-items:center;gap:12px;padding:16px;border:1px solid #dfd2c0;cursor:pointer;background:#fff; }
+    .addon-choice input,.first-visit input,.terms-check input { accent-color:var(--gold); }
+    .addon-choice span:last-child { display:flex;flex-direction:column; }
+    .addon-choice strong { color:var(--brown);font-size:14px; }
+    .addon-choice small { color:var(--muted);font-size:11px;margin-top:2px; }
+    .date-options { display:grid;grid-template-columns:repeat(3,1fr);gap:10px; }
+    .date-btn { border:1px solid #dfd3c2;background:white;color:var(--brown);padding:15px 12px;cursor:pointer;text-align:left;transition:.2s; }
+    .date-btn strong { display:block;font-family:Georgia,serif;font-size:18px;font-weight:normal; }
+    .date-btn small { color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:1px; }
+    .date-btn:hover,.date-btn.selected { border-color:var(--gold);background:#fff7eb;box-shadow:inset 0 0 0 1px var(--gold); }
+    .time-area { margin-top:25px;padding-top:24px;border-top:1px solid #e5dac9; }
+    .time-btn { min-width:78px; }
+    .wizard-actions { display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:32px;padding-top:24px;border-top:1px solid #e7dccd; }
+    .wizard-btn { min-height:46px;padding:12px 20px;border:0;cursor:pointer;text-transform:uppercase;letter-spacing:1.2px;font-size:10px;font-weight:700;transition:.2s; }
+    .wizard-btn.primary { background:var(--brown);color:white; }
+    .wizard-btn.primary:hover:not(:disabled) { background:var(--brown-deep); }
+    .wizard-btn.secondary { background:#eee5d8;color:var(--brown); }
+    .wizard-btn:disabled { opacity:.35;cursor:not-allowed; }
+    .booking-form-grid { display:grid;grid-template-columns:1fr 1fr;gap:18px; }
+    .booking-form-grid label { display:flex;flex-direction:column;gap:7px; }
+    .booking-form-grid label > span { font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--brown);font-weight:700; }
+    .booking-form-grid em { font-weight:normal;text-transform:none;letter-spacing:0;color:var(--muted); }
+    .booking-form-grid input[type=text],.booking-form-grid input[type=email],.booking-form-grid input[type=tel],.booking-form-grid textarea { width:100%;border:1px solid #d9cdbd;background:white;padding:13px 14px;font:inherit;font-size:14px;color:var(--text);outline:none; }
+    .booking-form-grid input:focus,.booking-form-grid textarea:focus { border-color:var(--gold);box-shadow:0 0 0 2px rgba(181,139,76,.12); }
+    .booking-form-grid .full { grid-column:1/-1; }
+    .booking-form-grid label small { color:var(--muted);font-size:10px; }
+    .booking-form-grid .first-visit { flex-direction:row;align-items:flex-start;gap:10px;padding:14px;background:#fbf6ed;border:1px solid #e7dac8; }
+    .booking-form-grid .first-visit span { text-transform:none;letter-spacing:0;font-weight:normal;font-size:13px; }
+    .form-error { margin-top:14px;color:#a04737;font-size:12px; }
+    .booking-summary { border:1px solid #e2d6c5;background:#faf5ed; }
+    .summary-row { display:grid;grid-template-columns:180px 1fr;padding:13px 18px;border-bottom:1px solid #e5dacb;gap:16px; }
+    .summary-row:last-child { border-bottom:0; }
+    .summary-row span { color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px; }
+    .summary-row strong { color:var(--brown);font-weight:600;font-size:14px; }
+    .summary-total { background:var(--brown);color:white!important; }
+    .summary-total span,.summary-total strong { color:white; }
+    .terms-check { display:flex;align-items:flex-start;gap:10px;margin-top:20px;color:var(--muted);font-size:12px;cursor:pointer; }
+    .success-panel { text-align:center; }
+    .success-mark { width:66px;height:66px;border-radius:50%;display:grid;place-items:center;margin:0 auto 18px;background:var(--gold);color:white;font-size:32px;font-family:Georgia,serif; }
+    .success-panel .booking-summary { text-align:left;margin-bottom:24px; }
 
     /* STUDIO */
 
@@ -863,6 +953,14 @@
         grid-template-columns: 1fr;
         gap: 45px;
       }
+
+      .price-row { grid-template-columns: repeat(3, 1fr); }
+      .addon-note { flex-direction:column;align-items:flex-start; }
+      .treatment-options { grid-template-columns:1fr; }
+      .date-options { grid-template-columns:1fr 1fr; }
+      .booking-form-grid { grid-template-columns:1fr; }
+      .booking-form-grid .full { grid-column:auto; }
+      .progress-step small { display:none; }
     }
 
     @media (max-width: 500px) {
@@ -954,6 +1052,18 @@
         font-size: 14px;
       }
 
+
+      .wizard-panel { padding:30px 20px 26px; }
+      .booking-progress { grid-template-columns:repeat(4,1fr); }
+      .progress-step { padding:13px 6px; }
+      .date-options { grid-template-columns:1fr; }
+      .wizard-heading h3 { font-size:27px; }
+      .wizard-actions { align-items:stretch; }
+      .wizard-btn { flex:1; padding:11px 10px; }
+      .summary-row { grid-template-columns:1fr;gap:3px; }
+      .price-time { font-size:8px;letter-spacing:.8px; }
+      .price-value { font-size:22px; }
+
       .footer-inner {
         align-items: flex-start;
         flex-direction: column;
@@ -962,7 +1072,7 @@
   </style>
 </head>
 
-<!-- Pasing Wellness V0.3 -->
+<!-- Pasing Wellness V0.4 · interaktiver Buchungs-Prototyp -->
 <body>
 
 <header>
@@ -1009,16 +1119,16 @@
 <section class="quick-info" aria-label="Wichtige Informationen">
   <div class="container quick-info-grid">
     <div class="quick-item">
-      <span class="quick-label">Behandlungszeit</span>
-      <span class="quick-value">Sonntag · 14–18 Uhr</span>
+      <span class="quick-label">Sonntag</span>
+      <span class="quick-value">10–16 Uhr</span>
     </div>
     <div class="quick-item">
-      <span class="quick-label">Behandlungszeit</span>
-      <span class="quick-value">Montag · 15–20 Uhr</span>
+      <span class="quick-label">Montag & Dienstag</span>
+      <span class="quick-value">14–20 Uhr</span>
     </div>
     <div class="quick-item">
-      <span class="quick-label">Nach Vereinbarung</span>
-      <span class="quick-value">So. & Mo. auch früher oder später</span>
+      <span class="quick-label">Online buchbar</span>
+      <span class="quick-value">Bis 14 Tage im Voraus</span>
     </div>
   </div>
 </section>
@@ -1042,7 +1152,7 @@
       <div class="section-label">Unsere Anwendungen</div>
       <h2>Massagen für Ihre Auszeit</h2>
       <p>
-        Wählen Sie zwischen vier wohltuenden Anwendungen – jeweils als 60- oder 90-minütige Auszeit.
+        Wählen Sie zwischen vier wohltuenden Anwendungen – jeweils für 60, 90 oder 120 Minuten.
       </p>
     </div>
 
@@ -1054,6 +1164,7 @@
         <div class="price-row" aria-label="Preise Wellness- und Entspannungsmassage">
           <div class="price-box"><span class="price-time">60 Minuten</span><span class="price-value">65 €</span></div>
           <div class="price-box"><span class="price-time">90 Minuten</span><span class="price-value">90 €</span></div>
+          <div class="price-box"><span class="price-time">120 Minuten</span><span class="price-value">120 €</span></div>
         </div>
       </div>
 
@@ -1064,16 +1175,18 @@
         <div class="price-row" aria-label="Preise Ganzkörpermassage">
           <div class="price-box"><span class="price-time">60 Minuten</span><span class="price-value">70 €</span></div>
           <div class="price-box"><span class="price-time">90 Minuten</span><span class="price-value">95 €</span></div>
+          <div class="price-box"><span class="price-time">120 Minuten</span><span class="price-value">125 €</span></div>
         </div>
       </div>
 
       <div class="service priced-service">
         <div class="service-number">03</div>
-        <h3>Aromaölmassage</h3>
+        <h3>Thai-Aromaölmassage</h3>
         <p>Sanfte Massage mit wohltuendem Öl für ein besonders entspanntes und angenehmes Körpergefühl.</p>
-        <div class="price-row" aria-label="Preise Aromaölmassage">
+        <div class="price-row" aria-label="Preise Thai-Aromaölmassage">
           <div class="price-box"><span class="price-time">60 Minuten</span><span class="price-value">70 €</span></div>
           <div class="price-box"><span class="price-time">90 Minuten</span><span class="price-value">95 €</span></div>
+          <div class="price-box"><span class="price-time">120 Minuten</span><span class="price-value">125 €</span></div>
         </div>
       </div>
 
@@ -1084,15 +1197,25 @@
         <div class="price-row" aria-label="Preise Thai-Massage">
           <div class="price-box"><span class="price-time">60 Minuten</span><span class="price-value">75 €</span></div>
           <div class="price-box"><span class="price-time">90 Minuten</span><span class="price-value">105 €</span></div>
+          <div class="price-box"><span class="price-time">120 Minuten</span><span class="price-value">135 €</span></div>
         </div>
       </div>
+    </div>
+
+    <div class="addon-note">
+      <div>
+        <span class="addon-kicker">Optionales Add-on</span>
+        <strong>Ohrenkerzenbehandlung</strong>
+        <span>30 Minuten · 25 €</span>
+      </div>
+      <p>Nur in Kombination mit einer Massage buchbar, nicht separat.</p>
     </div>
 
     <div class="launch-offer">
       <div>
         <div class="launch-kicker">Eröffnungsangebot</div>
         <h3>60 Min. Ganzkörpermassage</h3>
-        <p>Zum Start von Pasing Wellness erhalten Sie die 60-minütige Ganzkörpermassage zum Einführungspreis.</p>
+        <p>Zum Kennenlernen von Pasing Wellness: gültig für Neukunden bei ihrem ersten Besuch.</p>
         <a href="#buchen" class="btn">Termin buchen</a>
       </div>
       <div class="launch-price">
@@ -1150,30 +1273,109 @@
 
 <section class="booking" id="buchen">
   <div class="container">
-    <div class="section-label" style="color:white;">Terminbuchung</div>
-    <h2>Ihre Auszeit wartet.</h2>
+    <div class="section-label" style="color:white;">Online-Terminbuchung</div>
+    <h2>Ihre Auszeit buchen.</h2>
+    <p>Wählen Sie Behandlung, Dauer und einen freien Termin. In dieser V0.4 können Sie den kompletten Ablauf bereits testen.</p>
 
-    <p>
-      Eine komfortable Online-Terminbuchung ist für die Neueröffnung geplant.
-      Behandlungszeiten stehen bereits fest:
-    </p>
+    <div class="booking-demo-badge">V0.4 · Demo – noch keine echte Speicherung oder E-Mail</div>
 
-    <div class="booking-card">
-      <div class="booking-slot">
-        <span class="booking-day">Sonntag</span>
-        <span class="booking-time">14:00 – 18:00 Uhr</span>
+    <div class="booking-wizard" id="bookingWizard">
+      <div class="booking-progress" aria-label="Buchungsschritte">
+        <div class="progress-step active"><span>1</span><small>Behandlung</small></div>
+        <div class="progress-step"><span>2</span><small>Termin</small></div>
+        <div class="progress-step"><span>3</span><small>Daten</small></div>
+        <div class="progress-step"><span>4</span><small>Prüfen</small></div>
       </div>
-      <div class="booking-slot">
-        <span class="booking-day">Montag</span>
-        <span class="booking-time">15:00 – 20:00 Uhr</span>
+
+      <div class="wizard-panel active" data-panel="1">
+        <div class="wizard-heading">
+          <span class="wizard-kicker">Schritt 1</span>
+          <h3>Welche Massage darf es sein?</h3>
+        </div>
+        <div class="treatment-options" id="treatmentOptions"></div>
+
+        <div class="wizard-subsection" id="durationSection" hidden>
+          <h4>Dauer wählen</h4>
+          <div class="choice-row" id="durationOptions"></div>
+        </div>
+
+        <div class="wizard-subsection" id="addonSection" hidden>
+          <h4>Optional ergänzen</h4>
+          <label class="addon-choice">
+            <input type="checkbox" id="earCandles">
+            <span class="check-mark"></span>
+            <span><strong>Ohrenkerzenbehandlung</strong><small>+ 30 Minuten · + 25 €</small></span>
+          </label>
+        </div>
+
+        <div class="wizard-actions">
+          <span></span>
+          <button type="button" class="wizard-btn primary" data-next="2" disabled>Weiter zum Termin</button>
+        </div>
+      </div>
+
+      <div class="wizard-panel" data-panel="2">
+        <div class="wizard-heading">
+          <span class="wizard-kicker">Schritt 2</span>
+          <h3>Wann möchten Sie kommen?</h3>
+          <p>Online buchbar bis 14 Tage im Voraus. Zwischen zwei Terminen planen wir 15 Minuten Puffer.</p>
+        </div>
+        <div class="date-options" id="dateOptions"></div>
+        <div class="time-area" id="timeArea" hidden>
+          <h4>Freie Startzeiten</h4>
+          <div class="time-options" id="timeOptions"></div>
+        </div>
+        <div class="wizard-actions">
+          <button type="button" class="wizard-btn secondary" data-back="1">Zurück</button>
+          <button type="button" class="wizard-btn primary" data-next="3" disabled>Weiter zu Ihren Daten</button>
+        </div>
+      </div>
+
+      <div class="wizard-panel" data-panel="3">
+        <div class="wizard-heading">
+          <span class="wizard-kicker">Schritt 3</span>
+          <h3>Ihre Kontaktdaten</h3>
+          <p>Die E-Mail-Adresse wird später für Buchungsbestätigung und Stornierungslink benötigt.</p>
+        </div>
+        <div class="booking-form-grid">
+          <label><span>Name *</span><input id="customerName" type="text" autocomplete="name" placeholder="Vor- und Nachname"></label>
+          <label><span>E-Mail *</span><input id="customerEmail" type="email" autocomplete="email" placeholder="name@beispiel.de"></label>
+          <label><span>Telefonnummer *</span><input id="customerPhone" type="tel" autocomplete="tel" placeholder="z. B. 0171 1234567"></label>
+          <label class="full"><span>Besonderheiten / Nachricht <em>optional</em></span><textarea id="customerNote" rows="4" placeholder="Falls Sie uns vorab etwas mitteilen möchten."></textarea><small>Bitte keine medizinischen Diagnosen oder sensiblen Gesundheitsdaten eintragen.</small></label>
+          <label class="full first-visit"><input type="checkbox" id="firstVisit"><span>Ich bin Neukunde und besuche Pasing Wellness zum ersten Mal.</span></label>
+        </div>
+        <div class="wizard-actions">
+          <button type="button" class="wizard-btn secondary" data-back="2">Zurück</button>
+          <button type="button" class="wizard-btn primary" data-next="4">Buchung prüfen</button>
+        </div>
+        <p class="form-error" id="formError" hidden>Bitte füllen Sie Name, E-Mail und Telefonnummer vollständig aus.</p>
+      </div>
+
+      <div class="wizard-panel" data-panel="4">
+        <div class="wizard-heading">
+          <span class="wizard-kicker">Schritt 4</span>
+          <h3>Alles richtig?</h3>
+          <p>Nach der späteren Live-Schaltung wird der Termin mit dem letzten Klick sofort verbindlich gebucht.</p>
+        </div>
+        <div class="booking-summary" id="bookingSummary"></div>
+        <label class="terms-check"><input type="checkbox" id="termsAccepted"><span>Ich bestätige meine Angaben und nehme zur Kenntnis, dass eine Stornierung bis 24 Stunden vor Terminbeginn möglich ist.</span></label>
+        <div class="wizard-actions">
+          <button type="button" class="wizard-btn secondary" data-back="3">Zurück</button>
+          <button type="button" class="wizard-btn primary" id="demoBookButton" disabled>Verbindlich buchen</button>
+        </div>
+      </div>
+
+      <div class="wizard-panel success-panel" data-panel="5">
+        <div class="success-mark">✓</div>
+        <div class="wizard-heading">
+          <span class="wizard-kicker">Demo erfolgreich</span>
+          <h3>So würde die Buchungsbestätigung aussehen.</h3>
+          <p>In V0.5 speichern wir den Termin wirklich, sperren die Zeit und versenden die Bestätigungs-E-Mails automatisch.</p>
+        </div>
+        <div class="booking-summary" id="successSummary"></div>
+        <button type="button" class="wizard-btn secondary" id="restartBooking">Neue Demo-Buchung</button>
       </div>
     </div>
-
-    <p class="booking-note">
-      Nach separater Anfrage sind sonntags und montags auch Termine vor oder nach diesen Zeiten möglich.
-    </p>
-
-    <a href="#kontakt" class="btn">Kontakt ansehen</a>
   </div>
 </section>
 
@@ -1186,12 +1388,12 @@
 
       <p class="contact-text">
         Pasing Wellness eröffnet voraussichtlich im Oktober 2026 in München-Pasing.
-        Adresse und direkte Kontaktmöglichkeiten ergänzen wir hier, sobald alle Daten feststehen.
+        Sie finden uns in den Räumen von Balance Flow in der Bodenseestraße.
       </p>
 
       <div class="info">
         <div class="info-title">Adresse</div>
-        <div class="info-value placeholder">Genaue Adresse folgt</div>
+        <div class="info-value">Balance Flow<br>Bodenseestraße 73c<br>81243 München-Pasing</div>
       </div>
 
       <div class="info">
@@ -1208,20 +1410,25 @@
     <div class="hours">
       <div class="section-label">Ihre Terminplanung</div>
       <h3>Behandlungszeiten</h3>
-      <p class="hours-intro">Zum Start bieten wir Termine an zwei Tagen pro Woche an.</p>
+      <p class="hours-intro">Zum Start bieten wir Termine an drei Tagen pro Woche an.</p>
 
       <div class="hour-row">
         <strong>Sonntag</strong>
-        <span>14:00 – 18:00 Uhr</span>
+        <span>10:00 – 16:00 Uhr</span>
       </div>
 
       <div class="hour-row">
         <strong>Montag</strong>
-        <span>15:00 – 20:00 Uhr</span>
+        <span>14:00 – 20:00 Uhr</span>
+      </div>
+
+      <div class="hour-row">
+        <strong>Dienstag</strong>
+        <span>14:00 – 20:00 Uhr</span>
       </div>
 
       <div class="hours-note">
-        Nach vorheriger Anfrage sind sonntags und montags auch Termine außerhalb dieser Zeiten möglich.
+        Online-Termine sind bis 14 Tage im Voraus buchbar. Zwischen zwei Behandlungen liegen 15 Minuten Puffer.
       </div>
 
       <p style="margin-top:25px;font-size:12px;color:#8d7a6d;text-transform:uppercase;letter-spacing:1.5px;">
@@ -1242,6 +1449,99 @@
     </div>
   </div>
 </footer>
+
+<script>
+(() => {
+  const services = {
+    wellness: {name:'Wellness- & Entspannungsmassage', prices:{60:65,90:90,120:120}},
+    full: {name:'Ganzkörpermassage', prices:{60:70,90:95,120:125}},
+    aroma: {name:'Thai-Aromaölmassage', prices:{60:70,90:95,120:125}},
+    thai: {name:'Thai-Massage', prices:{60:75,90:105,120:135}}
+  };
+  const state = {service:null,duration:null,addon:false,date:null,time:null};
+  const treatmentOptions=document.getElementById('treatmentOptions');
+  const durationSection=document.getElementById('durationSection');
+  const durationOptions=document.getElementById('durationOptions');
+  const addonSection=document.getElementById('addonSection');
+  const earCandles=document.getElementById('earCandles');
+  const dateOptions=document.getElementById('dateOptions');
+  const timeArea=document.getElementById('timeArea');
+  const timeOptions=document.getElementById('timeOptions');
+
+  Object.entries(services).forEach(([key,s])=>{
+    const b=document.createElement('button'); b.type='button'; b.className='treatment-card'; b.dataset.service=key;
+    b.innerHTML=`<h4>${s.name}</h4><small>60 · 90 · 120 Minuten</small>`;
+    b.onclick=()=>selectService(key,b); treatmentOptions.appendChild(b);
+  });
+
+  function selectService(key,btn){
+    state.service=key;state.duration=null;state.date=null;state.time=null;
+    document.querySelectorAll('.treatment-card').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');
+    durationOptions.innerHTML='';
+    [60,90,120].forEach(min=>{const b=document.createElement('button');b.type='button';b.className='choice-btn';b.textContent=`${min} Min. · ${services[key].prices[min]} €`;b.onclick=()=>{state.duration=min;durationOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');addonSection.hidden=false;updateNext1();};durationOptions.appendChild(b);});
+    durationSection.hidden=false;addonSection.hidden=true;earCandles.checked=false;state.addon=false;updateNext1();
+  }
+  earCandles.onchange=()=>{state.addon=earCandles.checked;state.date=null;state.time=null;};
+  function updateNext1(){document.querySelector('[data-panel="1"] [data-next="2"]').disabled=!(state.service&&state.duration);}
+
+  function goTo(panel){
+    document.querySelectorAll('.wizard-panel').forEach(p=>p.classList.toggle('active',p.dataset.panel==panel));
+    document.querySelectorAll('.progress-step').forEach((p,i)=>p.classList.toggle('active', i < Math.min(panel,4)));
+    if(panel==2) renderDates(); if(panel==4) renderSummary('bookingSummary');
+    document.getElementById('bookingWizard').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  document.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{
+    const next=+b.dataset.next;
+    if(next===3 && !state.time) return;
+    if(next===4 && !validateForm()) return;
+    goTo(next);
+  }));
+  document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>goTo(+b.dataset.back)));
+
+  const weekdayNames=['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+  function renderDates(){
+    state.addon=earCandles.checked; dateOptions.innerHTML='';timeOptions.innerHTML='';timeArea.hidden=true;state.date=null;state.time=null;
+    document.querySelector('[data-panel="2"] [data-next="3"]').disabled=true;
+    const today=new Date();today.setHours(0,0,0,0);
+    for(let i=0;i<=14;i++){
+      const d=new Date(today);d.setDate(today.getDate()+i);const day=d.getDay();if(![0,1,2].includes(day))continue;
+      const b=document.createElement('button');b.type='button';b.className='date-btn';
+      b.innerHTML=`<small>${weekdayNames[day]}</small><strong>${d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})}</strong>`;
+      b.onclick=()=>{state.date=new Date(d);state.time=null;dateOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');renderTimes(d);};dateOptions.appendChild(b);
+    }
+  }
+  function renderTimes(d){
+    timeOptions.innerHTML='';timeArea.hidden=false; const day=d.getDay(); const open=day===0?10:14, close=day===0?16:20;
+    const total=state.duration+(state.addon?30:0);
+    for(let m=open*60;m+total<=close*60;m+=15){
+      const hh=String(Math.floor(m/60)).padStart(2,'0'),mm=String(m%60).padStart(2,'0'),label=`${hh}:${mm}`;
+      const b=document.createElement('button');b.type='button';b.className='time-btn';b.textContent=label;
+      b.onclick=()=>{state.time=label;timeOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');document.querySelector('[data-panel="2"] [data-next="3"]').disabled=false;};timeOptions.appendChild(b);
+    }
+  }
+  function validateForm(){
+    const name=document.getElementById('customerName').value.trim(), email=document.getElementById('customerEmail').value.trim(), phone=document.getElementById('customerPhone').value.trim();
+    const ok=name&&phone&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);document.getElementById('formError').hidden=!!ok;return !!ok;
+  }
+  function priceInfo(){
+    let base=services[state.service].prices[state.duration];const first=document.getElementById('firstVisit').checked;
+    let promo=false;if(state.service==='full'&&state.duration===60&&first){base=59;promo=true;}
+    return {base, addon:state.addon?25:0,total:base+(state.addon?25:0),promo};
+  }
+  function renderSummary(id){
+    const el=document.getElementById(id),p=priceInfo();const d=state.date.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'2-digit',year:'numeric'});
+    const duration=state.duration+(state.addon?30:0); const rows=[
+      ['Behandlung',services[state.service].name],['Dauer',`${state.duration} Minuten${state.addon?' + 30 Min. Ohrenkerzen':''}`],['Termin',`${d} · ${state.time} Uhr`],['Gesamtdauer',`${duration} Minuten`],
+      ['Name',document.getElementById('customerName').value.trim()],['Telefon',document.getElementById('customerPhone').value.trim()],['E-Mail',document.getElementById('customerEmail').value.trim()]
+    ];
+    if(p.promo) rows.splice(2,0,['Eröffnungsangebot','Neukunde · 60 Min. Ganzkörpermassage 59 €']);
+    el.innerHTML=rows.map(([a,b])=>`<div class="summary-row"><span>${a}</span><strong>${b}</strong></div>`).join('')+`<div class="summary-row summary-total"><span>Preis · Barzahlung vor Ort</span><strong>${p.total} €</strong></div>`;
+  }
+  document.getElementById('termsAccepted').onchange=e=>document.getElementById('demoBookButton').disabled=!e.target.checked;
+  document.getElementById('demoBookButton').onclick=()=>{renderSummary('successSummary');goTo(5);};
+  document.getElementById('restartBooking').onclick=()=>location.reload();
+})();
+</script>
 
 </body>
 </html>
