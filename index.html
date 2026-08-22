@@ -76,6 +76,13 @@
       letter-spacing: .2px;
     }
 
+
+    .booking-loading { font-size:13px;color:var(--muted);padding:10px 0; }
+    .booking-demo-badge.live-ready { background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32); }
+    .booking-demo-badge.live-error { background:#7d3d32;border-color:#a45d50; }
+    .wizard-btn[aria-busy="true"] { opacity:.65;cursor:wait; }
+    .time-btn[disabled], .date-btn[disabled] { opacity:.45;cursor:not-allowed; }
+
     /* HEADER */
 
     header {
@@ -1073,7 +1080,7 @@
   </style>
 </head>
 
-<!-- Pasing Wellness V0.4 · interaktiver Buchungs-Prototyp -->
+<!-- Pasing Wellness V0.5 · Live Booking Engine -->
 <body>
 
 <header>
@@ -1276,9 +1283,9 @@
   <div class="container">
     <div class="section-label" style="color:white;">Online-Terminbuchung</div>
     <h2>Ihre Auszeit buchen.</h2>
-    <p>Wählen Sie Behandlung, Dauer und einen freien Termin. In dieser V0.4.1 können Sie den kompletten Ablauf bereits testen.</p>
+    <p>Wählen Sie Behandlung, Dauer und einen freien Termin. Freie Termine werden in Echtzeit geprüft und mit Ihrer Buchung sofort verbindlich reserviert.</p>
 
-    <div class="booking-demo-badge">V0.4.1 · Demo – dynamische Terminlogik, noch keine echte Speicherung oder E-Mail</div>
+    <div class="booking-demo-badge" id="bookingStatusBadge">Online-Terminbuchung · freie Termine werden live geprüft</div>
 
     <div class="booking-wizard" id="bookingWizard">
       <div class="booking-progress" aria-label="Buchungsschritte">
@@ -1337,7 +1344,7 @@
         <div class="wizard-heading">
           <span class="wizard-kicker">Schritt 3</span>
           <h3>Ihre Kontaktdaten</h3>
-          <p>Die E-Mail-Adresse wird später für Buchungsbestätigung und Stornierungslink benötigt.</p>
+          <p>An diese E-Mail-Adresse senden wir Ihre Buchungsbestätigung und den persönlichen Stornierungslink.</p>
         </div>
         <div class="booking-form-grid">
           <label><span>Name *</span><input id="customerName" type="text" autocomplete="name" placeholder="Vor- und Nachname"></label>
@@ -1357,25 +1364,27 @@
         <div class="wizard-heading">
           <span class="wizard-kicker">Schritt 4</span>
           <h3>Alles richtig?</h3>
-          <p>Nach der späteren Live-Schaltung wird der Termin mit dem letzten Klick sofort verbindlich gebucht.</p>
+          <p>Mit dem letzten Klick wird der ausgewählte Termin sofort verbindlich gebucht.</p>
         </div>
         <div class="booking-summary" id="bookingSummary"></div>
         <label class="terms-check"><input type="checkbox" id="termsAccepted"><span>Ich bestätige meine Angaben und nehme zur Kenntnis, dass eine Stornierung bis 24 Stunden vor Terminbeginn möglich ist.</span></label>
+        <div id="turnstileMount" style="margin-top:18px"></div>
+        <p class="form-error" id="bookingError" hidden></p>
         <div class="wizard-actions">
           <button type="button" class="wizard-btn secondary" data-back="3">Zurück</button>
-          <button type="button" class="wizard-btn primary" id="demoBookButton" disabled>Verbindlich buchen</button>
+          <button type="button" class="wizard-btn primary" id="liveBookButton" disabled>Verbindlich buchen</button>
         </div>
       </div>
 
       <div class="wizard-panel success-panel" data-panel="5">
         <div class="success-mark">✓</div>
         <div class="wizard-heading">
-          <span class="wizard-kicker">Demo erfolgreich</span>
-          <h3>So würde die Buchungsbestätigung aussehen.</h3>
-          <p>In V0.5 speichern wir den Termin wirklich, sperren die Zeit und versenden die Bestätigungs-E-Mails automatisch.</p>
+          <span class="wizard-kicker">Termin gebucht</span>
+          <h3>Vielen Dank. Ihre Auszeit ist reserviert.</h3>
+          <p>Die Buchungsbestätigung mit Ihrem persönlichen Stornierungslink wurde per E-Mail verschickt.</p>
         </div>
         <div class="booking-summary" id="successSummary"></div>
-        <button type="button" class="wizard-btn secondary" id="restartBooking">Neue Demo-Buchung</button>
+        <button type="button" class="wizard-btn secondary" id="restartBooking">Weitere Buchung</button>
       </div>
     </div>
   </div>
@@ -1405,7 +1414,7 @@
 
       <div class="info">
         <div class="info-title">E-Mail</div>
-        <div class="info-value placeholder">E-Mail-Adresse folgt</div>
+        <div class="info-value"><a href="mailto:stark.stefan@gmx.net">stark.stefan@gmx.net</a></div>
       </div>
     </div>
 
@@ -1461,20 +1470,13 @@
     thai: {name:'Thai-Massage', prices:{60:75,90:105,120:135}}
   };
   const BUFFER_MINUTES = 15;
-  const SLOT_STEP_MINUTES = 15;
-  // In V0.5 werden diese Buchungen aus der Cloudflare-Datenbank geladen.
-  // Format: { date:'YYYY-MM-DD', start:'15:00', treatmentMinutes:90 }
-  const existingBookings = [];
-  const state = {service:null,duration:null,addon:false,date:null,time:null};
-  const treatmentOptions=document.getElementById('treatmentOptions');
-  const durationSection=document.getElementById('durationSection');
-  const durationOptions=document.getElementById('durationOptions');
-  const addonSection=document.getElementById('addonSection');
-  const earCandles=document.getElementById('earCandles');
-  const dateOptions=document.getElementById('dateOptions');
-  const timeArea=document.getElementById('timeArea');
-  const timeOptions=document.getElementById('timeOptions');
-  const dynamicSlotNote=document.getElementById('dynamicSlotNote');
+  const state = {service:null,duration:null,addon:false,date:null,time:null, turnstileToken:null};
+  let turnstileWidgetId=null;
+
+  const $=id=>document.getElementById(id);
+  const treatmentOptions=$('treatmentOptions'), durationSection=$('durationSection'), durationOptions=$('durationOptions');
+  const addonSection=$('addonSection'), earCandles=$('earCandles'), dateOptions=$('dateOptions'), timeArea=$('timeArea');
+  const timeOptions=$('timeOptions'), dynamicSlotNote=$('dynamicSlotNote'), statusBadge=$('bookingStatusBadge');
 
   Object.entries(services).forEach(([key,s])=>{
     const b=document.createElement('button'); b.type='button'; b.className='treatment-card'; b.dataset.service=key;
@@ -1483,11 +1485,15 @@
   });
 
   function selectService(key,btn){
-    state.service=key;state.duration=null;state.date=null;state.time=null;
-    document.querySelectorAll('.treatment-card').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');
+    state.service=key; state.duration=null; state.date=null; state.time=null;
+    document.querySelectorAll('.treatment-card').forEach(x=>x.classList.remove('selected')); btn.classList.add('selected');
     durationOptions.innerHTML='';
-    [60,90,120].forEach(min=>{const b=document.createElement('button');b.type='button';b.className='choice-btn';b.textContent=`${min} Min. · ${services[key].prices[min]} €`;b.onclick=()=>{state.duration=min;durationOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');addonSection.hidden=false;updateNext1();};durationOptions.appendChild(b);});
-    durationSection.hidden=false;addonSection.hidden=true;earCandles.checked=false;state.addon=false;updateNext1();
+    [60,90,120].forEach(min=>{
+      const b=document.createElement('button'); b.type='button'; b.className='choice-btn'; b.textContent=`${min} Min. · ${services[key].prices[min]} €`;
+      b.onclick=()=>{ state.duration=min; durationOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected')); b.classList.add('selected'); addonSection.hidden=false; updateNext1(); };
+      durationOptions.appendChild(b);
+    });
+    durationSection.hidden=false; addonSection.hidden=true; earCandles.checked=false; state.addon=false; updateNext1();
   }
   earCandles.onchange=()=>{state.addon=earCandles.checked;state.date=null;state.time=null;};
   function updateNext1(){document.querySelector('[data-panel="1"] [data-next="2"]').disabled=!(state.service&&state.duration);}
@@ -1495,8 +1501,9 @@
   function goTo(panel){
     document.querySelectorAll('.wizard-panel').forEach(p=>p.classList.toggle('active',p.dataset.panel==panel));
     document.querySelectorAll('.progress-step').forEach((p,i)=>p.classList.toggle('active', i < Math.min(panel,4)));
-    if(panel==2) renderDates(); if(panel==4) renderSummary('bookingSummary');
-    document.getElementById('bookingWizard').scrollIntoView({behavior:'smooth',block:'start'});
+    if(panel==2) renderDates();
+    if(panel==4){ renderSummary('bookingSummary'); prepareTurnstile(); }
+    $('bookingWizard').scrollIntoView({behavior:'smooth',block:'start'});
   }
   document.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{
     const next=+b.dataset.next;
@@ -1507,84 +1514,101 @@
   document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>goTo(+b.dataset.back)));
 
   const weekdayNames=['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
-  function renderDates(){
-    state.addon=earCandles.checked; dateOptions.innerHTML='';timeOptions.innerHTML='';timeArea.hidden=true;state.date=null;state.time=null;
-    document.querySelector('[data-panel="2"] [data-next="3"]').disabled=true;
-    const today=new Date();today.setHours(0,0,0,0);
-    for(let i=0;i<=14;i++){
-      const d=new Date(today);d.setDate(today.getDate()+i);const day=d.getDay();if(![0,1,2].includes(day))continue;
-      const b=document.createElement('button');b.type='button';b.className='date-btn';
-      b.innerHTML=`<small>${weekdayNames[day]}</small><strong>${d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})}</strong>`;
-      b.onclick=()=>{state.date=new Date(d);state.time=null;dateOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');renderTimes(d);};dateOptions.appendChild(b);
-    }
-  }
-  function toMinutes(time){
-    const [h,m]=time.split(':').map(Number);
-    return h*60+m;
-  }
   function isoDate(d){
     const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');
     return `${y}-${m}-${day}`;
   }
-  function intervalsOverlap(aStart,aEnd,bStart,bEnd){
-    return aStart < bEnd && bStart < aEnd;
-  }
-  function isStartAvailable(d,startMinutes,treatmentMinutes){
-    // Eine neue Buchung blockiert Behandlungsdauer + 15 Minuten Puffer.
-    const reservedEnd=startMinutes+treatmentMinutes+BUFFER_MINUTES;
-    const dateKey=isoDate(d);
-    return !existingBookings.some(booking=>{
-      if(booking.date!==dateKey) return false;
-      const bookedStart=toMinutes(booking.start);
-      const bookedEnd=bookedStart+booking.treatmentMinutes+BUFFER_MINUTES;
-      return intervalsOverlap(startMinutes,reservedEnd,bookedStart,bookedEnd);
-    });
-  }
-  function renderTimes(d){
-    timeOptions.innerHTML='';timeArea.hidden=false;
-    const day=d.getDay();
-    const open=day===0?10:14, close=day===0?16:20;
-    const treatmentMinutes=state.duration+(state.addon?30:0);
-    const reservedMinutes=treatmentMinutes+BUFFER_MINUTES;
-    dynamicSlotNote.textContent=`Gewählte Behandlung: ${treatmentMinutes} Min. · danach ${BUFFER_MINUTES} Min. Puffer. Der Zeitraum wird insgesamt ${reservedMinutes} Min. blockiert.`;
-
-    // Startzeiten werden nicht als starre 60-Minuten-Slots behandelt.
-    // Wir prüfen alle 15 Minuten, ob die KOMPLETTE Behandlungszeit in die Öffnungszeit passt
-    // und ob Behandlung + Puffer mit keiner vorhandenen Buchung kollidieren.
-    for(let m=open*60;m+treatmentMinutes<=close*60;m+=SLOT_STEP_MINUTES){
-      if(!isStartAvailable(d,m,treatmentMinutes)) continue;
-      const hh=String(Math.floor(m/60)).padStart(2,'0'),mm=String(m%60).padStart(2,'0'),label=`${hh}:${mm}`;
-      const b=document.createElement('button');b.type='button';b.className='time-btn';b.textContent=label;
-      b.onclick=()=>{state.time=label;timeOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');document.querySelector('[data-panel="2"] [data-next="3"]').disabled=false;};timeOptions.appendChild(b);
+  function renderDates(){
+    state.addon=earCandles.checked; dateOptions.innerHTML=''; timeOptions.innerHTML=''; timeArea.hidden=true; state.date=null; state.time=null;
+    document.querySelector('[data-panel="2"] [data-next="3"]').disabled=true;
+    const today=new Date(); today.setHours(0,0,0,0);
+    for(let i=0;i<=14;i++){
+      const d=new Date(today); d.setDate(today.getDate()+i); const day=d.getDay(); if(![0,1,2].includes(day))continue;
+      const b=document.createElement('button'); b.type='button'; b.className='date-btn';
+      b.innerHTML=`<small>${weekdayNames[day]}</small><strong>${d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})}</strong>`;
+      b.onclick=()=>{state.date=new Date(d);state.time=null;dateOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');renderTimes(d);};
+      dateOptions.appendChild(b);
     }
-    if(!timeOptions.children.length){
-      timeOptions.innerHTML='<span style="font-size:13px;color:var(--muted)">Für diese Auswahl ist an diesem Tag kein passender Termin mehr frei.</span>';
+  }
+  async function renderTimes(d){
+    timeOptions.innerHTML='<span class="booking-loading">Freie Termine werden geprüft …</span>'; timeArea.hidden=false;
+    document.querySelector('[data-panel="2"] [data-next="3"]').disabled=true;
+    const treatmentMinutes=state.duration+(state.addon?30:0);
+    dynamicSlotNote.textContent=`Gewählte Behandlung: ${treatmentMinutes} Min. · danach ${BUFFER_MINUTES} Min. Puffer.`;
+    try{
+      const q=new URLSearchParams({date:isoDate(d),service:state.service,duration:String(state.duration),addon:state.addon?'1':'0'});
+      const res=await fetch(`/api/availability?${q}`,{headers:{'Accept':'application/json'}});
+      const data=await res.json();
+      if(!res.ok) throw new Error(data.error||'Verfügbarkeit konnte nicht geladen werden.');
+      timeOptions.innerHTML='';
+      data.times.forEach(label=>{
+        const b=document.createElement('button'); b.type='button'; b.className='time-btn'; b.textContent=label;
+        b.onclick=()=>{state.time=label;timeOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');document.querySelector('[data-panel="2"] [data-next="3"]').disabled=false;};
+        timeOptions.appendChild(b);
+      });
+      if(!data.times.length) timeOptions.innerHTML='<span style="font-size:13px;color:var(--muted)">Für diese Auswahl ist an diesem Tag kein passender Termin mehr frei.</span>';
+    }catch(err){
+      timeOptions.innerHTML=`<span style="font-size:13px;color:#8a3e31">${escapeHtml(err.message)}</span>`;
     }
   }
   function validateForm(){
-    const name=document.getElementById('customerName').value.trim(), email=document.getElementById('customerEmail').value.trim(), phone=document.getElementById('customerPhone').value.trim();
-    const ok=name&&phone&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);document.getElementById('formError').hidden=!!ok;return !!ok;
+    const name=$('customerName').value.trim(), email=$('customerEmail').value.trim(), phone=$('customerPhone').value.trim();
+    const ok=name&&phone&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); $('formError').hidden=!!ok; return !!ok;
   }
   function priceInfo(){
-    let base=services[state.service].prices[state.duration];const first=document.getElementById('firstVisit').checked;
-    let promo=false;if(state.service==='full'&&state.duration===60&&first){base=59;promo=true;}
+    let base=services[state.service].prices[state.duration]; const first=$('firstVisit').checked;
+    let promo=false; if(state.service==='full'&&state.duration===60&&first){base=59;promo=true;}
     return {base, addon:state.addon?25:0,total:base+(state.addon?25:0),promo};
   }
+  function toMinutes(time){ const [h,m]=time.split(':').map(Number); return h*60+m; }
   function renderSummary(id){
-    const el=document.getElementById(id),p=priceInfo();const d=state.date.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'2-digit',year:'numeric'});
-    const duration=state.duration+(state.addon?30:0);
-    const startM=toMinutes(state.time), blockedUntilM=startM+duration+BUFFER_MINUTES;
+    const el=$(id),p=priceInfo(); const d=state.date.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'2-digit',year:'numeric'});
+    const duration=state.duration+(state.addon?30:0), startM=toMinutes(state.time), blockedUntilM=startM+duration+BUFFER_MINUTES;
     const blockedUntil=`${String(Math.floor(blockedUntilM/60)).padStart(2,'0')}:${String(blockedUntilM%60).padStart(2,'0')}`;
-    const rows=[
-      ['Behandlung',services[state.service].name],['Dauer',`${state.duration} Minuten${state.addon?' + 30 Min. Ohrenkerzen':''}`],['Termin',`${d} · ${state.time} Uhr`],['Behandlungsdauer',`${duration} Minuten`],['Puffer danach',`${BUFFER_MINUTES} Minuten · blockiert bis ${blockedUntil} Uhr`],
-      ['Name',document.getElementById('customerName').value.trim()],['Telefon',document.getElementById('customerPhone').value.trim()],['E-Mail',document.getElementById('customerEmail').value.trim()]
-    ];
+    const rows=[['Behandlung',services[state.service].name],['Dauer',`${state.duration} Minuten${state.addon?' + 30 Min. Ohrenkerzen':''}`],['Termin',`${d} · ${state.time} Uhr`],['Puffer danach',`${BUFFER_MINUTES} Minuten · nächster möglicher Termin ${blockedUntil} Uhr`],['Name',$('customerName').value.trim()],['Telefon',$('customerPhone').value.trim()],['E-Mail',$('customerEmail').value.trim()]];
     if(p.promo) rows.splice(2,0,['Eröffnungsangebot','Neukunde · 60 Min. Ganzkörpermassage 59 €']);
-    el.innerHTML=rows.map(([a,b])=>`<div class="summary-row"><span>${a}</span><strong>${b}</strong></div>`).join('')+`<div class="summary-row summary-total"><span>Preis · Barzahlung vor Ort</span><strong>${p.total} €</strong></div>`;
+    el.innerHTML=rows.map(([a,b])=>`<div class="summary-row"><span>${escapeHtml(a)}</span><strong>${escapeHtml(b)}</strong></div>`).join('')+`<div class="summary-row summary-total"><span>Preis · Barzahlung vor Ort</span><strong>${p.total} €</strong></div>`;
   }
-  document.getElementById('termsAccepted').onchange=e=>document.getElementById('demoBookButton').disabled=!e.target.checked;
-  document.getElementById('demoBookButton').onclick=()=>{renderSummary('successSummary');goTo(5);};
-  document.getElementById('restartBooking').onclick=()=>location.reload();
+  function escapeHtml(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+
+  $('termsAccepted').onchange=()=>updateBookButton();
+  function updateBookButton(){ $('liveBookButton').disabled=!$('termsAccepted').checked; }
+
+  async function prepareTurnstile(){
+    const mount=$('turnstileMount'); mount.innerHTML=''; state.turnstileToken=null;
+    try{
+      const res=await fetch('/api/config'); const cfg=await res.json();
+      if(cfg.turnstileSiteKey){
+        await loadTurnstileScript();
+        turnstileWidgetId=window.turnstile.render(mount,{sitekey:cfg.turnstileSiteKey,theme:'light',callback:t=>state.turnstileToken=t,'expired-callback':()=>state.turnstileToken=null});
+      }
+    }catch(e){ /* server will decide whether Turnstile is mandatory */ }
+  }
+  function loadTurnstileScript(){
+    if(window.turnstile) return Promise.resolve();
+    return new Promise((resolve,reject)=>{
+      const existing=document.querySelector('script[data-pw-turnstile]'); if(existing){existing.addEventListener('load',resolve,{once:true});return;}
+      const s=document.createElement('script'); s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; s.async=true; s.defer=true; s.dataset.pwTurnstile='1'; s.onload=resolve; s.onerror=reject; document.head.appendChild(s);
+    });
+  }
+
+  $('liveBookButton').onclick=async()=>{
+    if(!validateForm() || !$('termsAccepted').checked) return;
+    const btn=$('liveBookButton'), err=$('bookingError'); err.hidden=true; btn.disabled=true; btn.setAttribute('aria-busy','true'); btn.textContent='Termin wird gebucht …';
+    const payload={service:state.service,duration:state.duration,addon:state.addon,date:isoDate(state.date),time:state.time,name:$('customerName').value.trim(),email:$('customerEmail').value.trim(),phone:$('customerPhone').value.trim(),note:$('customerNote').value.trim(),firstVisit:$('firstVisit').checked,turnstileToken:state.turnstileToken};
+    try{
+      const res=await fetch('/api/book',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+      const data=await res.json();
+      if(!res.ok){
+        if(res.status===409){ state.time=null; goTo(2); throw new Error('Dieser Termin wurde gerade vergeben. Bitte wählen Sie eine andere freie Uhrzeit.'); }
+        throw new Error(data.error||'Die Buchung konnte nicht abgeschlossen werden.');
+      }
+      renderSummary('successSummary'); goTo(5);
+      statusBadge.textContent='Online-Terminbuchung · System bereit'; statusBadge.classList.add('live-ready');
+    }catch(e){ err.textContent=e.message; err.hidden=false; }
+    finally{ btn.removeAttribute('aria-busy'); btn.textContent='Verbindlich buchen'; btn.disabled=!$('termsAccepted').checked; }
+  };
+  $('restartBooking').onclick=()=>location.reload();
 })();
 </script>
 
