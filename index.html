@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pasing Wellness – Thai Massage & Wellness in München-Pasing. Eröffnung im Oktober 2026.">
+  <title>Pasing Wellness | Thai Massage in München-Pasing</title>
+
+  <style>
+    :root {
+      --cream: #f7f2e9;
+      --cream-dark: #eee4d4;
+      --brown: #3e2c24;
+      --brown-light: #6f5546;
+      --gold: #b58b4c;
+      --gold-light: #d6b77e;
+      --white: #fffdf9;
+      --text: #40352f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      color: var(--brown);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: absolute;
+      width: 100%;
+      z-index: 10;
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,.22);
+    }
+
+    nav {
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-main {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      letter-spacing: 2px;
+    }
+
+    .logo-sub {
+      margin-top: 5px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--gold-light);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: opacity .2s;
+    }
+
+    .nav-links a:hover {
+      opacity: .7;
+    }
+
+    .nav-book {
+      border: 1px solid var(--gold-light);
+      padding: 11px 18px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      color: white;
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(38,25,19,.86), rgba(38,25,19,.46)),
+        url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2000&q=85")
+        center/cover no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      padding-top: 80px;
+    }
+
+    .eyebrow {
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      color: white;
+      font-size: clamp(52px, 7vw, 86px);
+      line-height: 1.04;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 18px;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 36px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 27px;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-size: 12px;
+      transition: .25s;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: white;
+    }
+
+    .btn-gold:hover {
+      background: #9e753d;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.7);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--brown);
+    }
+
+    .opening {
+      position: absolute;
+      bottom: 30px;
+      right: 5%;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,.75);
+    }
+
+    /* INTRO */
+
+    .intro {
+      padding: 110px 0;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .section-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 11px;
+      margin-bottom: 14px;
+    }
+
+    .intro h2,
+    .services h2,
+    .studio h2,
+    .contact h2 {
+      font-size: clamp(36px, 5vw, 52px);
+      margin-bottom: 22px;
+    }
+
+    .intro p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 17px;
+      color: var(--brown-light);
+    }
+
+    /* SERVICES */
+
+    .services {
+      padding: 110px 0;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service {
+      padding: 40px 30px;
+      background: var(--cream);
+      border-bottom: 3px solid transparent;
+      transition: .25s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      border-bottom-color: var(--gold);
+    }
+
+    .service-number {
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .service h3 {
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+
+    .service p {
+      font-size: 14px;
+      color: #75665d;
+    }
+
+    .duration {
+      display: block;
+      margin-top: 22px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 10px;
+      color: var(--gold);
+    }
+
+    /* STUDIO */
+
+    .studio {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 620px;
+      background: var(--brown);
+    }
+
+    .studio-image {
+      background:
+        url("https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1400&q=85")
+        center/cover no-repeat;
+    }
+
+    .studio-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 10%;
+    }
+
+    .studio h2 {
+      color: white;
+    }
+
+    .studio p {
+      color: rgba(255,255,255,.72);
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .studio .section-label {
+      color: var(--gold-light);
+    }
+
+    /* TEAM */
+
+    .team {
+      padding: 110px 0;
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .team h2 {
+      font-size: clamp(36px, 5vw, 52px);
+      margin-bottom: 20px;
+    }
+
+    .team-text {
+      max-width: 650px;
+      margin: 0 auto 45px;
+      color: var(--brown-light);
+    }
+
+    .team-placeholder {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: 0 auto 25px;
+      background:
+        linear-gradient(rgba(62,44,36,.08), rgba(62,44,36,.08)),
+        url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80")
+        center/cover;
+      border: 5px solid var(--white);
+    }
+
+    .team h3 {
+      font-size: 25px;
+    }
+
+    .team-role {
+      color: var(--gold);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 7px;
+    }
+
+    /* BOOKING */
+
+    .booking {
+      padding: 100px 0;
+      text-align: center;
+      background: var(--gold);
+      color: white;
+    }
+
+    .booking h2 {
+      color: white;
+      font-size: clamp(38px, 5vw, 55px);
+      margin-bottom: 18px;
+    }
+
+    .booking p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: rgba(255,255,255,.85);
+    }
+
+    .booking .btn {
+      background: var(--brown);
+      color: white;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      padding: 110px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-text {
+      color: var(--brown-light);
+      max-width: 560px;
+      margin-bottom: 35px;
+    }
+
+    .info {
+      margin-bottom: 25px;
+    }
+
+    .info-title {
+      text-transform: uppercase;
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 10px;
+      margin-bottom: 5px;
+    }
+
+    .info-value {
+      font-size: 16px;
+    }
+
+    .hours {
+      background: var(--cream);
+      padding: 45px;
+    }
+
+    .hours h3 {
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
+
+    .hour-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 13px 0;
+      border-bottom: 1px solid #ddd0bd;
+      gap: 20px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #2c201b;
+      color: rgba(255,255,255,.6);
+      padding: 40px 0;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+      nav {
+        min-height: 75px;
+      }
+
+      .nav-links a:not(.nav-book) {
+        display: none;
+      }
+
+      .logo-main {
+        font-size: 21px;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .opening {
+        display: none;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .studio {
+        grid-template-columns: 1fr;
+      }
+
+      .studio-image {
+        min-height: 400px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .intro,
+      .services,
+      .team,
+      .contact {
+        padding: 75px 0;
+      }
+
+      .studio-content {
+        padding: 65px 7%;
+      }
+
+      .hours {
+        padding: 30px 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="logo">
+        <span class="logo-main">PASING WELLNESS</span>
+        <span class="logo-sub">Thai Massage</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#massagen">Massagen</a>
+        <a href="#studio">Studio</a>
+        <a href="#team">Team</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#buchen" class="nav-book">Termin buchen</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Willkommen in München-Pasing</div>
+
+      <h1>Zeit für<br>Entspannung.</h1>
+
+      <p>
+        Traditionelle Thai-Massage und wohltuende Wellness-Anwendungen
+        in entspannter Atmosphäre – mitten in München-Pasing.
+      </p>
+
+      <div class="buttons">
+        <a href="#buchen" class="btn btn-gold">Termin buchen</a>
+        <a href="#massagen" class="btn btn-outline">Massagen entdecken</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="opening">Neueröffnung · Oktober 2026</div>
+</section>
+
+<section class="intro">
+  <div class="container">
+    <div class="section-label">Pasing Wellness</div>
+    <h2>Ankommen. Abschalten. Wohlfühlen.</h2>
+    <p>
+      Gönnen Sie Körper und Geist eine Auszeit vom Alltag. Bei Pasing Wellness
+      verbinden wir traditionelle Massagetechniken mit einer ruhigen,
+      modernen Atmosphäre und persönlicher Betreuung.
+    </p>
+  </div>
+</section>
+
+<section class="services" id="massagen">
+  <div class="container">
+
+    <div class="services-header">
+      <div class="section-label">Unsere Anwendungen</div>
+      <h2>Massagen für Ihre Auszeit</h2>
+    </div>
+
+    <div class="service-grid">
+
+      <div class="service">
+        <div class="service-number">01</div>
+        <h3>Traditionelle Thai-Massage</h3>
+        <p>
+          Klassische thailändische Massagetechniken mit gezieltem Druck
+          und sanften Dehnungen.
+        </p>
+        <span class="duration">60 / 90 Minuten</span>
+      </div>
+
+      <div class="service">
+        <div class="service-number">02</div>
+        <h3>Thai-Öl-Massage</h3>
+        <p>
+          Entspannende Massage mit hochwertigen Ölen für ein besonders
+          wohltuendes Körpergefühl.
+        </p>
+        <span class="duration">60 / 90 Minuten</span>
+      </div>
+
+      <div class="service">
+        <div class="service-number">03</div>
+        <h3>Aromaöl-Massage</h3>
+        <p>
+          Sanfte Massage kombiniert mit ausgewählten aromatischen Ölen
+          für tiefe Entspannung.
+        </p>
+        <span class="duration">60 / 90 Minuten</span>
+      </div>
+
+      <div class="service">
+        <div class="service-number">04</div>
+        <h3>Rücken & Nacken</h3>
+        <p>
+          Eine gezielte Auszeit für besonders beanspruchte Bereiche
+          von Rücken, Schultern und Nacken.
+        </p>
+        <span class="duration">30 / 60 Minuten</span>
+      </div>
+
+      <div class="service">
+        <div class="service-number">05</div>
+        <h3>Fußmassage</h3>
+        <p>
+          Wohltuende Massage für müde Füße und Beine – ideal als
+          kurze Erholung zwischendurch.
+        </p>
+        <span class="duration">30 / 60 Minuten</span>
+      </div>
+
+      <div class="service">
+        <div class="service-number">06</div>
+        <h3>Hot Stone</h3>
+        <p>
+          Entspannung durch wohltuende Wärme und sanfte Massage
+          mit erwärmten Steinen.
+        </p>
+        <span class="duration">60 / 90 Minuten</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="studio" id="studio">
+  <div class="studio-image"></div>
+
+  <div class="studio-content">
+    <div class="section-label">Unser Studio</div>
+    <h2>Ihre Ruheinsel in Pasing.</h2>
+
+    <p>
+      Ein Ort zum Abschalten: warme Farben, angenehme Düfte und eine
+      ruhige Atmosphäre schaffen den passenden Rahmen für Ihre persönliche
+      Auszeit.
+    </p>
+
+    <p>
+      Unser Anspruch ist eine professionelle und seriöse Massagebehandlung,
+      bei der Ihr Wohlbefinden im Mittelpunkt steht.
+    </p>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-label">Persönlich für Sie da</div>
+    <h2>Unser Team</h2>
+
+    <p class="team-text">
+      Mit Erfahrung, Einfühlungsvermögen und traditionellen Massagetechniken
+      sorgen wir dafür, dass Sie sich bei uns rundum wohlfühlen.
+    </p>
+
+    <div class="team-placeholder"></div>
+    <h3>Unser Team wächst</h3>
+    <div class="team-role">Pasing Wellness · München</div>
+  </div>
+</section>
+
+<section class="booking" id="buchen">
+  <div class="container">
+    <div class="section-label" style="color:white;">Online Termin</div>
+    <h2>Ihre Auszeit wartet.</h2>
+
+    <p>
+      Unsere Online-Terminbuchung wird zur Neueröffnung im Oktober 2026
+      freigeschaltet.
+    </p>
+
+    <a href="#kontakt" class="btn">Termin vormerken</a>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="container contact-grid">
+
+    <div>
+      <div class="section-label">Kontakt & Anfahrt</div>
+      <h2>Wir freuen uns auf Sie.</h2>
+
+      <p class="contact-text">
+        Pasing Wellness eröffnet im Oktober 2026 in München-Pasing.
+        Weitere Informationen und die Online-Terminbuchung folgen in Kürze.
+      </p>
+
+      <div class="info">
+        <div class="info-title">Adresse</div>
+        <div class="info-value">München-Pasing · genaue Adresse folgt</div>
+      </div>
+
+      <div class="info">
+        <div class="info-title">Telefon</div>
+        <div class="info-value">wird bekannt gegeben</div>
+      </div>
+
+      <div class="info">
+        <div class="info-title">E-Mail</div>
+        <div class="info-value">info@pasing-wellness.de</div>
+      </div>
+    </div>
+
+    <div class="hours">
+      <h3>Öffnungszeiten</h3>
+
+      <div class="hour-row">
+        <span>Montag – Freitag</span>
+        <span>folgt</span>
+      </div>
+
+      <div class="hour-row">
+        <span>Samstag</span>
+        <span>folgt</span>
+      </div>
+
+      <div class="hour-row">
+        <span>Sonntag</span>
+        <span>folgt</span>
+      </div>
+
+      <p style="margin-top:25px;font-size:13px;color:#806e61;">
+        Neueröffnung geplant für Oktober 2026.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 Pasing Wellness · München-Pasing</div>
+
+    <div class="footer-links">
+      <span>Impressum</span>
+      <span>Datenschutz</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
