@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pasing Wellness – Thai Massage & Wellness in München-Pasing. Neueröffnung voraussichtlich im Oktober 2026. Online-Terminbuchung für Massage-Termine in Vorbereitung.">
+  <meta name="theme-color" content="#3e2c24">
+  <title>Pasing Wellness | Thai Massage in München-Pasing</title>
+
+  <style>
+    :root {
+      --cream: #f7f2e9;
+      --cream-dark: #eee4d4;
+      --brown: #3e2c24;
+      --brown-deep: #2c201b;
+      --brown-light: #6f5546;
+      --gold: #b58b4c;
+      --gold-light: #d6b77e;
+      --white: #fffdf9;
+      --text: #40352f;
+      --muted: #806e61;
+      --line: #ded2c1;
+      --shadow: 0 18px 45px rgba(55, 37, 28, .09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      color: var(--brown);
+      line-height: 1.14;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .section-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 11px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .section-note {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .2px;
+    }
+
+
+    .booking-loading { font-size:13px;color:var(--muted);padding:10px 0; }
+    .booking-demo-badge.live-ready { background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32); }
+    .booking-demo-badge.live-error { background:#7d3d32;border-color:#a45d50; }
+    .wizard-btn[aria-busy="true"] { opacity:.65;cursor:wait; }
+    .time-btn[disabled], .date-btn[disabled] { opacity:.45;cursor:not-allowed; }
+
+    /* HEADER */
+
+    header {
+      position: absolute;
+      width: 100%;
+      z-index: 10;
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,.22);
+      background: linear-gradient(to bottom, rgba(32,21,16,.20), transparent);
+    }
+
+    nav {
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      flex-shrink: 0;
+    }
+
+    .logo-main {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      letter-spacing: 2px;
+    }
+
+    .logo-sub {
+      margin-top: 5px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--gold-light);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: opacity .2s, background .2s, color .2s;
+    }
+
+    .nav-links a:hover {
+      opacity: .72;
+    }
+
+    .nav-book {
+      border: 1px solid var(--gold-light);
+      padding: 11px 18px;
+    }
+
+    .nav-book:hover {
+      opacity: 1 !important;
+      background: var(--gold-light);
+      color: var(--brown);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      color: white;
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(38,25,19,.88), rgba(38,25,19,.45)),
+        url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2000&q=85")
+        center/cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 180px;
+      background: linear-gradient(to top, rgba(22,14,11,.28), transparent);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      padding-top: 80px;
+    }
+
+    .eyebrow {
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 12px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      color: white;
+      font-size: clamp(52px, 7vw, 86px);
+      line-height: 1.04;
+      margin-bottom: 25px;
+      text-wrap: balance;
+    }
+
+    .hero p {
+      max-width: 610px;
+      font-size: 18px;
+      color: rgba(255,255,255,.9);
+      margin-bottom: 36px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 15px 27px;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-size: 12px;
+      transition: .25s;
+      cursor: pointer;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: white;
+    }
+
+    .btn-gold:hover {
+      background: #9e753d;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.7);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--brown);
+    }
+
+    .opening {
+      position: absolute;
+      z-index: 2;
+      bottom: 30px;
+      right: 5%;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,.8);
+    }
+
+    /* QUICK INFO */
+
+    .quick-info {
+      background: var(--brown-deep);
+      color: white;
+    }
+
+    .quick-info-grid {
+      min-height: 98px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+    }
+
+    .quick-item {
+      padding: 22px 34px;
+      border-right: 1px solid rgba(255,255,255,.10);
+    }
+
+    .quick-item:first-child {
+      padding-left: 0;
+    }
+
+    .quick-item:last-child {
+      border-right: 0;
+    }
+
+    .quick-label {
+      display: block;
+      color: var(--gold-light);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+
+    .quick-value {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      color: rgba(255,255,255,.93);
+    }
+
+    /* INTRO */
+
+    .intro {
+      padding: 110px 0;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .intro h2,
+    .services h2,
+    .studio h2,
+    .contact h2 {
+      font-size: clamp(36px, 5vw, 52px);
+      margin-bottom: 22px;
+    }
+
+    .intro p {
+      max-width: 760px;
+      margin: auto;
+      font-size: 17px;
+      color: var(--brown-light);
+    }
+
+    /* SERVICES */
+
+    .services {
+      padding: 110px 0 120px;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .services-header p {
+      max-width: 670px;
+      margin: 18px auto 0;
+      color: var(--brown-light);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service {
+      min-height: 270px;
+      padding: 40px 30px 34px;
+      background: var(--cream);
+      border: 1px solid transparent;
+      border-bottom: 3px solid transparent;
+      transition: .25s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      border-color: #eadfce;
+      border-bottom-color: var(--gold);
+      box-shadow: var(--shadow);
+    }
+
+    .service-number {
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .service h3 {
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+
+    .service p {
+      font-size: 14px;
+      color: #75665d;
+    }
+
+    .duration {
+      display: block;
+      margin-top: 22px;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      font-size: 10px;
+      color: var(--gold);
+    }
+
+    .service-grid.priced {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service.priced-service {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-row {
+      margin-top: auto;
+      padding-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      border-top: 1px solid #dfd3c2;
+    }
+
+    .price-box {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .price-time {
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .price-value {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      color: var(--brown);
+    }
+
+    .launch-offer {
+      margin-top: 28px;
+      padding: 34px 38px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      background: var(--brown);
+      color: white;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--gold);
+    }
+
+    .launch-kicker {
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .launch-offer h3 {
+      color: white;
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .launch-offer p {
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+    }
+
+    .launch-price {
+      min-width: 165px;
+      text-align: right;
+    }
+
+    .launch-price strong {
+      display: block;
+      color: var(--gold-light);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42px;
+      line-height: 1;
+      font-weight: normal;
+    }
+
+    .launch-price span {
+      display: block;
+      margin-top: 7px;
+      color: rgba(255,255,255,.72);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+    }
+
+    .launch-offer .btn {
+      margin-top: 18px;
+      background: var(--gold);
+      color: white;
+    }
+
+    .launch-offer .btn:hover {
+      background: #9e753d;
+    }
+
+
+    .addon-note {
+      margin-top: 26px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      background: #fbf7f0;
+      border: 1px solid #e8dccb;
+      color: var(--brown);
+    }
+    .addon-note > div { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+    .addon-note strong { font-family: Georgia, serif; font-size: 20px; font-weight: normal; }
+    .addon-note span:not(.addon-kicker) { color: var(--gold); font-size:13px; }
+    .addon-kicker { color:var(--gold); text-transform:uppercase; letter-spacing:2px; font-size:9px; font-weight:700; }
+    .addon-note p { color:var(--muted); font-size:12px; font-style:italic; }
+
+    .booking { padding: 105px 0 120px; }
+    .booking-demo-badge {
+      display:inline-block; margin: -8px auto 28px; padding:7px 12px; border:1px solid rgba(255,255,255,.32);
+      font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:rgba(255,255,255,.9);
+    }
+    .booking-wizard {
+      width:min(980px,100%); margin:0 auto; background:var(--white); color:var(--text); text-align:left;
+      box-shadow:0 22px 55px rgba(60,38,27,.23); border-top:4px solid var(--brown);
+    }
+    .booking-progress { display:grid; grid-template-columns:repeat(4,1fr); background:#f1e8da; border-bottom:1px solid #e2d5c3; }
+    .progress-step { padding:18px 12px; display:flex; align-items:center; justify-content:center; gap:9px; color:#9a897b; font-size:11px; text-transform:uppercase; letter-spacing:1px; }
+    .progress-step span { width:25px;height:25px;border-radius:50%;display:grid;place-items:center;border:1px solid #cdbda8;font-family:Georgia,serif;font-size:13px; }
+    .progress-step.active { color:var(--brown); background:#fffaf3; }
+    .progress-step.active span { background:var(--gold);color:white;border-color:var(--gold); }
+    .wizard-panel { display:none; padding:44px 48px 40px; }
+    .wizard-panel.active { display:block; }
+    .wizard-heading { margin-bottom:28px; }
+    .wizard-heading h3 { font-size:32px; margin:4px 0 8px; }
+    .wizard-heading p { color:var(--muted); font-size:13px; }
+    .wizard-kicker { color:var(--gold); text-transform:uppercase; letter-spacing:2px; font-size:9px; font-weight:700; }
+    .treatment-options { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
+    .treatment-card { border:1px solid #e2d6c5;background:#fff;padding:20px 20px 17px;cursor:pointer;transition:.2s;position:relative; }
+    .treatment-card:hover { border-color:var(--gold-light);transform:translateY(-2px); }
+    .treatment-card.selected { border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold);background:#fffaf2; }
+    .treatment-card h4 { font-family:Georgia,serif;font-size:19px;font-weight:normal;color:var(--brown);margin-bottom:5px; }
+    .treatment-card small { color:var(--muted);font-size:11px; }
+    .wizard-subsection { margin-top:28px;padding-top:25px;border-top:1px solid #e5dac9; }
+    .wizard-subsection h4,.time-area h4 { font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--brown);margin-bottom:12px; }
+    .choice-row,.time-options { display:flex;gap:10px;flex-wrap:wrap; }
+    .choice-btn,.time-btn { border:1px solid #d9cbb8;background:white;color:var(--brown);padding:11px 15px;cursor:pointer;font-size:13px;transition:.2s; }
+    .choice-btn:hover,.time-btn:hover,.choice-btn.selected,.time-btn.selected { border-color:var(--gold);background:var(--gold);color:white; }
+    .addon-choice { display:flex;align-items:center;gap:12px;padding:16px;border:1px solid #dfd2c0;cursor:pointer;background:#fff; }
+    .addon-choice input,.first-visit input,.terms-check input { accent-color:var(--gold); }
+    .addon-choice span:last-child { display:flex;flex-direction:column; }
+    .addon-choice strong { color:var(--brown);font-size:14px; }
+    .addon-choice small { color:var(--muted);font-size:11px;margin-top:2px; }
+    .date-options { display:grid;grid-template-columns:repeat(3,1fr);gap:10px; }
+    .date-btn { border:1px solid #dfd3c2;background:white;color:var(--brown);padding:15px 12px;cursor:pointer;text-align:left;transition:.2s; }
+    .date-btn strong { display:block;font-family:Georgia,serif;font-size:18px;font-weight:normal; }
+    .date-btn small { color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:1px; }
+    .date-btn:hover,.date-btn.selected { border-color:var(--gold);background:#fff7eb;box-shadow:inset 0 0 0 1px var(--gold); }
+    .time-area { margin-top:25px;padding-top:24px;border-top:1px solid #e5dac9; }
+    .time-btn { min-width:78px; }
+    .dynamic-slot-note { margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.55; }
+    .wizard-actions { display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:32px;padding-top:24px;border-top:1px solid #e7dccd; }
+    .wizard-btn { min-height:46px;padding:12px 20px;border:0;cursor:pointer;text-transform:uppercase;letter-spacing:1.2px;font-size:10px;font-weight:700;transition:.2s; }
+    .wizard-btn.primary { background:var(--brown);color:white; }
+    .wizard-btn.primary:hover:not(:disabled) { background:var(--brown-deep); }
+    .wizard-btn.secondary { background:#eee5d8;color:var(--brown); }
+    .wizard-btn:disabled { opacity:.35;cursor:not-allowed; }
+    .booking-form-grid { display:grid;grid-template-columns:1fr 1fr;gap:18px; }
+    .booking-form-grid label { display:flex;flex-direction:column;gap:7px; }
+    .booking-form-grid label > span { font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--brown);font-weight:700; }
+    .booking-form-grid em { font-weight:normal;text-transform:none;letter-spacing:0;color:var(--muted); }
+    .booking-form-grid input[type=text],.booking-form-grid input[type=email],.booking-form-grid input[type=tel],.booking-form-grid textarea { width:100%;border:1px solid #d9cdbd;background:white;padding:13px 14px;font:inherit;font-size:14px;color:var(--text);outline:none; }
+    .booking-form-grid input:focus,.booking-form-grid textarea:focus { border-color:var(--gold);box-shadow:0 0 0 2px rgba(181,139,76,.12); }
+    .booking-form-grid .full { grid-column:1/-1; }
+    .booking-form-grid label small { color:var(--muted);font-size:10px; }
+    .booking-form-grid .first-visit { flex-direction:row;align-items:flex-start;gap:10px;padding:14px;background:#fbf6ed;border:1px solid #e7dac8; }
+    .booking-form-grid .first-visit span { text-transform:none;letter-spacing:0;font-weight:normal;font-size:13px; }
+    .form-error { margin-top:14px;color:#a04737;font-size:12px; }
+    .booking-summary { border:1px solid #e2d6c5;background:#faf5ed; }
+    .summary-row { display:grid;grid-template-columns:180px 1fr;padding:13px 18px;border-bottom:1px solid #e5dacb;gap:16px; }
+    .summary-row:last-child { border-bottom:0; }
+    .summary-row span { color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1px; }
+    .summary-row strong { color:var(--brown);font-weight:600;font-size:14px; }
+    .summary-total { background:var(--brown);color:white!important; }
+    .summary-total span,.summary-total strong { color:white; }
+    .terms-check { display:flex;align-items:flex-start;gap:10px;margin-top:20px;color:var(--muted);font-size:12px;cursor:pointer; }
+    .success-panel { text-align:center; }
+    .success-mark { width:66px;height:66px;border-radius:50%;display:grid;place-items:center;margin:0 auto 18px;background:var(--gold);color:white;font-size:32px;font-family:Georgia,serif; }
+    .success-panel .booking-summary { text-align:left;margin-bottom:24px; }
+
+    /* STUDIO */
+
+    .studio {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 640px;
+      background: var(--brown);
+    }
+
+    .studio-image {
+      background:
+        linear-gradient(rgba(42,29,23,.04), rgba(42,29,23,.04)),
+        url("https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1400&q=85")
+        center/cover no-repeat;
+    }
+
+    .studio-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 10%;
+    }
+
+    .studio h2 {
+      color: white;
+    }
+
+    .studio p {
+      color: rgba(255,255,255,.74);
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .studio .section-label {
+      color: var(--gold-light);
+    }
+
+    .studio-highlight {
+      margin-top: 18px;
+      padding-left: 20px;
+      border-left: 2px solid var(--gold);
+      color: rgba(255,255,255,.90) !important;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 19px;
+    }
+
+    /* TEAM */
+
+    .team {
+      padding: 110px 0;
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .team h2 {
+      font-size: clamp(36px, 5vw, 52px);
+      margin-bottom: 20px;
+    }
+
+    .team-text {
+      max-width: 680px;
+      margin: 0 auto 42px;
+      color: var(--brown-light);
+    }
+
+    .team-profile {
+      width: min(900px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(260px, 380px) 1fr;
+      background: rgba(255,255,255,.72);
+      border: 1px solid #e7dccb;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .team-photo-wrap {
+      min-height: 470px;
+      background: #e9dfd2;
+    }
+
+    .team-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 470px;
+      display: block;
+      object-fit: cover;
+      object-position: center 24%;
+    }
+
+    .team-info {
+      padding: 52px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .team h3 {
+      font-size: clamp(30px, 4vw, 40px);
+      margin: 10px 0 20px;
+    }
+
+    .team-role {
+      color: var(--gold);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .team-info p {
+      color: var(--brown-light);
+      margin-bottom: 16px;
+    }
+
+    .team-info .btn {
+      margin-top: 12px;
+    }
+
+    /* BOOKING */
+
+    .booking {
+      padding: 105px 0;
+      text-align: center;
+      background:
+        linear-gradient(rgba(181,139,76,.94), rgba(181,139,76,.94)),
+        url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=70")
+        center/cover;
+      color: white;
+    }
+
+    .booking h2 {
+      color: white;
+      font-size: clamp(38px, 5vw, 55px);
+      margin-bottom: 18px;
+    }
+
+    .booking > .container > p {
+      max-width: 650px;
+      margin: 0 auto 34px;
+      color: rgba(255,255,255,.9);
+    }
+
+    .booking-card {
+      width: min(760px, 100%);
+      margin: 0 auto 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: rgba(255,253,249,.96);
+      color: var(--brown);
+      text-align: left;
+      box-shadow: 0 18px 45px rgba(64,42,30,.18);
+    }
+
+    .booking-slot {
+      padding: 27px 30px;
+    }
+
+    .booking-slot + .booking-slot {
+      border-left: 1px solid #e6d9c6;
+    }
+
+    .booking-day {
+      display: block;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 10px;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .booking-time {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+    }
+
+    .booking-note {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      font-size: 13px;
+      color: rgba(255,255,255,.88);
+    }
+
+    .booking .btn {
+      background: var(--brown);
+      color: white;
+    }
+
+    .booking .btn:hover {
+      background: var(--brown-deep);
+    }
+
+    /* CONTACT */
+
+    .contact {
+      padding: 110px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-text {
+      color: var(--brown-light);
+      max-width: 580px;
+      margin-bottom: 35px;
+    }
+
+    .info {
+      margin-bottom: 25px;
+    }
+
+    .info-title {
+      text-transform: uppercase;
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 10px;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .info-value {
+      font-size: 16px;
+    }
+
+    .placeholder {
+      color: #8f8179;
+      font-style: italic;
+    }
+
+    .hours {
+      background: var(--cream);
+      padding: 45px;
+      border: 1px solid #ede2d2;
+    }
+
+    .hours h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .hours-intro {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .hour-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid #ddd0bd;
+      gap: 20px;
+    }
+
+    .hour-row strong {
+      font-weight: 700;
+      color: var(--brown);
+    }
+
+    .hours-note {
+      margin-top: 22px;
+      padding-left: 16px;
+      border-left: 2px solid var(--gold);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--brown-deep);
+      color: rgba(255,255,255,.62);
+      padding: 42px 0;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links span {
+      opacity: .65;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+      nav {
+        min-height: 76px;
+      }
+
+      .nav-links {
+        gap: 0;
+      }
+
+      .nav-links a:not(.nav-book) {
+        display: none;
+      }
+
+      .nav-book {
+        padding: 10px 13px;
+        font-size: 12px;
+      }
+
+      .logo-main {
+        font-size: 21px;
+      }
+
+      .logo-sub {
+        letter-spacing: 3px;
+      }
+
+      .hero {
+        min-height: 90vh;
+        background-position: 58% center;
+      }
+
+      .hero-content {
+        padding-top: 70px;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .opening {
+        display: none;
+      }
+
+      .quick-info-grid {
+        grid-template-columns: 1fr;
+        padding: 11px 0;
+      }
+
+      .quick-item,
+      .quick-item:first-child {
+        padding: 14px 0;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.10);
+      }
+
+      .quick-item:last-child {
+        border-bottom: 0;
+      }
+
+      .service-grid,
+      .service-grid.priced {
+        grid-template-columns: 1fr;
+      }
+
+      .launch-offer {
+        grid-template-columns: 1fr;
+      }
+
+      .launch-price {
+        text-align: left;
+      }
+
+      .service {
+        min-height: 0;
+      }
+
+      .studio {
+        grid-template-columns: 1fr;
+      }
+
+      .studio-image {
+        min-height: 400px;
+      }
+
+      .team-profile {
+        grid-template-columns: 1fr;
+      }
+
+      .team-photo-wrap,
+      .team-photo {
+        min-height: 0;
+      }
+
+      .team-photo {
+        aspect-ratio: 4 / 5;
+        object-position: center 22%;
+      }
+
+      .team-info {
+        padding: 38px 32px 42px;
+      }
+
+      .booking-card {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-slot + .booking-slot {
+        border-left: 0;
+        border-top: 1px solid #e6d9c6;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .price-row { grid-template-columns: repeat(3, 1fr); }
+      .addon-note { flex-direction:column;align-items:flex-start; }
+      .treatment-options { grid-template-columns:1fr; }
+      .date-options { grid-template-columns:1fr 1fr; }
+      .booking-form-grid { grid-template-columns:1fr; }
+      .booking-form-grid .full { grid-column:auto; }
+      .progress-step small { display:none; }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        width: min(92%, 1120px);
+      }
+
+      .logo-main {
+        font-size: 18px;
+        letter-spacing: 1.5px;
+      }
+
+      .logo-sub {
+        font-size: 8px;
+        letter-spacing: 2.5px;
+      }
+
+      .nav-book {
+        padding: 9px 10px;
+        font-size: 10px;
+        letter-spacing: .2px;
+      }
+
+      .hero {
+        min-height: 86vh;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .buttons {
+        width: 100%;
+      }
+
+      .buttons .btn {
+        width: 100%;
+      }
+
+      .intro,
+      .services,
+      .team,
+      .contact,
+      .booking {
+        padding: 75px 0;
+      }
+
+      .services-header {
+        margin-bottom: 38px;
+      }
+
+      .studio-content {
+        padding: 65px 7%;
+      }
+
+      .studio-image {
+        min-height: 310px;
+      }
+
+      .team-info {
+        padding: 32px 24px 36px;
+      }
+
+      .team-info .btn {
+        width: 100%;
+      }
+
+      .launch-offer {
+        padding: 28px 24px;
+      }
+
+      .launch-offer h3 {
+        font-size: 25px;
+      }
+
+      .launch-price strong {
+        font-size: 38px;
+      }
+
+      .booking-slot {
+        padding: 23px 22px;
+      }
+
+      .hours {
+        padding: 30px 24px;
+      }
+
+      .hour-row {
+        font-size: 14px;
+      }
+
+
+      .wizard-panel { padding:30px 20px 26px; }
+      .booking-progress { grid-template-columns:repeat(4,1fr); }
+      .progress-step { padding:13px 6px; }
+      .date-options { grid-template-columns:1fr; }
+      .wizard-heading h3 { font-size:27px; }
+      .wizard-actions { align-items:stretch; }
+      .wizard-btn { flex:1; padding:11px 10px; }
+      .summary-row { grid-template-columns:1fr;gap:3px; }
+      .price-time { font-size:8px;letter-spacing:.8px; }
+      .price-value { font-size:22px; }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<!-- Pasing Wellness V0.5 · Live Booking Engine -->
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="logo" aria-label="Pasing Wellness Startseite">
+        <span class="logo-main">PASING WELLNESS</span>
+        <span class="logo-sub">Thai Massage</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#massagen">Massagen</a>
+        <a href="#studio">Studio</a>
+        <a href="#team">Team</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#buchen" class="nav-book">Termin buchen</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Willkommen in München-Pasing</div>
+
+      <h1>Zeit für<br>Entspannung.</h1>
+
+      <p>
+        Traditionelle Thai-Massage und wohltuende Wellness-Anwendungen
+        in entspannter Atmosphäre – mitten in München-Pasing.
+      </p>
+
+      <div class="buttons">
+        <a href="#buchen" class="btn btn-gold">Termin buchen</a>
+        <a href="#massagen" class="btn btn-outline">Massagen entdecken</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="opening">Neueröffnung · Oktober 2026</div>
+</section>
+
+<section class="quick-info" aria-label="Wichtige Informationen">
+  <div class="container quick-info-grid">
+    <div class="quick-item">
+      <span class="quick-label">Sonntag</span>
+      <span class="quick-value">10–16 Uhr</span>
+    </div>
+    <div class="quick-item">
+      <span class="quick-label">Montag & Dienstag</span>
+      <span class="quick-value">14–20 Uhr</span>
+    </div>
+    <div class="quick-item">
+      <span class="quick-label">Online buchbar</span>
+      <span class="quick-value">Bis 14 Tage im Voraus</span>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="container">
+    <div class="section-label">Pasing Wellness</div>
+    <h2>Ankommen. Abschalten. Wohlfühlen.</h2>
+    <p>
+      Gönnen Sie Körper und Geist eine Auszeit vom Alltag. Bei Pasing Wellness
+      verbinden wir traditionelle Massagetechniken mit einer ruhigen,
+      modernen Atmosphäre und persönlicher Betreuung.
+    </p>
+  </div>
+</section>
+
+<section class="services" id="massagen">
+  <div class="container">
+
+    <div class="services-header">
+      <div class="section-label">Unsere Anwendungen</div>
+      <h2>Massagen für Ihre Auszeit</h2>
+      <p>
+        Wählen Sie zwischen vier wohltuenden Anwendungen – jeweils für 60, 90 oder 120 Minuten.
+      </p>
+    </div>
+
+    <div class="service-grid priced">
+      <div class="service priced-service">
+        <div class="service-number">01</div>
+        <h3>Wellness- & Entspannungsmassage</h3>
+        <p>Eine ruhige, wohltuende Massage zum Loslassen, Abschalten und Entspannen.</p>
+        <div class="price-row" aria-label="Preise Wellness- und Entspannungsmassage">
+          <div class="price-box"><span class="price-time">60 Minuten</span><span class="price-value">65 €</span></div>
+          <div class="price-box"><span class="price-time">90 Minuten</span><span class="price-value">90 €</span></div>
+          <div class="price-box"><span class="price-time">120 Minuten</span><span class="price-value">120 €</span></div>
+        </div>
+      </div>
+
+      <div class="service priced-service">
+        <div class="service-number">02</div>
+        <h3>Ganzkörpermassage</h3>
+        <p>Eine umfassende Massage für den ganzen Körper – ideal für eine ausgedehnte Wohlfühlpause.</p>
+        <div class="price-row" aria-label="Preise Ganzkörpermassage">
+          <div class="price-box"><span class="price-time">60 Minuten</span><span class="price-value">70 €</span></div>
+          <div class="price-box"><span class="price-time">90 Minuten</span><span class="price-value">95 €</span></div>
+          <div class="price-box"><span class="price-time">120 Minuten</span><span class="price-value">125 €</span></div>
+        </div>
+      </div>
+
+      <div class="service priced-service">
+        <div class="service-number">03</div>
+        <h3>Thai-Aromaölmassage</h3>
+        <p>Sanfte Massage mit wohltuendem Öl für ein besonders entspanntes und angenehmes Körpergefühl.</p>
+        <div class="price-row" aria-label="Preise Thai-Aromaölmassage">
+          <div class="price-box"><span class="price-time">60 Minuten</span><span class="price-value">70 €</span></div>
+          <div class="price-box"><span class="price-time">90 Minuten</span><span class="price-value">95 €</span></div>
+          <div class="price-box"><span class="price-time">120 Minuten</span><span class="price-value">125 €</span></div>
+        </div>
+      </div>
+
+      <div class="service priced-service">
+        <div class="service-number">04</div>
+        <h3>Thai-Massage</h3>
+        <p>Traditionelle thailändische Massagetechniken mit gezieltem Druck und wohltuenden Dehnungen.</p>
+        <div class="price-row" aria-label="Preise Thai-Massage">
+          <div class="price-box"><span class="price-time">60 Minuten</span><span class="price-value">75 €</span></div>
+          <div class="price-box"><span class="price-time">90 Minuten</span><span class="price-value">105 €</span></div>
+          <div class="price-box"><span class="price-time">120 Minuten</span><span class="price-value">135 €</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="addon-note">
+      <div>
+        <span class="addon-kicker">Optionales Add-on</span>
+        <strong>Ohrenkerzenbehandlung</strong>
+        <span>30 Minuten · 25 €</span>
+      </div>
+      <p>Nur in Kombination mit einer Massage buchbar, nicht separat.</p>
+    </div>
+
+    <div class="launch-offer">
+      <div>
+        <div class="launch-kicker">Eröffnungsangebot</div>
+        <h3>60 Min. Ganzkörpermassage</h3>
+        <p>Zum Kennenlernen von Pasing Wellness: gültig für Neukunden bei ihrem ersten Besuch.</p>
+        <a href="#buchen" class="btn">Termin buchen</a>
+      </div>
+      <div class="launch-price">
+        <strong>59 €</strong>
+        <span>statt 70 €</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="studio" id="studio">
+  <div class="studio-image" role="img" aria-label="Wellness-Atmosphäre als Symbolbild"></div>
+
+  <div class="studio-content">
+    <div class="section-label">Unser Studio</div>
+    <h2>Ihre Ruheinsel in Pasing.</h2>
+
+    <p>
+      Ein Ort zum Abschalten: warme Farben, angenehme Düfte und eine
+      ruhige Atmosphäre schaffen den passenden Rahmen für Ihre persönliche Auszeit.
+    </p>
+
+    <p>
+      Unser Anspruch ist ein professionelles und seriöses Wellness-Angebot,
+      bei dem Ihr Wohlbefinden im Mittelpunkt steht.
+    </p>
+
+    <p class="studio-highlight">
+      Persönlich. Entspannt. Mit Zeit für Sie.
+    </p>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-label">Persönlich für Sie da</div>
+    <h2>Unser Team</h2>
+
+    <p class="team-text">
+      Bei Pasing Wellness steht Ihre persönliche Auszeit im Mittelpunkt.
+      Lernen Sie hier die Masseurin kennen, die Sie bei Ihrem Termin betreut.
+    </p>
+
+    <div class="team-profile">
+      <div class="team-photo-wrap">
+        <img
+          src="masseurin.png"
+          alt="Masseurin bei Pasing Wellness in München-Pasing"
+          class="team-photo"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="team-info">
+        <div class="team-role">Ihre Masseurin bei Pasing Wellness</div>
+        <h3>Persönlich für Sie da.</h3>
+        <p>
+          Mit Ruhe, Aufmerksamkeit und viel Zeit für Ihr Wohlbefinden erwartet
+          Sie eine persönliche Betreuung in entspannter Atmosphäre.
+        </p>
+        <p>
+          Weitere Informationen zur Masseurin und ihrer Erfahrung ergänzen wir in Kürze.
+        </p>
+        <a href="#buchen" class="btn btn-gold">Termin buchen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="buchen">
+  <div class="container">
+    <div class="section-label" style="color:white;">Online-Terminbuchung</div>
+    <h2>Ihre Auszeit buchen.</h2>
+    <p>Wählen Sie Behandlung, Dauer und einen freien Termin. Freie Termine werden in Echtzeit geprüft und mit Ihrer Buchung sofort verbindlich reserviert.</p>
+
+    <div class="booking-demo-badge" id="bookingStatusBadge">Online-Terminbuchung · freie Termine werden live geprüft</div>
+
+    <div class="booking-wizard" id="bookingWizard">
+      <div class="booking-progress" aria-label="Buchungsschritte">
+        <div class="progress-step active"><span>1</span><small>Behandlung</small></div>
+        <div class="progress-step"><span>2</span><small>Termin</small></div>
+        <div class="progress-step"><span>3</span><small>Daten</small></div>
+        <div class="progress-step"><span>4</span><small>Prüfen</small></div>
+      </div>
+
+      <div class="wizard-panel active" data-panel="1">
+        <div class="wizard-heading">
+          <span class="wizard-kicker">Schritt 1</span>
+          <h3>Welche Massage darf es sein?</h3>
+        </div>
+        <div class="treatment-options" id="treatmentOptions"></div>
+
+        <div class="wizard-subsection" id="durationSection" hidden>
+          <h4>Dauer wählen</h4>
+          <div class="choice-row" id="durationOptions"></div>
+        </div>
+
+        <div class="wizard-subsection" id="addonSection" hidden>
+          <h4>Optional ergänzen</h4>
+          <label class="addon-choice">
+            <input type="checkbox" id="earCandles">
+            <span class="check-mark"></span>
+            <span><strong>Ohrenkerzenbehandlung</strong><small>+ 30 Minuten · + 25 €</small></span>
+          </label>
+        </div>
+
+        <div class="wizard-actions">
+          <span></span>
+          <button type="button" class="wizard-btn primary" data-next="2" disabled>Weiter zum Termin</button>
+        </div>
+      </div>
+
+      <div class="wizard-panel" data-panel="2">
+        <div class="wizard-heading">
+          <span class="wizard-kicker">Schritt 2</span>
+          <h3>Wann möchten Sie kommen?</h3>
+          <p>Online buchbar bis 14 Tage im Voraus. Die freien Startzeiten werden dynamisch aus Behandlungsdauer und 15 Minuten Puffer berechnet.</p>
+        </div>
+        <div class="date-options" id="dateOptions"></div>
+        <div class="time-area" id="timeArea" hidden>
+          <h4>Freie Startzeiten</h4>
+          <p class="dynamic-slot-note" id="dynamicSlotNote"></p>
+          <div class="time-options" id="timeOptions"></div>
+        </div>
+        <div class="wizard-actions">
+          <button type="button" class="wizard-btn secondary" data-back="1">Zurück</button>
+          <button type="button" class="wizard-btn primary" data-next="3" disabled>Weiter zu Ihren Daten</button>
+        </div>
+      </div>
+
+      <div class="wizard-panel" data-panel="3">
+        <div class="wizard-heading">
+          <span class="wizard-kicker">Schritt 3</span>
+          <h3>Ihre Kontaktdaten</h3>
+          <p>An diese E-Mail-Adresse senden wir Ihre Buchungsbestätigung und den persönlichen Stornierungslink.</p>
+        </div>
+        <div class="booking-form-grid">
+          <label><span>Name *</span><input id="customerName" type="text" autocomplete="name" placeholder="Vor- und Nachname"></label>
+          <label><span>E-Mail *</span><input id="customerEmail" type="email" autocomplete="email" placeholder="name@beispiel.de"></label>
+          <label><span>Telefonnummer *</span><input id="customerPhone" type="tel" autocomplete="tel" placeholder="z. B. 0171 1234567"></label>
+          <label class="full"><span>Besonderheiten / Nachricht <em>optional</em></span><textarea id="customerNote" rows="4" placeholder="Falls Sie uns vorab etwas mitteilen möchten."></textarea><small>Bitte keine medizinischen Diagnosen oder sensiblen Gesundheitsdaten eintragen.</small></label>
+          <label class="full first-visit"><input type="checkbox" id="firstVisit"><span>Ich bin Neukunde und besuche Pasing Wellness zum ersten Mal.</span></label>
+        </div>
+        <div class="wizard-actions">
+          <button type="button" class="wizard-btn secondary" data-back="2">Zurück</button>
+          <button type="button" class="wizard-btn primary" data-next="4">Buchung prüfen</button>
+        </div>
+        <p class="form-error" id="formError" hidden>Bitte füllen Sie Name, E-Mail und Telefonnummer vollständig aus.</p>
+      </div>
+
+      <div class="wizard-panel" data-panel="4">
+        <div class="wizard-heading">
+          <span class="wizard-kicker">Schritt 4</span>
+          <h3>Alles richtig?</h3>
+          <p>Mit dem letzten Klick wird der ausgewählte Termin sofort verbindlich gebucht.</p>
+        </div>
+        <div class="booking-summary" id="bookingSummary"></div>
+        <label class="terms-check"><input type="checkbox" id="termsAccepted"><span>Ich bestätige meine Angaben und nehme zur Kenntnis, dass eine Stornierung bis 24 Stunden vor Terminbeginn möglich ist.</span></label>
+        <div id="turnstileMount" style="margin-top:18px"></div>
+        <p class="form-error" id="bookingError" hidden></p>
+        <div class="wizard-actions">
+          <button type="button" class="wizard-btn secondary" data-back="3">Zurück</button>
+          <button type="button" class="wizard-btn primary" id="liveBookButton" disabled>Verbindlich buchen</button>
+        </div>
+      </div>
+
+      <div class="wizard-panel success-panel" data-panel="5">
+        <div class="success-mark">✓</div>
+        <div class="wizard-heading">
+          <span class="wizard-kicker">Termin gebucht</span>
+          <h3>Vielen Dank. Ihre Auszeit ist reserviert.</h3>
+          <p>Die Buchungsbestätigung mit Ihrem persönlichen Stornierungslink wurde per E-Mail verschickt.</p>
+        </div>
+        <div class="booking-summary" id="successSummary"></div>
+        <button type="button" class="wizard-btn secondary" id="restartBooking">Weitere Buchung</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="container contact-grid">
+
+    <div>
+      <div class="section-label">Kontakt & Anfahrt</div>
+      <h2>Wir freuen uns auf Sie.</h2>
+
+      <p class="contact-text">
+        Pasing Wellness eröffnet voraussichtlich im Oktober 2026 in München-Pasing.
+        Sie finden uns in den Räumen von Balance Flow in der Bodenseestraße.
+      </p>
+
+      <div class="info">
+        <div class="info-title">Adresse</div>
+        <div class="info-value">Balance Flow<br>Bodenseestraße 73c<br>81243 München-Pasing</div>
+      </div>
+
+      <div class="info">
+        <div class="info-title">Telefon / WhatsApp</div>
+        <div class="info-value placeholder">Kontaktdaten folgen</div>
+      </div>
+
+      <div class="info">
+        <div class="info-title">E-Mail</div>
+        <div class="info-value"><a href="mailto:stark.stefan@gmx.net">stark.stefan@gmx.net</a></div>
+      </div>
+    </div>
+
+    <div class="hours">
+      <div class="section-label">Ihre Terminplanung</div>
+      <h3>Behandlungszeiten</h3>
+      <p class="hours-intro">Zum Start bieten wir Termine an drei Tagen pro Woche an.</p>
+
+      <div class="hour-row">
+        <strong>Sonntag</strong>
+        <span>10:00 – 16:00 Uhr</span>
+      </div>
+
+      <div class="hour-row">
+        <strong>Montag</strong>
+        <span>14:00 – 20:00 Uhr</span>
+      </div>
+
+      <div class="hour-row">
+        <strong>Dienstag</strong>
+        <span>14:00 – 20:00 Uhr</span>
+      </div>
+
+      <div class="hours-note">
+        Online-Termine sind bis 14 Tage im Voraus buchbar. Zwischen zwei Behandlungen liegen 15 Minuten Puffer.
+      </div>
+
+      <p style="margin-top:25px;font-size:12px;color:#8d7a6d;text-transform:uppercase;letter-spacing:1.5px;">
+        Neueröffnung voraussichtlich Oktober 2026
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 Pasing Wellness · München-Pasing</div>
+
+    <div class="footer-links" aria-label="Rechtliche Hinweise in Vorbereitung">
+      <span>Impressum folgt</span>
+      <span>Datenschutz folgt</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const services = {
+    wellness: {name:'Wellness- & Entspannungsmassage', prices:{60:65,90:90,120:120}},
+    full: {name:'Ganzkörpermassage', prices:{60:70,90:95,120:125}},
+    aroma: {name:'Thai-Aromaölmassage', prices:{60:70,90:95,120:125}},
+    thai: {name:'Thai-Massage', prices:{60:75,90:105,120:135}}
+  };
+  const BUFFER_MINUTES = 15;
+  const state = {service:null,duration:null,addon:false,date:null,time:null, turnstileToken:null};
+  let turnstileWidgetId=null;
+
+  const $=id=>document.getElementById(id);
+  const treatmentOptions=$('treatmentOptions'), durationSection=$('durationSection'), durationOptions=$('durationOptions');
+  const addonSection=$('addonSection'), earCandles=$('earCandles'), dateOptions=$('dateOptions'), timeArea=$('timeArea');
+  const timeOptions=$('timeOptions'), dynamicSlotNote=$('dynamicSlotNote'), statusBadge=$('bookingStatusBadge');
+
+  Object.entries(services).forEach(([key,s])=>{
+    const b=document.createElement('button'); b.type='button'; b.className='treatment-card'; b.dataset.service=key;
+    b.innerHTML=`<h4>${s.name}</h4><small>60 · 90 · 120 Minuten</small>`;
+    b.onclick=()=>selectService(key,b); treatmentOptions.appendChild(b);
+  });
+
+  function selectService(key,btn){
+    state.service=key; state.duration=null; state.date=null; state.time=null;
+    document.querySelectorAll('.treatment-card').forEach(x=>x.classList.remove('selected')); btn.classList.add('selected');
+    durationOptions.innerHTML='';
+    [60,90,120].forEach(min=>{
+      const b=document.createElement('button'); b.type='button'; b.className='choice-btn'; b.textContent=`${min} Min. · ${services[key].prices[min]} €`;
+      b.onclick=()=>{ state.duration=min; durationOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected')); b.classList.add('selected'); addonSection.hidden=false; updateNext1(); };
+      durationOptions.appendChild(b);
+    });
+    durationSection.hidden=false; addonSection.hidden=true; earCandles.checked=false; state.addon=false; updateNext1();
+  }
+  earCandles.onchange=()=>{state.addon=earCandles.checked;state.date=null;state.time=null;};
+  function updateNext1(){document.querySelector('[data-panel="1"] [data-next="2"]').disabled=!(state.service&&state.duration);}
+
+  function goTo(panel){
+    document.querySelectorAll('.wizard-panel').forEach(p=>p.classList.toggle('active',p.dataset.panel==panel));
+    document.querySelectorAll('.progress-step').forEach((p,i)=>p.classList.toggle('active', i < Math.min(panel,4)));
+    if(panel==2) renderDates();
+    if(panel==4){ renderSummary('bookingSummary'); prepareTurnstile(); }
+    $('bookingWizard').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  document.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{
+    const next=+b.dataset.next;
+    if(next===3 && !state.time) return;
+    if(next===4 && !validateForm()) return;
+    goTo(next);
+  }));
+  document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>goTo(+b.dataset.back)));
+
+  const weekdayNames=['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+  function isoDate(d){
+    const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');
+    return `${y}-${m}-${day}`;
+  }
+  function renderDates(){
+    state.addon=earCandles.checked; dateOptions.innerHTML=''; timeOptions.innerHTML=''; timeArea.hidden=true; state.date=null; state.time=null;
+    document.querySelector('[data-panel="2"] [data-next="3"]').disabled=true;
+    const today=new Date(); today.setHours(0,0,0,0);
+    for(let i=0;i<=14;i++){
+      const d=new Date(today); d.setDate(today.getDate()+i); const day=d.getDay(); if(![0,1,2].includes(day))continue;
+      const b=document.createElement('button'); b.type='button'; b.className='date-btn';
+      b.innerHTML=`<small>${weekdayNames[day]}</small><strong>${d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})}</strong>`;
+      b.onclick=()=>{state.date=new Date(d);state.time=null;dateOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');renderTimes(d);};
+      dateOptions.appendChild(b);
+    }
+  }
+  async function renderTimes(d){
+    timeOptions.innerHTML='<span class="booking-loading">Freie Termine werden geprüft …</span>'; timeArea.hidden=false;
+    document.querySelector('[data-panel="2"] [data-next="3"]').disabled=true;
+    const treatmentMinutes=state.duration+(state.addon?30:0);
+    dynamicSlotNote.textContent=`Gewählte Behandlung: ${treatmentMinutes} Min. · danach ${BUFFER_MINUTES} Min. Puffer.`;
+    try{
+      const q=new URLSearchParams({date:isoDate(d),service:state.service,duration:String(state.duration),addon:state.addon?'1':'0'});
+      const res=await fetch(`/api/availability?${q}`,{headers:{'Accept':'application/json'}});
+      const data=await res.json();
+      if(!res.ok) throw new Error(data.error||'Verfügbarkeit konnte nicht geladen werden.');
+      timeOptions.innerHTML='';
+      data.times.forEach(label=>{
+        const b=document.createElement('button'); b.type='button'; b.className='time-btn'; b.textContent=label;
+        b.onclick=()=>{state.time=label;timeOptions.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');document.querySelector('[data-panel="2"] [data-next="3"]').disabled=false;};
+        timeOptions.appendChild(b);
+      });
+      if(!data.times.length) timeOptions.innerHTML='<span style="font-size:13px;color:var(--muted)">Für diese Auswahl ist an diesem Tag kein passender Termin mehr frei.</span>';
+    }catch(err){
+      timeOptions.innerHTML=`<span style="font-size:13px;color:#8a3e31">${escapeHtml(err.message)}</span>`;
+    }
+  }
+  function validateForm(){
+    const name=$('customerName').value.trim(), email=$('customerEmail').value.trim(), phone=$('customerPhone').value.trim();
+    const ok=name&&phone&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); $('formError').hidden=!!ok; return !!ok;
+  }
+  function priceInfo(){
+    let base=services[state.service].prices[state.duration]; const first=$('firstVisit').checked;
+    let promo=false; if(state.service==='full'&&state.duration===60&&first){base=59;promo=true;}
+    return {base, addon:state.addon?25:0,total:base+(state.addon?25:0),promo};
+  }
+  function toMinutes(time){ const [h,m]=time.split(':').map(Number); return h*60+m; }
+  function renderSummary(id){
+    const el=$(id),p=priceInfo(); const d=state.date.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'2-digit',year:'numeric'});
+    const duration=state.duration+(state.addon?30:0), startM=toMinutes(state.time), blockedUntilM=startM+duration+BUFFER_MINUTES;
+    const blockedUntil=`${String(Math.floor(blockedUntilM/60)).padStart(2,'0')}:${String(blockedUntilM%60).padStart(2,'0')}`;
+    const rows=[['Behandlung',services[state.service].name],['Dauer',`${state.duration} Minuten${state.addon?' + 30 Min. Ohrenkerzen':''}`],['Termin',`${d} · ${state.time} Uhr`],['Puffer danach',`${BUFFER_MINUTES} Minuten · nächster möglicher Termin ${blockedUntil} Uhr`],['Name',$('customerName').value.trim()],['Telefon',$('customerPhone').value.trim()],['E-Mail',$('customerEmail').value.trim()]];
+    if(p.promo) rows.splice(2,0,['Eröffnungsangebot','Neukunde · 60 Min. Ganzkörpermassage 59 €']);
+    el.innerHTML=rows.map(([a,b])=>`<div class="summary-row"><span>${escapeHtml(a)}</span><strong>${escapeHtml(b)}</strong></div>`).join('')+`<div class="summary-row summary-total"><span>Preis · Barzahlung vor Ort</span><strong>${p.total} €</strong></div>`;
+  }
+  function escapeHtml(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+
+  $('termsAccepted').onchange=()=>updateBookButton();
+  function updateBookButton(){ $('liveBookButton').disabled=!$('termsAccepted').checked; }
+
+  async function prepareTurnstile(){
+    const mount=$('turnstileMount'); mount.innerHTML=''; state.turnstileToken=null;
+    try{
+      const res=await fetch('/api/config'); const cfg=await res.json();
+      if(cfg.turnstileSiteKey){
+        await loadTurnstileScript();
+        turnstileWidgetId=window.turnstile.render(mount,{sitekey:cfg.turnstileSiteKey,theme:'light',callback:t=>state.turnstileToken=t,'expired-callback':()=>state.turnstileToken=null});
+      }
+    }catch(e){ /* server will decide whether Turnstile is mandatory */ }
+  }
+  function loadTurnstileScript(){
+    if(window.turnstile) return Promise.resolve();
+    return new Promise((resolve,reject)=>{
+      const existing=document.querySelector('script[data-pw-turnstile]'); if(existing){existing.addEventListener('load',resolve,{once:true});return;}
+      const s=document.createElement('script'); s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; s.async=true; s.defer=true; s.dataset.pwTurnstile='1'; s.onload=resolve; s.onerror=reject; document.head.appendChild(s);
+    });
+  }
+
+  $('liveBookButton').onclick=async()=>{
+    if(!validateForm() || !$('termsAccepted').checked) return;
+    const btn=$('liveBookButton'), err=$('bookingError'); err.hidden=true; btn.disabled=true; btn.setAttribute('aria-busy','true'); btn.textContent='Termin wird gebucht …';
+    const payload={service:state.service,duration:state.duration,addon:state.addon,date:isoDate(state.date),time:state.time,name:$('customerName').value.trim(),email:$('customerEmail').value.trim(),phone:$('customerPhone').value.trim(),note:$('customerNote').value.trim(),firstVisit:$('firstVisit').checked,turnstileToken:state.turnstileToken};
+    try{
+      const res=await fetch('/api/book',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+      const data=await res.json();
+      if(!res.ok){
+        if(res.status===409){ state.time=null; goTo(2); throw new Error('Dieser Termin wurde gerade vergeben. Bitte wählen Sie eine andere freie Uhrzeit.'); }
+        throw new Error(data.error||'Die Buchung konnte nicht abgeschlossen werden.');
+      }
+      renderSummary('successSummary'); goTo(5);
+      statusBadge.textContent='Online-Terminbuchung · System bereit'; statusBadge.classList.add('live-ready');
+    }catch(e){ err.textContent=e.message; err.hidden=false; }
+    finally{ btn.removeAttribute('aria-busy'); btn.textContent='Verbindlich buchen'; btn.disabled=!$('termsAccepted').checked; }
+  };
+  $('restartBooking').onclick=()=>location.reload();
+})();
+</script>
+
+</body>
+</html>
