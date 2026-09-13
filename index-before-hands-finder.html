@@ -362,120 +362,6 @@
       letter-spacing: 1.7px;
     }
 
-    /* Hands Finder */
-    .hands-finder { padding: 116px 0 124px; background: #f2eadf; }
-    .finder-shell {
-      display: grid;
-      grid-template-columns: .82fr 1.18fr;
-      gap: 30px;
-      align-items: stretch;
-    }
-    .finder-intro {
-      position: relative;
-      overflow: hidden;
-      min-height: 620px;
-      padding: 46px 42px;
-      background: var(--brown-deep);
-      color: white;
-      box-shadow: var(--shadow-strong);
-    }
-    .finder-intro::after {
-      content: "";
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      right: -115px;
-      bottom: -100px;
-      border: 1px solid rgba(214,183,126,.22);
-      border-radius: 50%;
-      box-shadow: 0 0 0 55px rgba(214,183,126,.035), 0 0 0 110px rgba(214,183,126,.025);
-    }
-    .finder-intro .section-label { color: var(--gold-light); }
-    .finder-intro h2 { color: white; font-size: clamp(39px, 4.8vw, 58px); margin-bottom: 22px; }
-    .finder-intro > p { color: rgba(255,255,255,.72); font-size: 15px; max-width: 470px; }
-    .signature-orbit {
-      position: relative;
-      z-index: 2;
-      margin-top: 42px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 10px;
-    }
-    .signature-chip {
-      min-height: 74px;
-      padding: 15px 16px;
-      border: 1px solid rgba(214,183,126,.28);
-      background: rgba(255,255,255,.045);
-      color: rgba(255,255,255,.85);
-    }
-    .signature-chip:last-child { grid-column: 1 / -1; }
-    .signature-chip strong { display:block; color: var(--gold-light); text-transform: uppercase; letter-spacing: 1.7px; font-size: 9px; margin-bottom: 5px; }
-    .signature-chip span { font-family: Georgia, serif; font-size: 17px; }
-    .finder-card {
-      padding: 42px;
-      background: var(--paper);
-      border: 1px solid #e0d3c2;
-      box-shadow: var(--shadow);
-      min-height: 620px;
-    }
-    .finder-progress {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 30px;
-      color: var(--muted);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1.3px;
-    }
-    .progress-track { flex: 1; height: 3px; background: #eadfce; overflow: hidden; }
-    .progress-fill { height: 100%; width: 0; background: var(--gold); transition: width .25s ease; }
-    .finder-question h3 { font-size: 34px; margin-bottom: 10px; }
-    .finder-question > p { color: var(--muted); margin-bottom: 28px; font-size: 14px; }
-    .finder-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .finder-option {
-      appearance: none;
-      text-align: left;
-      padding: 20px 18px;
-      min-height: 94px;
-      background: var(--soft);
-      border: 1px solid #e2d6c5;
-      color: var(--brown);
-      cursor: pointer;
-      transition: .2s;
-    }
-    .finder-option:hover, .finder-option:focus-visible {
-      outline: none;
-      border-color: var(--gold);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(55,37,28,.07);
-    }
-    .finder-option strong { display:block; font-family: Georgia, serif; font-size: 18px; font-weight: normal; margin-bottom: 5px; }
-    .finder-option span { color: var(--muted); font-size: 12px; }
-    .finder-actions { display:flex; justify-content:space-between; align-items:center; margin-top: 28px; gap:12px; }
-    .finder-back {
-      border: 0; background: transparent; color: var(--muted); cursor:pointer; padding:10px 0;
-      font-size:11px; text-transform:uppercase; letter-spacing:1.4px;
-    }
-    .finder-back[hidden] { display:none; }
-    .finder-result { display:none; }
-    .finder-result.active { display:block; }
-    .finder-result-kicker { color: var(--gold); text-transform: uppercase; letter-spacing: 2.2px; font-size: 9px; font-weight: 700; }
-    .finder-result h3 { font-size: 40px; margin: 8px 0 10px; }
-    .finder-result-lead { color: var(--brown-light); margin-bottom: 26px; }
-    .match-grid { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
-    .match-card { padding:24px; border:1px solid #e3d7c7; background:#fbf7f0; position:relative; }
-    .match-card.primary { border-top: 3px solid var(--gold); }
-    .match-score { color:var(--gold); font-size:10px; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:11px; }
-    .match-card h4 { font-size:25px; margin-bottom:6px; }
-    .match-signature { color:var(--gold); font-size:10px; text-transform:uppercase; letter-spacing:1.6px; margin-bottom:12px; }
-    .match-card p { color:var(--muted); font-size:12px; }
-    .match-treatment { margin-top:14px; padding-top:13px; border-top:1px solid #e4d9ca; color:var(--brown-light); font-size:12px; }
-    .match-treatment strong { color:var(--brown); }
-    .finder-restart { margin-top:25px; border:0; background:none; color:var(--gold); cursor:pointer; font-size:11px; text-transform:uppercase; letter-spacing:1.5px; }
-    .finder-disclaimer { margin-top:18px; color:#958478; font-size:10px; line-height:1.5; }
-
     .quality { padding: 112px 0; background: var(--brown); color: white; }
     .quality .section-label { color: var(--gold-light); }
     .quality .section-head h2 { color: white; }
@@ -721,7 +607,7 @@
       .quality-grid { grid-template-columns: 1fr 1fr; }
       .quality-card:nth-child(2) { border-right: 0; }
       .quality-card:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.12); }
-      .intro-grid, .voucher-grid, .contact-grid, .finder-shell { grid-template-columns: 1fr; gap: 44px; }
+      .intro-grid, .voucher-grid, .contact-grid { grid-template-columns: 1fr; gap: 44px; }
       .studio { grid-template-columns: 1fr; }
       .studio-image { min-height: 480px; }
       .flow { grid-template-columns: 1fr; }
@@ -753,12 +639,9 @@
       .heritage-card { padding: 28px 24px; }
       .heritage-row { grid-template-columns: 1fr; gap: 6px; }
       .reputation-box { grid-template-columns: 1fr; padding: 28px 24px; }
-      .service-grid, .quality-grid, .team-placeholder, .finder-options, .match-grid { grid-template-columns: 1fr; }
+      .service-grid, .quality-grid, .team-placeholder { grid-template-columns: 1fr; }
       .quality-card { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.12); }
       .quality-card:last-child { border-bottom: 0; }
-      .finder-intro, .finder-card { min-height: 0; padding: 30px 24px; }
-      .signature-orbit { grid-template-columns: 1fr; }
-      .signature-chip:last-child { grid-column: auto; }
       .studio-image { min-height: 370px; }
       .studio-copy { padding: 62px 7%; }
       .booking-note { grid-template-columns: 1fr; }
@@ -790,7 +673,6 @@
         <div class="nav-links">
           <a href="#konzept">Konzept</a>
           <a href="#massagen">Massagen</a>
-          <a href="#hands-finder">Hands Finder</a>
           <a href="#qualitaet">Qualität</a>
           <a href="#studio">Studio</a>
           <a href="#gutscheine">Gutscheine</a>
@@ -957,57 +839,6 @@
       </div>
     </section>
 
-    <section class="hands-finder" id="hands-finder">
-      <div class="container">
-        <div class="section-head center">
-          <div class="section-label">Hinano Hands Finder · Prototyp</div>
-          <h2>Wie möchten Sie sich heute fühlen?</h2>
-          <p>
-            Nicht jede Massage passt zu jedem Moment. Der Hands Finder verbindet Ihr aktuelles Bedürfnis
-            mit einer Hinano Signature, passenden Händen und einem geeigneten Treatment.
-          </p>
-        </div>
-
-        <div class="finder-shell">
-          <aside class="finder-intro">
-            <div class="section-label">Hinano Signatures</div>
-            <h2>Mein Gefühl. Mein Moment.</h2>
-            <p>
-              Fünf Gefühlswelten bilden den Rahmen. Der Finder fragt nicht zuerst nach einer Technik,
-              sondern danach, was Ihr Körper und Ihr Kopf heute brauchen.
-            </p>
-            <div class="signature-orbit" aria-label="Hinano Signatures">
-              <div class="signature-chip"><strong>Signature 01</strong><span>Achtsamkeit</span></div>
-              <div class="signature-chip"><strong>Signature 02</strong><span>Energie</span></div>
-              <div class="signature-chip"><strong>Signature 03</strong><span>Balance</span></div>
-              <div class="signature-chip"><strong>Signature 04</strong><span>Entspannung</span></div>
-              <div class="signature-chip"><strong>Signature 05</strong><span>Regeneration</span></div>
-            </div>
-          </aside>
-
-          <div class="finder-card" id="finderCard">
-            <div class="finder-progress" id="finderProgress">
-              <span id="finderStepLabel">Frage 1 von 4</span>
-              <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="finderProgressFill"></div></div>
-            </div>
-
-            <div class="finder-question" id="finderQuestion"></div>
-
-            <div class="finder-result" id="finderResult" aria-live="polite">
-              <div class="finder-result-kicker">Ihr persönlicher Hinano Match</div>
-              <h3 id="finderResultTitle">Ihre Hände für heute.</h3>
-              <p class="finder-result-lead" id="finderResultLead"></p>
-              <div class="match-grid" id="finderMatches"></div>
-              <button class="finder-restart" type="button" id="finderRestart">↺ Hands Finder neu starten</button>
-              <p class="finder-disclaimer">
-                Konzeptdemo: Matching, Teamverfügbarkeit und Treatments werden vor dem Livegang mit den finalen Profilen und Buchungsdaten verbunden.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="quality" id="qualitaet">
       <div class="container">
         <div class="section-head">
@@ -1124,33 +955,35 @@
     <section class="team" id="team">
       <div class="container">
         <div class="section-head">
-          <div class="section-label">Hinano Persönlichkeiten · Konzeptstand</div>
-          <h2>Unterschiedliche Hände. Ein gemeinsamer Anspruch.</h2>
+          <div class="section-label">Menschen machen die Qualität</div>
+          <h2>Das Team kommt erst auf die Seite, wenn es feststeht.</h2>
           <p>
-            Der Hands Finder empfiehlt nicht einfach „eine Massage“, sondern Persönlichkeiten, deren Stil
-            zum gewünschten Gefühl passt. Diese Profile sind aktuell als Konzept hinterlegt und werden vor Veröffentlichung final bestätigt.
+            Profile, Fotos und konkrete Arbeitszeiten werden bewusst erst nach
+            finaler Zusage veröffentlicht. So verspricht die Website nichts, was
+            personell noch nicht abgesichert ist.
           </p>
         </div>
 
-        <div class="service-grid">
-          <article class="service-card">
-            <div class="service-number">BALANCE</div>
-            <h3>Sissi</h3>
-            <p>Langjährige Erfahrung, präzise Körperwahrnehmung und gezielte Körperarbeit. Für mehr Leichtigkeit, Bewegungsfreiheit und ein ausgeglicheneres Körpergefühl.</p>
-            <div class="service-status">Signature · Balance</div>
-          </article>
-          <article class="service-card">
-            <div class="service-number">ENTSPANNUNG</div>
-            <h3>Nang</h3>
-            <p>Traditionelle Thai-Massage mit gezieltem Druck und besonderer Stärke an Füßen, Kopf und Nacken. Kraftvoll, präzise und zugleich wohltuend.</p>
-            <div class="service-status">Signature · Entspannung</div>
-          </article>
-          <article class="service-card">
-            <div class="service-number">REGENERATION</div>
-            <h3>Weza</h3>
-            <p>Intensive, gezielte Körperarbeit mit kräftigen Griffen und körperorientierten Elementen. Für Menschen, die Verspannungen bearbeiten und Beweglichkeit zurückgewinnen möchten.</p>
-            <div class="service-status">Signature · Regeneration</div>
-          </article>
+        <div class="team-placeholder">
+          <div class="team-card">
+            <div class="team-mark">01</div>
+            <h3>Erfahrung sichtbar machen.</h3>
+            <p>
+              Künftig soll jedes Teamprofil Schwerpunkte, Sprachen und Massage-Stil
+              transparent zeigen – damit Kunden passend auswählen können.
+            </p>
+            <small>Profile nach finaler Teamzusage</small>
+          </div>
+
+          <div class="team-card">
+            <div class="team-mark">02</div>
+            <h3>Qualität nicht dem Zufall überlassen.</h3>
+            <p>
+              Individuelle Stärken bleiben wichtig. Gleichzeitig sollen Druckabfrage,
+              Ruhe, Kommunikation und Zeitversprechen als gemeinsame Standards gelten.
+            </p>
+            <small>Interner Service-Standard in Vorbereitung</small>
+          </div>
         </div>
       </div>
     </section>
@@ -1254,173 +1087,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    (() => {
-      const questions = [
-        {
-          title: "Wie möchten Sie sich nach Ihrem Hinano Moment fühlen?",
-          hint: "Wählen Sie spontan das Gefühl, das heute am wichtigsten ist.",
-          options: [
-            { title: "Tief entspannt", sub: "Loslassen, runterfahren, zur Ruhe kommen.", scores: { entspannung: 5, achtsamkeit: 2, nang: 3 } },
-            { title: "Leichter & ausgeglichener", sub: "Spannung lösen und wieder in Balance kommen.", scores: { balance: 5, regeneration: 2, sissi: 4 } },
-            { title: "Spürbar regeneriert", sub: "Der Körper braucht heute echte, gezielte Arbeit.", scores: { regeneration: 5, balance: 1, weza: 4 } },
-            { title: "Wacher & voller Energie", sub: "Neue Kraft und ein frisches Körpergefühl.", scores: { energie: 5, regeneration: 1, weza: 2 } },
-            { title: "Ganz bei mir", sub: "Sanfte Aufmerksamkeit und bewusste Ruhe.", scores: { achtsamkeit: 5, entspannung: 2, sissi: 1 } }
-          ]
-        },
-        {
-          title: "Was braucht Ihr Körper gerade am meisten?",
-          hint: "Mehrere Wege können passen – wir suchen die beste Kombination.",
-          options: [
-            { title: "Rücken & Schultern lösen", sub: "Verspannungen gezielt bearbeiten.", scores: { balance: 3, regeneration: 4, sissi: 3, weza: 3 } },
-            { title: "Kopf & Nacken entlasten", sub: "Stress sitzt vor allem oben.", scores: { entspannung: 4, balance: 2, nang: 4 } },
-            { title: "Füße & Beine entlasten", sub: "Viel stehen, gehen oder schwere Beine.", scores: { entspannung: 3, regeneration: 2, nang: 4 } },
-            { title: "Den ganzen Körper spüren", sub: "Keine einzelne Stelle – einfach insgesamt besser fühlen.", scores: { achtsamkeit: 3, balance: 3, entspannung: 3, sissi: 2 } }
-          ]
-        },
-        {
-          title: "Wie intensiv darf es heute sein?",
-          hint: "Die Intensität ist ein wichtiger Teil Ihres Matches.",
-          options: [
-            { title: "Sanft & ruhig", sub: "Wenig Druck, viel Loslassen.", scores: { achtsamkeit: 3, entspannung: 4, nang: 1 } },
-            { title: "Ausgewogen", sub: "Spürbar, aber nicht zu kräftig.", scores: { balance: 4, sissi: 4, nang: 2 } },
-            { title: "Kräftig & gezielt", sub: "Ich mag deutlichen Druck.", scores: { regeneration: 4, weza: 5, nang: 3 } },
-            { title: "Sehr intensiv", sub: "Mein Körper darf heute richtig bearbeitet werden.", scores: { regeneration: 5, weza: 6 } }
-          ]
-        },
-        {
-          title: "Was ist Ihnen heute wichtiger?",
-          hint: "Letzte Frage – danach zeigen wir Ihre besten Matches.",
-          options: [
-            { title: "Einfach abschalten", sub: "Der Kopf soll endlich Pause haben.", scores: { entspannung: 5, achtsamkeit: 2, nang: 3 } },
-            { title: "Gezielte Veränderung", sub: "Ich möchte mich danach körperlich freier fühlen.", scores: { regeneration: 5, balance: 3, weza: 4, sissi: 2 } },
-            { title: "Beides", sub: "Körperarbeit und tiefe Entspannung in Balance.", scores: { balance: 5, sissi: 5, entspannung: 2 } },
-            { title: "Ich möchte mich überraschen lassen", sub: "Hauptsache, es passt zu meinem heutigen Zustand.", scores: { achtsamkeit: 2, energie: 2, balance: 2, entspannung: 2, regeneration: 2 } }
-          ]
-        }
-      ];
-
-      const personalities = {
-        sissi: {
-          name: "Sissi",
-          signature: "Balance",
-          copy: "Präzise Körperwahrnehmung, gezielte Arbeit und tiefe Entspannung – besonders passend, wenn Spannung gelöst und Beweglichkeit wieder freier werden soll.",
-          treatment: "Balance Signature · 60 oder 90 Min."
-        },
-        nang: {
-          name: "Nang",
-          signature: "Entspannung",
-          copy: "Authentische Thai-Körperarbeit mit besonderem Gespür für Füße, Kopf und Nacken. Kraftvoll, wohltuend und auf Ihr Empfinden abgestimmt.",
-          treatment: "Thai / Entspannung Signature · 60 oder 90 Min."
-        },
-        weza: {
-          name: "Weza",
-          signature: "Regeneration",
-          copy: "Intensive, gezielte Körperarbeit für Menschen, die kräftige Massage schätzen und sich wieder gelöster und beweglicher fühlen möchten.",
-          treatment: "Regeneration Signature · 60 oder 90 Min."
-        }
-      };
-
-      const signatureCopy = {
-        achtsamkeit: "Heute geht es vor allem darum, wahrzunehmen, loszulassen und bewusst bei sich anzukommen.",
-        energie: "Heute darf die Behandlung aktivieren und neue Kraft in den Körper bringen.",
-        balance: "Heute passt eine Behandlung, die gezielte Körperarbeit und tiefe Entspannung miteinander verbindet.",
-        entspannung: "Heute steht Loslassen im Vordergrund – ruhig, wohltuend und ohne unnötige Reize.",
-        regeneration: "Heute braucht Ihr Körper spürbare, gezielte Unterstützung, um Spannung abzubauen und Beweglichkeit zurückzugewinnen."
-      };
-
-      const questionEl = document.getElementById('finderQuestion');
-      const resultEl = document.getElementById('finderResult');
-      const progressEl = document.getElementById('finderProgress');
-      const stepLabel = document.getElementById('finderStepLabel');
-      const progressFill = document.getElementById('finderProgressFill');
-      const restart = document.getElementById('finderRestart');
-      const matchesEl = document.getElementById('finderMatches');
-      const resultLead = document.getElementById('finderResultLead');
-      let step = 0;
-      let history = [];
-      let scores = {};
-
-      function addScores(obj) {
-        Object.entries(obj || {}).forEach(([key, val]) => scores[key] = (scores[key] || 0) + val);
-      }
-
-      function rebuildScores() {
-        scores = {};
-        history.forEach(item => addScores(item.scores));
-      }
-
-      function renderQuestion() {
-        const q = questions[step];
-        resultEl.classList.remove('active');
-        questionEl.style.display = '';
-        progressEl.style.display = 'flex';
-        stepLabel.textContent = `Frage ${step + 1} von ${questions.length}`;
-        progressFill.style.width = `${((step) / questions.length) * 100}%`;
-        questionEl.innerHTML = `
-          <h3>${q.title}</h3>
-          <p>${q.hint}</p>
-          <div class="finder-options">
-            ${q.options.map((o,i)=>`<button type="button" class="finder-option" data-index="${i}"><strong>${o.title}</strong><span>${o.sub}</span></button>`).join('')}
-          </div>
-          <div class="finder-actions"><button type="button" class="finder-back" ${step===0?'hidden':''}>← Zurück</button></div>`;
-        questionEl.querySelectorAll('.finder-option').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const opt = q.options[Number(btn.dataset.index)];
-            history = history.slice(0, step);
-            history.push(opt);
-            rebuildScores();
-            step++;
-            if (step >= questions.length) renderResult(); else renderQuestion();
-          });
-        });
-        const back = questionEl.querySelector('.finder-back');
-        if (back) back.addEventListener('click', () => {
-          if (step > 0) {
-            step--;
-            history = history.slice(0, step);
-            rebuildScores();
-            renderQuestion();
-          }
-        });
-      }
-
-      function renderResult() {
-        questionEl.style.display = 'none';
-        resultEl.classList.add('active');
-        progressEl.style.display = 'none';
-
-        const signatures = ['achtsamkeit','energie','balance','entspannung','regeneration']
-          .sort((a,b)=>(scores[b]||0)-(scores[a]||0));
-        const topSignature = signatures[0];
-        resultLead.textContent = signatureCopy[topSignature];
-
-        let people = Object.keys(personalities)
-          .map(key => ({ key, score: scores[key] || 0, ...personalities[key] }))
-          .sort((a,b)=>b.score-a.score);
-
-        // If a personality got no direct score, gently connect it to its signature.
-        const sigKey = { sissi:'balance', nang:'entspannung', weza:'regeneration' };
-        people = people.map(p => ({...p, score: p.score + (scores[sigKey[p.key]] || 0) * .55})).sort((a,b)=>b.score-a.score);
-        const max = Math.max(...people.map(p=>p.score), 1);
-
-        matchesEl.innerHTML = people.slice(0,2).map((p,i) => {
-          const pct = Math.max(68, Math.min(96, Math.round(72 + (p.score/max)*24 - i*5)));
-          return `<article class="match-card ${i===0?'primary':''}">
-            <div class="match-score">${i===0?'Bester Match':'Auch passend'} · ${pct}%</div>
-            <h4>${p.name}</h4>
-            <div class="match-signature">Signature · ${p.signature}</div>
-            <p>${p.copy}</p>
-            <div class="match-treatment"><strong>Empfehlung:</strong><br>${p.treatment}</div>
-          </article>`;
-        }).join('');
-      }
-
-      restart.addEventListener('click', () => { step = 0; history = []; scores = {}; renderQuestion(); });
-      renderQuestion();
-    })();
-  </script>
-
 </body>
 </html>

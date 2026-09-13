@@ -88,3 +88,13 @@ aber dennoch öffentlich abrufbar.
 
 Für reine interne Tests ist deshalb ein separater Preview-Branch oder ein separates
 Cloudflare-Pages-Projekt sicherer.
+
+## Update 13.09.2026 – Hinano Hands Finder
+
+- Interaktiver Hands Finder als Konzeptdemo direkt in `index.html` integriert.
+- Einstieg über gewünschtes Gefühl statt Massageart.
+- Fünf Signature-Welten: Achtsamkeit, Energie, Balance, Entspannung, Regeneration.
+- Aktuelle Konzeptprofile integriert: Sissi (Balance), Nang (Entspannung), Weza (Regeneration).
+- Vier kurze Fragen erzeugen ein gewichtetes Matching und zeigen zwei passende Persönlichkeiten.
+- Noch keine KI und keine externe Abhängigkeit: Matching läuft vollständig im Browser.
+- Treatments, Prozentwerte und Profile sind ausdrücklich Demo-/Konzeptstand und müssen vor Livegang finalisiert werden.
