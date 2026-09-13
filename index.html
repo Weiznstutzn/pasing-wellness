@@ -768,6 +768,23 @@
       .footer-inner { padding: 28px 0; flex-direction: column; align-items: flex-start; }
       .footer-note { text-align: left; }
     }
+
+    .hands-finder-visual {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 46px;
+    }
+    .hands-finder-visual img {
+      display: block;
+      width: min(100%, 520px);
+      height: auto;
+      border-radius: 2px;
+      box-shadow: 0 18px 55px rgba(69, 48, 31, .10);
+    }
+    @media (max-width: 700px) {
+      .hands-finder-visual { margin-bottom: 30px; }
+      .hands-finder-visual img { width: min(100%, 430px); }
+    }
   </style>
 </head>
 
@@ -959,6 +976,9 @@
 
     <section class="hands-finder" id="hands-finder">
       <div class="container">
+        <div class="hands-finder-visual">
+          <img src="hinano-signatures.png" alt="Hinano Signatures – Achtsamkeit, Energie, Balance, Entspannung und Regeneration">
+        </div>
         <div class="section-head center">
           <div class="section-label">Hinano Hands Finder · Prototyp</div>
           <h2>Wie möchten Sie sich heute fühlen?</h2>
