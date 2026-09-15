@@ -31,33 +31,41 @@ header{height:88px;background:rgba(247,239,228,.96);display:flex;align-items:cen
 .nav-logo img{display:block}
 .menu{display:none}
 
-/* hero – V8: design only, functions untouched */
-.hero{min-height:760px;position:relative;overflow:hidden;background:#f5ecdf}
-.hero-bg{position:absolute;inset:0 0 0 43%;background:url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1800&q=88") 58% center/cover no-repeat;filter:saturate(.38) sepia(.22) brightness(1.08)}
-.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#f5ecdf 0%,rgba(245,236,223,.72) 10%,rgba(245,236,223,.08) 38%,rgba(245,236,223,.12) 100%)}
-.hero-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(255,250,243,.08),rgba(221,197,168,.12))}
-.hero-content{position:relative;z-index:2;min-height:760px;display:flex;align-items:center;padding:58px 0}
-.hero-poster{width:min(470px,40vw);text-align:left;color:var(--brown);padding:0;background:transparent;box-shadow:none;backdrop-filter:none}
-.hero-poster .top-words{font-size:10px;line-height:2;letter-spacing:.34em;text-transform:uppercase;margin:0 0 24px}
-.hero-clean-logo{display:none}
-.hero-reference-logo{width:min(410px,100%);height:auto;display:block;margin:0 0 26px;mix-blend-mode:multiply}
-.hero-tagline{display:none}
-.hero-poster .rule{margin:0 0 22px}
-.hero-title{font-family:var(--serif);font-size:clamp(42px,4vw,64px);font-weight:400;line-height:1.02;letter-spacing:0;text-transform:none;margin:0 0 10px}
-.hero-subtitle{font-family:var(--serif);font-size:20px;letter-spacing:.02em;text-transform:none;line-height:1.5;margin:0 0 28px;max-width:390px}
-.hero-actions{display:flex;gap:12px;justify-content:flex-start;flex-wrap:wrap}
-.hero-actions .btn{background:rgba(247,239,228,.72)}
-.hero-actions .btn.fill{background:var(--brown)}
-.hero-icons{display:grid;grid-template-columns:repeat(4,1fr);margin-top:30px;padding-top:20px;border-top:1px solid rgba(59,36,23,.28)}
-.hero-icon{font-size:8px;letter-spacing:.13em;text-transform:uppercase;padding:0 8px;text-align:center;border-right:1px solid rgba(59,36,23,.22)}
-.hero-icon:first-child{padding-left:0}.hero-icon:last-child{border-right:0;padding-right:0}
-.hero-icon b{display:block;font-family:var(--serif);font-size:23px;font-weight:400;line-height:1;margin-bottom:8px}
+/* hero */
+.hero{min-height:760px;position:relative;overflow:hidden;background:#e9d8bd}
+.hero-bg{position:absolute;inset:0;background:
+ linear-gradient(180deg,rgba(66,39,22,.12),rgba(246,226,190,.18) 48%,rgba(246,226,190,.42) 100%),
+ url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2200&q=90") center 48%/cover no-repeat;
+ filter:saturate(.62) sepia(.18) contrast(.92) brightness(.98)}
+.hero-bg:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 52% 44%,transparent 0 38%,rgba(72,42,24,.10) 100%)}
+.hero-content{position:relative;z-index:2;min-height:760px;display:flex;align-items:stretch;justify-content:center;padding:0}
+.hero-editorial{position:relative;width:100%;min-height:760px;color:#fff}
+.hero-words{position:absolute;top:62px;left:42px;font-size:12px;line-height:1.75;letter-spacing:.32em;text-transform:uppercase;text-shadow:0 1px 10px rgba(35,22,14,.25)}
+.hero-words:after{content:"";display:block;width:46px;height:1px;background:#fff;margin-top:14px}
+.hero-lockup{position:absolute;left:50%;bottom:52px;transform:translateX(-50%);width:min(680px,70vw);text-align:center;color:#3b2417;padding:28px 34px 22px;background:linear-gradient(180deg,rgba(248,235,210,.08),rgba(248,235,210,.86) 28%,rgba(248,235,210,.94));}
+.hero-clean-logo{width:min(285px,52vw);height:auto;margin:0 auto 8px}
+.hero-tagline{font-size:10px;letter-spacing:.34em;text-transform:uppercase;margin:3px 0 13px}
+.hero-lockup .rule{margin:10px auto 18px;width:42px}
+.hero-title{font-family:var(--sans);font-size:clamp(34px,4vw,58px);font-weight:400;line-height:1;letter-spacing:.23em;text-transform:uppercase;margin:0 0 10px}
+.hero-subtitle{font-size:12px;letter-spacing:.31em;text-transform:uppercase;line-height:1.6;margin:0 auto 18px}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero-actions .btn{min-height:43px;background:rgba(247,239,228,.55)}
+.hero-actions .btn.fill{background:var(--brown);color:#fff}
 @media(max-width:850px){
- .hero,.hero-content{min-height:auto}.hero{padding-bottom:0}.hero-bg{position:relative;inset:auto;height:46vh;min-height:360px;background-position:62% center}.hero-bg:after{background:linear-gradient(180deg,rgba(245,236,223,.02),#f5ecdf 100%)}
- .hero-wash{display:none}.hero-content{padding:42px 0 54px;display:block}.hero-poster{width:100%;max-width:520px}.hero-reference-logo{width:min(390px,90%)}
- .hero-actions{flex-direction:column;align-items:stretch}.hero-actions .btn{width:100%}
+ .hero,.hero-content,.hero-editorial{min-height:700px}
+ .hero-bg{background-position:58% center}
+ .hero-words{top:34px;left:22px;font-size:9px}
+ .hero-lockup{bottom:24px;width:calc(100% - 28px);padding:24px 18px 20px}
+ .hero-clean-logo{width:min(245px,68vw)}
+ .hero-title{font-size:30px;letter-spacing:.16em}
+ .hero-subtitle{font-size:9px;letter-spacing:.22em}
+ .hero-actions{flex-direction:column}.hero-actions .btn{width:100%}
 }
-@media(max-width:520px){.hero-title{font-size:42px}.hero-subtitle{font-size:18px}.hero-icons{grid-template-columns:1fr 1fr;gap:18px 0}.hero-icon:nth-child(2){border-right:0}.hero-reference-logo{width:100%}}
+@media(max-width:520px){
+ .hero,.hero-content,.hero-editorial{min-height:660px}
+ .hero-words{line-height:1.55}
+ .hero-title{font-size:25px}
+}
 
 /* intro */
 .intro{padding:95px 0 75px}
@@ -135,7 +143,7 @@ footer{padding:65px 0 35px;background:#f3e8d8}
 <header>
  <div class="wrap nav">
   <nav class="nav-side"><a href="#experience">Experience</a><a href="#signatures">Signatures</a><a href="#people">People</a></nav>
-  <a class="nav-logo" href="#top"><img src="assets/hinano-logo-reference.jpg" alt="Hinano"></a>
+  <a class="nav-logo" href="#top"><img src="assets/hinano-logo-clean.png" alt="Hinano"></a>
   <nav class="nav-side right"><a href="#finder">Hands Finder</a><a href="#booking">Auf Treatwell buchen</a></nav>
   <div class="menu">☰</div>
  </div>
@@ -144,19 +152,19 @@ footer{padding:65px 0 35px;background:#f3e8d8}
 <main id="top">
 <section class="hero">
  <div class="hero-bg"></div>
- <div class="hero-wash"></div>
  <div class="wrap hero-content">
-  <div class="hero-poster">
-   <div class="top-words">Massage · Entspannung · Regeneration · Balance · Energie</div>
-   <img class="hero-reference-logo" src="assets/hinano-logo-reference.jpg" alt="Hinano – Zeit, dass ich mich spüre.">
-   <h1 class="hero-title">Ein Ort <em>für Sie.</em></h1>
-   <p class="hero-subtitle">Individuelle Massagen. Echte Menschen. Ein geschützter Raum, in dem Sie loslassen und sich wieder spüren können.</p>
-   <div class="hero-actions">
-    <a class="btn fill" href="#treatments">Treatments entdecken</a>
-    <a class="btn" href="#booking">Auf Treatwell buchen</a>
-   </div>
-   <div class="hero-icons">
-    <div class="hero-icon"><b>❀</b>Entspannung</div><div class="hero-icon"><b>⌁</b>Regeneration</div><div class="hero-icon"><b>◉</b>Balance</div><div class="hero-icon"><b>☼</b>Energie</div>
+  <div class="hero-editorial">
+   <div class="hero-words">Massage<br>Entspannung<br>Regeneration<br>Balance<br>Energie</div>
+   <div class="hero-lockup">
+    <img class="hero-clean-logo" src="assets/hinano-logo-clean.png" alt="Hinano">
+    <div class="hero-tagline">Zeit, dass ich mich spüre.</div>
+    <div class="rule"></div>
+    <h1 class="hero-title">Massagen, die mehr sind</h1>
+    <p class="hero-subtitle">als eine Auszeit.</p>
+    <div class="hero-actions">
+     <a class="btn fill" href="#treatments">Treatments entdecken</a>
+     <a class="btn" href="#booking">Auf Treatwell buchen</a>
+    </div>
    </div>
   </div>
  </div>
@@ -238,7 +246,7 @@ footer{padding:65px 0 35px;background:#f3e8d8}
 <footer id="people">
  <div class="wrap">
   <div class="footer-grid">
-   <div class="footer-logo"><img src="assets/hinano-logo-reference.jpg" alt="Hinano"></div>
+   <div class="footer-logo"><img src="assets/hinano-logo-clean.png" alt="Hinano"></div>
    <div class="address">⌖ &nbsp; Zweibrückenstraße 8<br>&nbsp;&nbsp;&nbsp;&nbsp;80331 München<br>&nbsp;&nbsp;&nbsp;&nbsp;Im Hinterhof</div>
    <div class="legal">Kontakt<br>Datenschutz<br>Impressum</div>
   </div>
