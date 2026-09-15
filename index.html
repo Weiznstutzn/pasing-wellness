@@ -1,637 +1,246 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Hinano Massagen München – Premium-Prototyp für die neue Hinano Website.">
-  <meta name="theme-color" content="#201c19">
-  <title>Hinano Massagen München | Editorial Premium Prototype V2</title>
-  <style>
-    :root{
-      --ink:#2d2119;
-      --ink-2:#4a382d;
-      --cream:#f2e7d7;
-      --paper:#f8f0e5;
-      --sand:#d9c2a7;
-      --taupe:#a88970;
-      --brass:#9b7752;
-      --line:rgba(33,29,26,.15);
-      --white:#fff;
-      --shadow:0 28px 90px rgba(28,20,16,.12);
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
-    body.menu-open{overflow:hidden}
-    a{color:inherit;text-decoration:none}
-    button,input{font:inherit}
-    img{display:block;max-width:100%}
-    .container{width:min(1180px,calc(100% - 44px));margin:auto}
-    .eyebrow{font-size:10px;letter-spacing:.34em;text-transform:uppercase;font-weight:500}
-    .display{font-family:var(--serif);font-weight:400;letter-spacing:-.03em;line-height:.98}
-    .section{padding:120px 0}
-    .section-dark{background:var(--ink);color:#f8f3ec}
-    .section-title{font-family:var(--serif);font-size:clamp(42px,6vw,78px);line-height:1.02;font-weight:400;letter-spacing:-.035em;margin:16px 0 24px}
-    .lead{font-size:clamp(18px,2.1vw,24px);line-height:1.5;color:#61544b}
-    .section-dark .lead{color:#cabeb2}
-    .button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 24px;border:1px solid var(--ink);text-transform:uppercase;letter-spacing:.13em;font-size:11px;font-weight:700;transition:.3s ease;background:transparent;cursor:pointer}
-    .button:hover{background:var(--ink);color:var(--paper)}
-    .button.light{border-color:rgba(255,255,255,.5);color:#fff}
-    .button.light:hover{background:#fff;color:var(--ink)}
-    .button.solid{background:var(--ink);color:#fff}
-    .button.solid:hover{background:#463b34;border-color:#463b34}
-    .link-arrow{display:inline-flex;gap:10px;align-items:center;text-transform:uppercase;letter-spacing:.13em;font-size:11px;font-weight:700}
-    .link-arrow:after{content:"→";font-size:16px;transition:transform .25s}
-    .link-arrow:hover:after{transform:translateX(6px)}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5ecdf">
+<title>Hinano · Massage München Isartor</title>
+<style>
+:root{
+  --paper:#f7efe4; --paper2:#efe1cf; --brown:#3b2417; --brown2:#6b4934;
+  --line:#bca58f; --white:#fffaf3; --sans:Arial,Helvetica,sans-serif;
+  --serif:Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--brown);font-family:var(--sans);line-height:1.55}
+a{color:inherit;text-decoration:none} img{display:block;width:100%}
+.wrap{width:min(1180px,calc(100% - 44px));margin:auto}
+.kicker{text-transform:uppercase;letter-spacing:.34em;font-size:10px}
+.rule{width:46px;height:1px;background:var(--brown);margin:18px 0 28px}
+h1,h2,h3{font-family:var(--serif);font-weight:400}
+h2{font-size:clamp(48px,6vw,82px);line-height:.98;margin:0}
+em{font-weight:400}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border:1px solid var(--brown);font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.btn.fill{background:var(--brown);color:#fff}.btn:hover{opacity:.82}
 
+/* header */
+header{height:88px;background:rgba(247,239,228,.96);display:flex;align-items:center;position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(59,36,23,.08)}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
+.nav-side{display:flex;gap:34px;align-items:center;font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.nav-side.right{justify-content:flex-end}.nav-logo{width:90px}
+.nav-logo img{mix-blend-mode:multiply}
+.menu{display:none}
 
-    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.18;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E")}
-    .hero
-    .poster-words{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;font-size:9px;text-transform:uppercase;letter-spacing:.28em;color:#796657}
+/* hero */
+.hero{min-height:720px;position:relative;overflow:hidden;background:#ead8c3}
+.hero-bg{position:absolute;inset:0;background:
+ linear-gradient(90deg,rgba(247,239,228,.96) 0%,rgba(247,239,228,.82) 30%,rgba(247,239,228,.18) 58%,rgba(247,239,228,.04) 100%),
+ url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2200&q=88") 70% center/cover no-repeat}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent 0 50%,rgba(255,246,233,.12))}
+.hero-content{position:relative;z-index:2;padding:70px 0 64px;min-height:720px;display:flex;align-items:center}
+.hero-copy{width:min(540px,52%)}
+.hero-logo-card{width:420px;max-width:100%;margin-bottom:28px;background:var(--paper)}
+.hero-logo-card img{mix-blend-mode:multiply}
+.hero-text{font-family:var(--serif);font-size:20px;line-height:1.55;max-width:460px;margin:0 0 30px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-words{position:absolute;right:4%;bottom:60px;z-index:2;color:#fff;text-transform:uppercase;letter-spacing:.28em;font-size:10px;line-height:2.05}
 
+/* intro */
+.intro{padding:95px 0 75px}
+.intro-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:75px;align-items:center}
+.intro-copy{padding-left:28px}
+.intro-copy p{max-width:410px;font-family:var(--serif);font-size:18px}
+.room{min-height:500px;background:
+ linear-gradient(rgba(79,48,29,.05),rgba(79,48,29,.08)),
+ url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1500&q=88") center/cover}
+.room{position:relative}.room-words{position:absolute;right:32px;top:34px;color:#fff;text-transform:uppercase;letter-spacing:.28em;font-size:10px;line-height:1.9;text-align:right}
 
-    .brand-logo{height:66px;width:auto;display:block;transition:.3s ease}
-    .site-header:not(.scrolled) .brand-logo{filter:brightness(0) invert(1);opacity:.96}
-    .site-header.scrolled .brand-logo{height:58px;filter:none}
-    .hero-logo-wrap{margin-bottom:30px}
-    .hero-logo{width:min(390px,68vw);height:auto;display:block;filter:brightness(0) invert(1);opacity:.96}
-    .footer-logo{width:190px;height:auto;display:block;filter:brightness(0) invert(1);opacity:.9}
-    @media(max-width:640px){
-      .brand-logo{height:44px}
-      .site-header.scrolled .brand-logo{height:40px}
-      .hero-logo{width:min(330px,82vw)}
-      .hero-logo-wrap{margin-bottom:22px}
-    }
+/* signatures */
+.icons{padding:25px 0 80px}
+.icon-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.icon{padding:28px 12px;text-align:center;border-right:1px solid var(--line)}
+.icon:last-child{border-right:0}.icon svg{width:46px;height:46px;stroke:var(--brown);fill:none;stroke-width:1.4;margin-bottom:13px}
+.icon span{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase}
 
+/* treatments */
+.treatments{padding:40px 0 100px;position:relative}
+.center{text-align:center}.center .rule{margin:18px auto 24px}
+.treatments h2{font-size:46px}.sub{font-size:10px;letter-spacing:.3em;text-transform:uppercase}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin:48px 0 38px}
+.card-img{aspect-ratio:1.15/1;background-size:cover;background-position:center}
+.c1{background-image:url("https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=900&q=85")}
+.c2{background-image:url("https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=85")}
+.c3{background-image:url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=85")}
+.c4{background-image:url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=85")}
+.card h3{font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin:14px 0 7px}
+.mini-rule{width:30px;height:1px;background:var(--brown)}
 
-    /* V4 refined hero composition */
-    .hero-brand-lockup{margin:0 0 30px}
-    .hero-logo-clean{
-      width:min(355px,58vw);
-      height:auto;
-      display:block;
-      filter:brightness(0) invert(1);
-      opacity:.97;
-    }
-    .hero-location{margin-top:4px;margin-bottom:24px}
-    .hero-copy-refined{
-      max-width:540px;
-      font-family:var(--sans);
-      font-size:clamp(18px,1.65vw,22px);
-      line-height:1.55;
-      letter-spacing:.01em;
-      margin-bottom:34px;
-    }
-    #experience .section-title em{font-weight:400}
-    @media(max-width:640px){
-      .hero-logo-clean{width:min(300px,78vw)}
-      .hero-brand-lockup{margin-bottom:24px}
-      .hero-copy-refined{font-size:17px}
-    }
+/* finder */
+.finder{background:#eadbc8;padding:90px 0}
+.finder-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+.finder h2{font-size:56px}.finder-box{background:#f8f0e5;padding:42px}
+.finder-q{font-family:var(--serif);font-size:31px;margin:0 0 24px}.finder-step{display:none}.finder-step.active{display:block}.finder-progress{font-size:9px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;color:var(--brown2)}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice{background:transparent;border:1px solid var(--line);padding:17px;text-align:left;color:var(--brown);cursor:pointer}
+.choice:hover{background:#eadbc8}.choice strong{display:block;font-size:13px;margin-bottom:4px}.choice span{display:block;font-size:11px;opacity:.75}.finder-actions{display:flex;gap:12px;margin-top:25px;flex-wrap:wrap}.result-card{border-top:1px solid var(--line);padding-top:24px}.result-card h3{font-size:40px;margin:5px 0 12px}.result-tag{text-transform:uppercase;letter-spacing:.18em;font-size:9px}.result-alt{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);font-size:13px}.finder-note{font-size:11px;opacity:.7;margin-top:20px}
 
-    /* NAV */
-    .site-header{position:fixed;inset:0 0 auto 0;height:86px;z-index:50;color:#fff;transition:.35s}
-    .site-header.scrolled{background:rgba(251,248,243,.94);backdrop-filter:blur(14px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
-    .nav{height:86px;display:flex;align-items:center;justify-content:space-between}
-    .brand{font-family:var(--sans);font-size:24px;font-weight:400;letter-spacing:.32em}
-    .nav-links{display:flex;align-items:center;gap:34px;font-size:11px;text-transform:uppercase;letter-spacing:.15em}
-    .nav-book{border-bottom:1px solid currentColor;padding-bottom:4px}
-    .menu-toggle{display:none;background:none;border:0;color:inherit;width:44px;height:44px;padding:0}
-    .menu-toggle span{display:block;width:24px;height:1px;background:currentColor;margin:6px auto}
+/* quote + booking */
+.booking-split{display:grid;grid-template-columns:1fr 1fr}
+.quote{min-height:390px;display:flex;align-items:center;justify-content:center;text-align:center;padding:50px;background:
+ linear-gradient(rgba(247,239,228,.74),rgba(247,239,228,.74)),
+ url("https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1100&q=85") center/cover}
+.quote blockquote{font-family:var(--serif);font-size:38px;font-style:italic;max-width:440px}
+.book{background:#f8f0e5;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px}
+.book h2{font-size:42px}.book p{max-width:430px}
+.checks{display:flex;gap:25px;margin-top:22px;font-size:12px}
 
-    /* HERO */
-    .hero{min-height:100svh;position:relative;color:#fff;display:grid;align-items:end;overflow:hidden;background:
-      linear-gradient(90deg,rgba(26,18,14,.76) 0%,rgba(26,18,14,.42) 42%,rgba(26,18,14,.12) 74%),
-      linear-gradient(0deg,rgba(22,15,12,.42),rgba(22,15,12,.1)),
-      url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2200&q=88") center/cover no-repeat;
-    }
-    .hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 25%,rgba(255,226,189,.11),transparent 32%)}
-    .hero-inner{position:relative;z-index:2;padding:180px 0 90px;display:grid;grid-template-columns:minmax(0,780px) 1fr;gap:40px;align-items:end}
-    .hero h1{font-size:clamp(66px,10vw,142px);margin:18px 0 28px;max-width:800px}
-    .hero-copy{max-width:560px;font-size:clamp(18px,2vw,24px);color:rgba(255,255,255,.86);margin:0 0 38px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .hero-meta{justify-self:end;writing-mode:vertical-rl;transform:rotate(180deg);font-size:10px;text-transform:uppercase;letter-spacing:.22em;color:rgba(255,255,255,.72)}
-    .scroll-cue{position:absolute;right:28px;bottom:30px;z-index:3;font-size:10px;text-transform:uppercase;letter-spacing:.18em;display:flex;align-items:center;gap:12px}
-    .scroll-cue:before{content:"";width:50px;height:1px;background:rgba(255,255,255,.55)}
+/* footer */
+footer{padding:65px 0 35px;background:#f3e8d8}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;align-items:center}
+.footer-logo{width:250px}.footer-logo img{mix-blend-mode:multiply}
+.address{font-family:var(--serif)}.legal{font-size:9px;letter-spacing:.18em;text-transform:uppercase;line-height:2}
+.footer-bottom{margin-top:45px;padding-top:20px;border-top:1px solid var(--line);text-align:center;font-size:9px;letter-spacing:.28em;text-transform:uppercase}
 
-    /* EXPERIENCE */
-    .experience-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:90px;align-items:start}
-    .experience-copy{padding-top:60px}
-    .experience-copy p{max-width:610px}
-    .principles{margin-top:58px;border-top:1px solid var(--line)}
-    .principle{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
-    .principle span:first-child{font-family:var(--serif);font-size:28px;color:var(--brass)}
-    .principle strong{font-size:13px;text-transform:uppercase;letter-spacing:.13em}
-    .image-tall{min-height:760px;background:
-      linear-gradient(0deg,rgba(31,23,18,.16),rgba(31,23,18,0)),
-      url("https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1400&q=88") center/cover no-repeat;
-      box-shadow:var(--shadow)}
-    .image-caption{display:flex;justify-content:space-between;gap:20px;margin-top:14px;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#77685e}
-
-    /* SIGNATURES */
-    .signatures-head{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:70px}
-    .signature-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.22)}
-    .signature{min-height:390px;padding:34px 26px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid rgba(255,255,255,.18);transition:.35s}
-    .signature:last-child{border-right:0}
-    .signature:hover{background:rgba(255,255,255,.055);transform:translateY(-4px)}
-    .signature-index{font-family:var(--serif);font-size:28px;color:#bc9a6f}
-    .signature h3{font-family:var(--serif);font-weight:400;font-size:28px;margin:0 0 14px}
-    .signature p{font-size:13px;color:#bdb0a4;margin:0}
-    .signature-status{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#a89483;margin-top:28px}
-
-    /* TREATMENT / EDITORIAL */
-    .editorial{display:grid;grid-template-columns:1.1fr .9fr;min-height:760px}
-    .editorial-image{background:
-      linear-gradient(0deg,rgba(22,16,13,.22),rgba(22,16,13,.03)),
-      url("https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1500&q=88") center/cover no-repeat}
-    .editorial-copy{background:#e9dfd3;padding:clamp(54px,7vw,110px);display:flex;flex-direction:column;justify-content:center}
-    .editorial-copy blockquote{font-family:var(--serif);font-size:clamp(38px,5vw,70px);line-height:1.02;letter-spacing:-.03em;margin:20px 0 32px}
-    .editorial-copy p{max-width:560px;color:#67584e}
-
-    /* PEOPLE */
-    .people-head{display:flex;justify-content:space-between;align-items:end;gap:50px;margin-bottom:52px}
-    .people-head .section-title{margin-bottom:0}
-    .people-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .person{background:#efe8df;min-height:540px;padding:34px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
-    .person:before{content:"";position:absolute;inset:0;opacity:.55;background:
-      radial-gradient(circle at 30% 25%,rgba(255,255,255,.7),transparent 34%),
-      linear-gradient(155deg,#c8b5a3 0%,#ede4db 48%,#a48d79 100%)}
-    .person:nth-child(2):before{background:radial-gradient(circle at 65% 22%,rgba(255,255,255,.75),transparent 32%),linear-gradient(145deg,#d3c5b7,#a58e79)}
-    .person:nth-child(3):before{background:radial-gradient(circle at 35% 18%,rgba(255,255,255,.65),transparent 30%),linear-gradient(145deg,#b59f8d,#e8ddd1)}
-    .person-content{position:relative;z-index:2;background:rgba(251,248,243,.9);backdrop-filter:blur(8px);padding:26px}
-    .person h3{font-family:var(--serif);font-size:38px;font-weight:400;margin:0 0 5px}
-    .person-role{text-transform:uppercase;letter-spacing:.13em;font-size:10px;color:#7c695d;margin-bottom:16px}
-    .person p{font-size:13px;margin:0;color:#5f5148}
-
-    /* FINDER */
-    .finder{background:#e7ddd1}
-    .finder-shell{display:grid;grid-template-columns:.78fr 1.22fr;background:var(--paper);box-shadow:var(--shadow)}
-    .finder-aside{padding:62px;background:var(--ink);color:#fff}
-    .finder-aside .section-title{font-size:clamp(44px,5vw,70px)}
-    .finder-aside p{color:#c9bbb0}
-    .finder-main{padding:62px}
-    .finder-step{display:none}
-    .finder-step.active{display:block;animation:fade .4s ease}
-    @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-    .finder-progress{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:#8b7769;margin-bottom:18px}
-    .finder-q{font-family:var(--serif);font-size:clamp(34px,4.8vw,58px);line-height:1.08;margin:0 0 34px;font-weight:400}
-    .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .choice{border:1px solid var(--line);padding:22px;background:transparent;text-align:left;cursor:pointer;transition:.25s;min-height:92px}
-    .choice:hover,.choice.selected{background:#eee5da;border-color:#bca488}
-    .choice strong{display:block;font-family:var(--serif);font-size:23px;font-weight:400;margin-bottom:6px}
-    .choice span{font-size:12px;color:#6f6056}
-    .finder-actions{display:flex;justify-content:space-between;gap:12px;margin-top:28px}
-    .result-card{border-top:1px solid var(--line);padding-top:28px}
-    .result-tag{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8b704f;margin-bottom:10px}
-    .result-card h3{font-family:var(--serif);font-size:48px;font-weight:400;margin:0 0 10px}
-    .result-card p{color:#65574e}
-    .result-alt{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:#74645a}
-    .finder-note{font-size:11px;color:#88786d;margin-top:22px}
-
-    /* THAI */
-    .thai-grid{display:grid;grid-template-columns:1fr 1fr;gap:110px;align-items:center}
-    .thai-art{aspect-ratio:4/5;background:
-      linear-gradient(180deg,rgba(33,25,20,.05),rgba(33,25,20,.18)),
-      url("https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=1300&q=88") center/cover no-repeat}
-    .thai-copy .section-title{font-size:clamp(48px,6vw,82px)}
-    .thai-copy p{color:#65574e}
-    .thai-rule{width:70px;height:1px;background:var(--brass);margin:30px 0}
-
-    /* ATMOSPHERE */
-    .gallery{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
-    .gallery-big,.gallery-small{min-height:650px;background-position:center;background-size:cover}
-    .gallery-big{background-image:linear-gradient(0deg,rgba(20,15,12,.15),transparent),url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1700&q=88")}
-    .gallery-stack{display:grid;grid-template-rows:1fr 1fr;gap:18px}
-    .gallery-small{min-height:0}
-    .gallery-small.one{background-image:url("https://images.unsplash.com/photo-1596178060810-72f53ce9a65c?auto=format&fit=crop&w=1200&q=88")}
-    .gallery-small.two{background-image:url("https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=88")}
-
-    /* GIFT */
-    .gift{display:grid;grid-template-columns:1fr 1fr;background:#d8c6b2}
-    .gift-copy{padding:clamp(56px,8vw,120px)}
-    .gift-visual{min-height:620px;background:
-      linear-gradient(0deg,rgba(32,24,19,.12),rgba(32,24,19,.02)),
-      url("https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1400&q=88") center/cover no-repeat}
-
-    /* CONTACT */
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px}
-    .contact-meta{border-top:1px solid rgba(255,255,255,.2);margin-top:40px}
-    .contact-row{display:grid;grid-template-columns:140px 1fr;gap:25px;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.2)}
-    .contact-row span:first-child{text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:#a89688}
-    .contact-row span:last-child{color:#eee6df}
-    .booking-box{padding:48px;border:1px solid rgba(255,255,255,.22);align-self:start}
-    .booking-box h3{font-family:var(--serif);font-size:42px;font-weight:400;margin:0 0 16px}
-    .booking-box p{color:#bcaea4;margin-bottom:28px}
-    .soft-note{font-size:11px;color:#8f7f73;margin-top:20px}
-
-    footer{background:#161311;color:#b9ada4;padding:34px 0;font-size:11px}
-    .footer-inner{display:flex;justify-content:space-between;gap:25px;align-items:center}
-    .footer-brand{font-family:var(--serif);font-size:19px;letter-spacing:.15em;color:#fff}
-    .footer-links{display:flex;gap:24px}
-
-    @media (max-width: 960px){
-      .nav-links{display:none}
-      .menu-toggle{display:block}
-      .mobile-menu{display:none;position:fixed;inset:86px 0 0;background:var(--paper);color:var(--ink);padding:35px 22px;z-index:45}
-      .mobile-menu.open{display:flex;flex-direction:column;gap:6px}
-      .mobile-menu a{padding:18px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:32px}
-      .hero-inner{grid-template-columns:1fr}
-      .hero-meta{display:none}
-      .experience-grid,.thai-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
-      .experience-copy{padding-top:0}
-      .image-tall{min-height:620px}
-      .signatures-head{grid-template-columns:1fr;gap:12px}
-      .signature-grid{grid-template-columns:1fr 1fr}
-      .signature{min-height:260px;border-bottom:1px solid rgba(255,255,255,.18)}
-      .editorial{grid-template-columns:1fr}
-      .editorial-image{min-height:600px}
-      .people-grid{grid-template-columns:1fr 1fr}
-      .finder-shell{grid-template-columns:1fr}
-      .finder-aside,.finder-main{padding:44px}
-      .gallery{grid-template-columns:1fr}
-      .gallery-big{min-height:560px}
-      .gallery-stack{grid-template-columns:1fr 1fr;grid-template-rows:none}
-      .gallery-small{min-height:330px}
-      .gift{grid-template-columns:1fr}
-      .gift-visual{min-height:520px}
-    }
-    @media (max-width: 640px){
-      .container{width:min(100% - 28px,1180px)}
-      .section{padding:84px 0}
-      .site-header,.nav{height:72px}
-      .mobile-menu{inset:72px 0 0}
-      .brand{font-size:22px}
-      .hero{min-height:92svh;background-position:62% center}
-      .hero-inner{padding:135px 0 54px}
-      .hero h1{font-size:58px}
-      .hero-copy{font-size:17px}
-      .hero-actions{flex-direction:column;align-items:stretch}
-      .hero-actions .button{width:100%}
-      .scroll-cue{display:none}
-      .section-title{font-size:44px}
-      .lead{font-size:17px}
-      .image-tall{min-height:480px}
-      .signature-grid{grid-template-columns:1fr}
-      .signature{min-height:220px;border-right:0}
-      .editorial-image{min-height:430px}
-      .editorial-copy{padding:50px 24px}
-      .people-head{display:block}
-      .people-grid{grid-template-columns:1fr}
-      .person{min-height:480px}
-      .finder-aside,.finder-main{padding:36px 22px}
-      .choice-grid{grid-template-columns:1fr}
-      .finder-q{font-size:36px}
-      .thai-art{order:2}
-      .gallery-big{min-height:430px}
-      .gallery-stack{grid-template-columns:1fr}
-      .gallery-small{min-height:320px}
-      .gift-copy{padding:50px 24px}
-      .gift-visual{min-height:420px}
-      .contact-row{grid-template-columns:1fr;gap:5px}
-      .booking-box{padding:30px 24px}
-      .footer-inner{align-items:flex-start;flex-direction:column}
-      .footer-links{flex-wrap:wrap}
-    }
-    @media (prefers-reduced-motion:reduce){
-      *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
-    }
-  </style>
+/* mobile */
+@media(max-width:850px){
+ header{height:72px}.nav-side{display:none}.nav{grid-template-columns:1fr auto}.nav-logo{width:74px}.menu{display:block;justify-self:end;font-size:24px}
+ .hero,.hero-content{min-height:720px}.hero-bg{background:linear-gradient(180deg,rgba(247,239,228,.88),rgba(247,239,228,.35) 55%,rgba(59,36,23,.15)),url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=86") 62% center/cover}
+ .hero-content{align-items:flex-start;padding-top:55px}.hero-copy{width:100%}.hero-logo-card{width:330px;background:rgba(247,239,228,.76)}
+ .hero-words{display:none}.hero-text{font-size:17px}.hero-actions{flex-direction:column;align-items:stretch;width:min(360px,100%)}
+ .intro-grid,.finder-grid,.booking-split,.footer-grid{grid-template-columns:1fr}.intro-copy{padding:0}.room{min-height:380px}
+ .icon-row{grid-template-columns:1fr 1fr}.icon:nth-child(2){border-right:0}.icon:nth-child(-n+2){border-bottom:1px solid var(--line)}
+ .cards{grid-template-columns:1fr 1fr}.choices{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+ .wrap{width:min(100% - 28px,1180px)}.hero-logo-card{width:285px}
+ h2{font-size:50px}.intro{padding-top:70px}.cards{grid-template-columns:1fr}
+ .treatments{padding-bottom:70px}.finder{padding:70px 0}.finder-box{padding:28px 20px}
+ .checks{flex-direction:column;gap:5px}.footer-logo{width:210px}
+}
+</style>
 </head>
 <body>
-<!-- HINANO V3 – echtes bereitgestelltes Hinano-Logo integriert; Testversion für Pasing Wellness. Buchungsstrategie: Treatwell. -->
-
-<header class="site-header" id="header">
-  <div class="container nav">
-    <a class="brand" href="#top" aria-label="Hinano Startseite"><img class="brand-logo" src="assets/hinano-logo-header.png" alt="Hinano"></a>
-    <nav class="nav-links" aria-label="Hauptnavigation">
-      <a href="#experience">Experience</a>
-      <a href="#signatures">Signatures</a>
-      <a href="#people">People</a>
-      <a href="#finder">Hands Finder</a>
-      <a class="nav-book" href="#booking">Auf Treatwell buchen</a>
-    </nav>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span></button>
-  </div>
+<header>
+ <div class="wrap nav">
+  <nav class="nav-side"><a href="#experience">Experience</a><a href="#signatures">Signatures</a><a href="#people">People</a></nav>
+  <a class="nav-logo" href="#top"><img src="assets/hinano-logo-reference.jpg" alt="Hinano"></a>
+  <nav class="nav-side right"><a href="#finder">Hands Finder</a><a href="#booking">Auf Treatwell buchen</a></nav>
+  <div class="menu">☰</div>
+ </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#experience">Experience</a>
-  <a href="#signatures">Signatures</a>
-  <a href="#people">People</a>
-  <a href="#finder">Hands Finder</a>
-  <a href="#booking">Auf Treatwell buchen</a>
-</div>
-
 <main id="top">
-  <section class="hero">
-    <div class="container hero-inner">
-      <div>
-        <div class="hero-brand-lockup">
-          <img class="hero-logo-clean" src="assets/hinano-logo-transparent.png" alt="Hinano – Zeit, dass ich mich spüre.">
-        </div>
-        <div class="eyebrow hero-location">Massage · München Isartor</div>
-        <p class="hero-copy hero-copy-refined">Individuelle Massagen. Echte Menschen.<br>Ein Moment, der nur Ihnen gehört.</p>
-        <div class="hero-actions">
-          <a class="button light" href="#experience">Treatments entdecken</a>
-          <a class="button light" href="#booking">Auf Treatwell buchen</a>
-        </div>
-      </div>
-      <div class="hero-meta">Zweibrückenstraße 8 · 80331 München</div>
+<section class="hero">
+ <div class="hero-bg"></div>
+ <div class="wrap hero-content">
+  <div class="hero-copy">
+   <div class="hero-logo-card"><img src="assets/hinano-logo-reference.jpg" alt="Hinano – Zeit, dass ich mich spüre."></div>
+   <p class="hero-text">Individuelle Massagen. Echte Menschen.<br>Ein geschützter Raum, in dem Sie loslassen und neue Energie spüren können.</p>
+   <div class="hero-actions"><a class="btn fill" href="#treatments">Treatments entdecken</a><a class="btn" href="#booking">Auf Treatwell buchen</a></div>
+  </div>
+ </div>
+ <div class="hero-words">Massage<br>Entspannung<br>Regeneration<br>Balance<br>Energie</div>
+</section>
+
+<section class="intro" id="experience">
+ <div class="wrap intro-grid">
+  <div class="intro-copy"><div class="kicker">Hinano</div><div class="rule"></div><h2>Ein Ort<br><em>für Sie.</em></h2>
+   <p>Mehr als eine Massage.<br>Ein Moment nur für Sie.<br>Inmitten der Stadt und doch ganz bei sich.</p><div class="rule"></div>
+  </div>
+  <div class="room"><div class="room-words">Ankommen<br>Loslassen<br>Auftanken<br>Du sein</div></div>
+ </div>
+</section>
+
+<section class="icons" id="signatures">
+ <div class="wrap icon-row">
+  <div class="icon"><svg viewBox="0 0 64 64"><path d="M32 48c-15-4-21-15-20-27 9 1 16 5 20 12 4-7 11-11 20-12 1 12-5 23-20 27Z"/><path d="M32 33c-5-8-4-17 0-24 4 7 5 16 0 24Z"/></svg><span>Entspannung</span></div>
+  <div class="icon"><svg viewBox="0 0 64 64"><path d="M17 47c4-22 17-31 32-31-1 17-11 29-32 31Z"/><path d="M18 46c8-10 16-17 29-27"/></svg><span>Regeneration</span></div>
+  <div class="icon"><svg viewBox="0 0 64 64"><ellipse cx="32" cy="47" rx="19" ry="8"/><ellipse cx="32" cy="32" rx="14" ry="7"/><ellipse cx="32" cy="19" rx="9" ry="6"/></svg><span>Balance</span></div>
+  <div class="icon"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="10"/><path d="M32 4v12M32 48v12M4 32h12M48 32h12M12 12l9 9M43 43l9 9M52 12l-9 9M21 43l-9 9"/></svg><span>Energie</span></div>
+ </div>
+</section>
+
+<section class="treatments" id="treatments">
+ <div class="wrap">
+  <div class="center"><h2>Unsere Massagen</h2><div class="rule"></div><div class="sub">Individuell. Echt. Wirksam.</div></div>
+  <div class="cards">
+   <article class="card"><div class="card-img c1"></div><h3>Klassische Massage</h3><div class="mini-rule"></div></article>
+   <article class="card"><div class="card-img c2"></div><h3>Thai Massage</h3><div class="mini-rule"></div></article>
+   <article class="card"><div class="card-img c3"></div><h3>Ölmassage</h3><div class="mini-rule"></div></article>
+   <article class="card"><div class="card-img c4"></div><h3>Signatures</h3><div class="mini-rule"></div></article>
+  </div>
+  <div class="center"><a class="btn" href="#finder">Passende Behandlung finden</a></div>
+ </div>
+</section>
+
+<section class="finder" id="finder">
+ <div class="wrap finder-grid">
+  <div><div class="kicker">Hinano Hands Finder 🙌</div><div class="rule"></div><h2>Wie möchten Sie sich heute fühlen?</h2><p>Starten Sie bei Ihrem Bedürfnis – nicht bei einer komplizierten Massagebezeichnung.</p></div>
+  <div class="finder-box" id="finderBox">
+   <div class="finder-step active" data-step="1">
+    <div class="finder-progress">Frage 1 von 2</div>
+    <p class="finder-q">Was wünschen Sie sich heute am meisten?</p>
+    <div class="choices">
+     <button class="choice" data-need="relax"><strong>Loslassen</strong><span>Zur Ruhe kommen und entspannen.</span></button>
+     <button class="choice" data-need="balance"><strong>In Balance kommen</strong><span>Spannungen wahrnehmen und Bewegungsfreiheit fördern.</span></button>
+     <button class="choice" data-need="regen"><strong>Intensiv regenerieren</strong><span>Verspannungen gezielt und kräftig bearbeiten.</span></button>
+     <button class="choice" data-need="unsure"><strong>Ich bin noch unsicher</strong><span>Die passende Richtung gemeinsam finden.</span></button>
     </div>
-    <div class="scroll-cue">Discover</div>
-  </section>
-
-  <section class="section" id="experience">
-    <div class="container experience-grid">
-      <div class="experience-copy">
-        <div class="eyebrow">The Hinano Experience</div>
-        <h2 class="section-title">Ein Ort <em>für Sie.</em></h2>
-        <p class="lead">Hinano verbindet erfahrene Hände, individuelle Körperarbeit und die Ruhe einer modernen Boutique-Wellness-Marke.</p>
-        <p>Im Mittelpunkt steht nicht die Frage, welche Massage auf einer Liste steht. Sondern: Was brauchen Sie heute? Entspannung, Balance, neue Energie oder gezielte Regeneration.</p><div class="poster-words"><span>Massage</span><span>Entspannung</span><span>Regeneration</span><span>Balance</span><span>Energie</span></div>
-        <div class="principles">
-          <div class="principle"><span>01</span><div><strong>Zeit</strong><br><span>Raum zum Ankommen und Loslassen.</span></div></div>
-          <div class="principle"><span>02</span><div><strong>Berührung</strong><br><span>Erfahren, aufmerksam und passend zu Ihrem Bedürfnis.</span></div></div>
-          <div class="principle"><span>03</span><div><strong>Individualität</strong><br><span>Kein Körper ist gleich. Kein Moment ist gleich.</span></div></div>
-        </div>
-      </div>
-      <div>
-        <div class="image-tall" role="img" aria-label="Ruhige Wellness-Atmosphäre"></div>
-        <div class="image-caption"><span>Me time · Munich</span><span>Hinano 2.0</span></div>
-      </div>
+   </div>
+   <div class="finder-step" data-step="2">
+    <div class="finder-progress">Frage 2 von 2</div>
+    <p class="finder-q">Wie intensiv darf die Behandlung sein?</p>
+    <div class="choices">
+     <button class="choice" data-pressure="gentle"><strong>Eher ruhig</strong><span>Wohltuend und entspannend.</span></button>
+     <button class="choice" data-pressure="medium"><strong>Ausgewogen</strong><span>Gezielt, aber nicht maximal intensiv.</span></button>
+     <button class="choice" data-pressure="strong"><strong>Kräftig</strong><span>Intensive, präzise Körperarbeit.</span></button>
+     <button class="choice" data-pressure="open"><strong>Offen</strong><span>Ich lasse mich beraten.</span></button>
     </div>
-  </section>
+    <div class="finder-actions"><button class="btn" id="finderBack">Zurück</button></div>
+   </div>
+   <div class="finder-step" data-step="3">
+    <div class="finder-progress">Ihre Empfehlung</div>
+    <p class="finder-q">Das könnte heute gut zu Ihnen passen.</p>
+    <div id="finderResult"></div>
+    <div class="finder-actions"><button class="btn" id="finderRestart">Neu starten</button><a class="btn fill" href="#booking">Zu Treatwell</a></div>
+    <p class="finder-note">Prototyp: Die finale Logik wird später mit den vollständigen Treatments, Personen und echten Buchungsdaten verknüpft.</p>
+   </div>
+  </div>
+ </div>
+</section>
 
-  <section class="section section-dark" id="signatures">
-    <div class="container">
-      <div class="signatures-head">
-        <div>
-          <div class="eyebrow">Hinano Signatures</div>
-          <h2 class="section-title">Wie möchten Sie sich heute fühlen?</h2>
-        </div>
-        <p class="lead">Fünf emotionale Welten geben Orientierung – nicht als starre Massagekategorien, sondern als Ausgangspunkt für Ihre Behandlung.</p>
-      </div>
-      <div class="signature-grid">
-        <article class="signature"><div class="signature-index">01</div><div><h3>Achtsamkeit</h3><p>Bewusst ankommen. Wahrnehmen. Einen Moment ganz bei sich sein.</p><div class="signature-status">Persönlichkeit folgt</div></div></article>
-        <article class="signature"><div class="signature-index">02</div><div><h3>Energie</h3><p>Neue Dynamik spüren und sich wieder wacher, leichter und präsenter fühlen.</p><div class="signature-status">Persönlichkeit folgt</div></div></article>
-        <article class="signature"><div class="signature-index">03</div><div><h3>Balance</h3><p>Spannungen wahrnehmen, Bewegungsfreiheit fördern und wieder in die eigene Mitte finden.</p><div class="signature-status">Sissi · Balance</div></div></article>
-        <article class="signature"><div class="signature-index">04</div><div><h3>Entspannung</h3><p>Druck loslassen, zur Ruhe kommen und die Aufmerksamkeit zurück zum eigenen Körper bringen.</p><div class="signature-status">Nang · Thai Massage</div></div></article>
-        <article class="signature"><div class="signature-index">05</div><div><h3>Regeneration</h3><p>Intensive, gezielte Körperarbeit für beanspruchte Bereiche und neue Beweglichkeit.</p><div class="signature-status">Weza · intensive Körperarbeit</div></div></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="editorial">
-    <div class="editorial-image" role="img" aria-label="Individuelle Massagebehandlung"></div>
-    <div class="editorial-copy">
-      <div class="eyebrow">Individual Treatment</div>
-      <blockquote>Ihr Körper. Ihr Moment. Ihre Behandlung.</blockquote>
-      <p>Bei Hinano soll nicht jeder Gast dieselbe Standardroutine bekommen. Erfahrung, Körperwahrnehmung und Ihr persönliches Bedürfnis bestimmen, worauf der Fokus gelegt wird.</p>
-      <a class="link-arrow" href="#finder">Hands Finder ausprobieren</a>
-    </div>
-  </section>
-
-  <section class="section" id="people">
-    <div class="container">
-      <div class="people-head">
-        <div>
-          <div class="eyebrow">Hinano People</div>
-          <h2 class="section-title">Die Hände hinter Hinano.</h2>
-        </div>
-        <p style="max-width:470px;color:#6c5e54">Persönlichkeiten statt austauschbarer Mitarbeiterkarten. Jede Person bringt eine eigene Stärke, Erfahrung und Art der Berührung mit.</p>
-      </div>
-      <div class="people-grid">
-        <article class="person">
-          <div class="person-content">
-            <h3>Sissi</h3>
-            <div class="person-role">Spezialistin für Balance</div>
-            <p>Langjährige Erfahrung, präzise Körperwahrnehmung und gezielte Körperarbeit für Bewegungsfreiheit und ein ausgeglichenes Körpergefühl.</p>
-          </div>
-        </article>
-        <article class="person">
-          <div class="person-content">
-            <h3>Nang</h3>
-            <div class="person-role">Spezialistin für Thai Massage</div>
-            <p>Traditionelle thailändische Massage, gezielter Druck und erfahrene Hände – kraftvoll, präzise und zugleich wohltuend.</p>
-          </div>
-        </article>
-        <article class="person">
-          <div class="person-content">
-            <h3>Weza</h3>
-            <div class="person-role">Spezialist für intensive Körperarbeit</div>
-            <p>Kraft, Präzision und ausgeprägtes Körpergefühl für intensive, gezielte Arbeit an Verspannungen und Beweglichkeit.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section finder" id="finder">
-    <div class="container">
-      <div class="finder-shell">
-        <aside class="finder-aside">
-          <div class="eyebrow">Hinano Hands Finder 🙌</div>
-          <h2 class="section-title">Finden Sie die Hände, die heute zu Ihnen passen.</h2>
-          <p>Wenige Fragen führen von Ihrem Bedürfnis zur passenden Hinano Signature und zu den aktuell definierten Hinano Persönlichkeiten.</p>
-        </aside>
-        <div class="finder-main">
-          <div class="finder-step active" data-step="1">
-            <div class="finder-progress">Frage 1 von 2</div>
-            <h3 class="finder-q">Was wünschen Sie sich heute am meisten?</h3>
-            <div class="choice-grid">
-              <button class="choice" data-need="relax"><strong>Loslassen</strong><span>Zur Ruhe kommen und entspannen.</span></button>
-              <button class="choice" data-need="balance"><strong>In Balance kommen</strong><span>Spannungen wahrnehmen und Bewegungsfreiheit fördern.</span></button>
-              <button class="choice" data-need="regen"><strong>Intensiv regenerieren</strong><span>Verspannungen gezielt und kräftig bearbeiten.</span></button>
-              <button class="choice" data-need="unsure"><strong>Ich bin noch unsicher</strong><span>Die passende Richtung gemeinsam finden.</span></button>
-            </div>
-          </div>
-
-          <div class="finder-step" data-step="2">
-            <div class="finder-progress">Frage 2 von 2</div>
-            <h3 class="finder-q">Wie intensiv darf die Behandlung sein?</h3>
-            <div class="choice-grid">
-              <button class="choice" data-pressure="gentle"><strong>Eher ruhig</strong><span>Wohltuend und entspannend.</span></button>
-              <button class="choice" data-pressure="medium"><strong>Ausgewogen</strong><span>Gezielt, aber nicht maximal intensiv.</span></button>
-              <button class="choice" data-pressure="strong"><strong>Kräftig</strong><span>Intensive, präzise Körperarbeit.</span></button>
-              <button class="choice" data-pressure="open"><strong>Offen</strong><span>Ich lasse mich beraten.</span></button>
-            </div>
-            <div class="finder-actions"><button class="button" id="finderBack">Zurück</button></div>
-          </div>
-
-          <div class="finder-step" data-step="3">
-            <div class="finder-progress">Ihre Empfehlung</div>
-            <h3 class="finder-q">Das könnte heute gut zu Ihnen passen.</h3>
-            <div id="finderResult"></div>
-            <div class="finder-actions">
-              <button class="button" id="finderRestart">Neu starten</button>
-              <a class="button solid" href="#booking">Zu Treatwell</a>
-            </div>
-            <p class="finder-note">Prototyp: Die finale Logik wird später mit den vollständigen Treatments, Personen und echten Buchungsdaten verknüpft.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="thai">
-    <div class="container thai-grid">
-      <div class="thai-art" role="img" aria-label="Hochwertige Thai-Wellness-Atmosphäre"></div>
-      <div class="thai-copy">
-        <div class="eyebrow">The Art of Thai Massage</div>
-        <h2 class="section-title">Tradition, die nicht stehen geblieben ist.</h2>
-        <div class="thai-rule"></div>
-        <p class="lead">Thai-Kompetenz gehört zur Identität von Hinano – ruhig, authentisch und ohne Folklore.</p>
-        <p>Traditionelles Wissen, gezielter Druck und erfahrene Hände treffen auf eine moderne, urbane Interpretation von Wellness und individueller Körperarbeit.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background:#eee6dc">
-    <div class="container">
-      <div style="max-width:760px;margin-bottom:50px">
-        <div class="eyebrow">Atmosphäre</div>
-        <h2 class="section-title">Ruhe beginnt, bevor die Behandlung beginnt.</h2>
-        <p class="lead">Das Layout ist bewusst für großformatige Originalfotografie vorbereitet. Die jetzigen Motive dienen nur dem Premium-Prototyp.</p>
-      </div>
-      <div class="gallery">
-        <div class="gallery-big" role="img" aria-label="Wellnessraum"></div>
-        <div class="gallery-stack">
-          <div class="gallery-small one" role="img" aria-label="Wellnessdetail"></div>
-          <div class="gallery-small two" role="img" aria-label="Massage- und Pflegedetail"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="gift" id="gift">
-    <div class="gift-copy">
-      <div class="eyebrow">Hinano Gift</div>
-      <h2 class="section-title">Zeit verschenken.</h2>
-      <p class="lead">Ein Hinano Gutschein soll sich nicht wie ein Coupon anfühlen, sondern wie die Einladung zu einem persönlichen Moment.</p>
-      <p>Schenken Sie keinen Gegenstand, sondern Zeit zum Ankommen, Loslassen und Auftanken. Die technische Gutscheinlösung wird vor dem Produktivstart sauber angebunden.</p>
-      <span class="link-arrow" aria-disabled="true">Gutscheine in Vorbereitung</span>
-    </div>
-    <div class="gift-visual" role="img" aria-label="Hochwertige Geschenk-Atmosphäre"></div>
-  </section>
-
-  <section class="section section-dark" id="booking">
-    <div class="container contact-grid">
-      <div>
-        <div class="eyebrow">Visit Hinano</div>
-        <h2 class="section-title">Ihr Moment in München.</h2>
-        <p class="lead">Zentral nahe Isartor – ein Ort für Ruhe, Berührung und persönliche Behandlung.</p>
-        <div class="contact-meta">
-          <div class="contact-row"><span>Adresse</span><span>Zweibrückenstraße 8<br>80331 München</span></div>
-          <div class="contact-row"><span>Öffnungszeiten</span><span>werden mit den finalen Hinano-Daten ergänzt</span></div>
-          <div class="contact-row"><span>Kontakt</span><span>Telefon und E-Mail werden mit den übernommenen Daten ergänzt</span></div>
-        </div>
-      </div>
-      <div class="booking-box">
-        <div class="eyebrow">Booking · Treatwell</div>
-        <h3>Ihren Hinano-Moment buchen.</h3>
-        <p>Alle Hinano-Termine sollen künftig über Treatwell laufen. Sobald der finale Hinano-Treatwell-Link vorliegt, führt jeder Buchungs-CTA der Website direkt dorthin.</p>
-        <button class="button light" type="button" disabled style="opacity:.58;cursor:not-allowed">Treatwell-Link folgt</button>
-        <div class="soft-note">Demo: Noch kein erfundener Buchungslink. Der echte Hinano-Treatwell-Link wird nach Übernahme der Daten eingesetzt.</div>
-      </div>
-    </div>
-  </section>
+<section class="booking-split" id="booking">
+ <div class="quote"><blockquote>„<br>Zeit für das,<br>was wirklich zählt.<br><span style="font-size:12px;font-family:Arial;letter-spacing:.25em;font-style:normal">— HINANO —</span><br>“</blockquote></div>
+ <div class="book"><h2>Einfach online buchen</h2><div class="rule"></div><p>Ihre Termine buchen Sie bequem über unseren Partner Treatwell.</p><a class="btn fill" href="#" aria-label="Treatwell-Link wird ergänzt">Jetzt auf Treatwell buchen</a><div class="checks"><span>✓ Schnell</span><span>✓ Einfach</span><span>✓ Sicher</span></div></div>
+</section>
 </main>
 
-<footer>
-  <div class="container footer-inner">
-    <div><img class="footer-logo" src="assets/hinano-logo-transparent.png" alt="Hinano"></div>
-    <div>Zweibrückenstraße 8 · 80331 München</div>
-    <div class="footer-links"><span>Impressum · vor Go-Live</span><span>Datenschutz · vor Go-Live</span></div>
+<footer id="people">
+ <div class="wrap">
+  <div class="footer-grid">
+   <div class="footer-logo"><img src="assets/hinano-logo-reference.jpg" alt="Hinano"></div>
+   <div class="address">⌖ &nbsp; Zweibrückenstraße 8<br>&nbsp;&nbsp;&nbsp;&nbsp;80331 München<br>&nbsp;&nbsp;&nbsp;&nbsp;Im Hinterhof</div>
+   <div class="legal">Kontakt<br>Datenschutz<br>Impressum</div>
   </div>
+  <div class="footer-bottom">Massage · München Isartor</div>
+ </div>
 </footer>
 
 <script>
-  const header = document.getElementById('header');
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
-  onScroll();
-  window.addEventListener('scroll', onScroll, {passive:true});
-
-  menuToggle.addEventListener('click', () => {
-    const open = mobileMenu.classList.toggle('open');
-    document.body.classList.toggle('menu-open', open);
-    menuToggle.setAttribute('aria-expanded', open);
-  });
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    document.body.classList.remove('menu-open');
-    menuToggle.setAttribute('aria-expanded','false');
-  }));
-
-  const state = { need:null, pressure:null };
-  const steps = [...document.querySelectorAll('.finder-step')];
-  const showStep = n => steps.forEach(s => s.classList.toggle('active', s.dataset.step === String(n)));
-
-  document.querySelectorAll('[data-need]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.need = btn.dataset.need;
-      showStep(2);
-    });
-  });
-
-  document.querySelectorAll('[data-pressure]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.pressure = btn.dataset.pressure;
-      renderResult();
-      showStep(3);
-    });
-  });
-
-  document.getElementById('finderBack').addEventListener('click', () => showStep(1));
-  document.getElementById('finderRestart').addEventListener('click', () => {
-    state.need = null; state.pressure = null; showStep(1);
-  });
-
-  function renderResult(){
-    let primary = {
-      name:'Sissi',
-      signature:'Balance',
-      text:'Präzise Körperwahrnehmung und gezielte Körperarbeit – passend, wenn Sie sich ausgeglichener und beweglicher fühlen möchten.'
-    };
-    let alternative = 'Je nach Tagesform kann auch Nang mit ihrer wohltuenden Thai-Massage gut passen.';
-
-    if(state.need === 'relax' || state.pressure === 'gentle'){
-      primary = {
-        name:'Nang',
-        signature:'Entspannung',
-        text:'Traditionelle Thai Massage, gezielter Druck und erfahrene Hände – kraftvoll und präzise, zugleich wohltuend und auf Loslassen ausgerichtet.'
-      };
-      alternative = 'Wenn Balance und Bewegungsfreiheit stärker im Vordergrund stehen, kann auch Sissi passen.';
-    }
-    if(state.need === 'regen' || state.pressure === 'strong'){
-      primary = {
-        name:'Weza',
-        signature:'Regeneration',
-        text:'Intensive und gezielte Körperarbeit mit kräftigen Griffen – passend bei Verspannungen, gewünschter Beweglichkeit und dem Wunsch nach intensiver Regeneration.'
-      };
-      alternative = 'Wenn Sie weniger Intensität wünschen, kann Sissi mit gezielter Balance-Arbeit die passendere Alternative sein.';
-    }
-    if(state.need === 'unsure' && state.pressure === 'open'){
-      primary = {
-        name:'Sissi',
-        signature:'Balance',
-        text:'Als ausgewogene Richtung ist Balance ein guter Ausgangspunkt. Die finale Empfehlung sollte später zusätzlich Treatment, Tagesform und tatsächliche Verfügbarkeit berücksichtigen.'
-      };
-      alternative = 'Auch Nang oder Weza können passen – abhängig davon, ob Entspannung oder intensive Regeneration im Vordergrund steht.';
-    }
-
-    document.getElementById('finderResult').innerHTML = `
-      <div class="result-card">
-        <span class="result-tag">Signature · ${primary.signature}</span>
-        <h3>${primary.name}</h3>
-        <p>${primary.text}</p>
-        <div class="result-alt"><strong>Weitere mögliche Richtung:</strong><br>${alternative}</div>
-      </div>`;
-  }
+const state={need:null,pressure:null};
+const steps=[...document.querySelectorAll('.finder-step')];
+const showStep=n=>steps.forEach(x=>x.classList.toggle('active',x.dataset.step===String(n)));
+document.querySelectorAll('[data-need]').forEach(btn=>btn.addEventListener('click',()=>{state.need=btn.dataset.need;showStep(2)}));
+document.querySelectorAll('[data-pressure]').forEach(btn=>btn.addEventListener('click',()=>{state.pressure=btn.dataset.pressure;renderResult();showStep(3)}));
+document.getElementById('finderBack').addEventListener('click',()=>showStep(1));
+document.getElementById('finderRestart').addEventListener('click',()=>{state.need=null;state.pressure=null;showStep(1)});
+function renderResult(){
+ let primary={name:'Sissi',signature:'Balance',text:'Präzise Körperwahrnehmung und gezielte Körperarbeit – passend, wenn Sie sich ausgeglichener und beweglicher fühlen möchten.'};
+ let alternative='Je nach Tagesform kann auch Nang mit ihrer wohltuenden Thai-Massage gut passen.';
+ if(state.need==='relax'||state.pressure==='gentle'){primary={name:'Nang',signature:'Entspannung',text:'Traditionelle Thai Massage, gezielter Druck und erfahrene Hände – kraftvoll und präzise, zugleich wohltuend und auf Loslassen ausgerichtet.'};alternative='Wenn Balance und Bewegungsfreiheit stärker im Vordergrund stehen, kann auch Sissi passen.'}
+ if(state.need==='regen'||state.pressure==='strong'){primary={name:'Weza',signature:'Regeneration',text:'Intensive und gezielte Körperarbeit mit kräftigen Griffen – passend bei Verspannungen, gewünschter Beweglichkeit und dem Wunsch nach intensiver Regeneration.'};alternative='Wenn Sie weniger Intensität wünschen, kann Sissi mit gezielter Balance-Arbeit die passendere Alternative sein.'}
+ if(state.need==='unsure'&&state.pressure==='open'){primary={name:'Sissi',signature:'Balance',text:'Als ausgewogene Richtung ist Balance ein guter Ausgangspunkt. Die finale Empfehlung sollte später zusätzlich Treatment, Tagesform und tatsächliche Verfügbarkeit berücksichtigen.'};alternative='Auch Nang oder Weza können passen – abhängig davon, ob Entspannung oder intensive Regeneration im Vordergrund steht.'}
+ document.getElementById('finderResult').innerHTML=`<div class="result-card"><span class="result-tag">Signature · ${primary.signature}</span><h3>${primary.name}</h3><p>${primary.text}</p><div class="result-alt"><strong>Weitere mögliche Richtung:</strong><br>${alternative}</div></div>`;
+}
 </script>
-</body>
-</html>
+</body></html>
