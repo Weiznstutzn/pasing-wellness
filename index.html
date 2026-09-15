@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Hinano Massagen München – Premium-Prototyp für die neue Hinano Website.">
   <meta name="theme-color" content="#201c19">
-  <title>Hinano Massagen München | Premium-Prototyp</title>
+  <title>Hinano Massagen München | Editorial Premium Prototype V2</title>
   <style>
     :root{
-      --ink:#211d1a;
-      --ink-2:#3b332e;
-      --cream:#f3eee6;
-      --paper:#fbf8f3;
-      --sand:#d8c8b6;
-      --taupe:#a58f7b;
-      --brass:#a98757;
+      --ink:#2d2119;
+      --ink-2:#4a382d;
+      --cream:#f2e7d7;
+      --paper:#f8f0e5;
+      --sand:#d9c2a7;
+      --taupe:#a88970;
+      --brass:#9b7752;
       --line:rgba(33,29,26,.15);
       --white:#fff;
       --shadow:0 28px 90px rgba(28,20,16,.12);
@@ -29,7 +29,7 @@
     button,input{font:inherit}
     img{display:block;max-width:100%}
     .container{width:min(1180px,calc(100% - 44px));margin:auto}
-    .eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:650}
+    .eyebrow{font-size:10px;letter-spacing:.34em;text-transform:uppercase;font-weight:500}
     .display{font-family:var(--serif);font-weight:400;letter-spacing:-.03em;line-height:.98}
     .section{padding:120px 0}
     .section-dark{background:var(--ink);color:#f8f3ec}
@@ -46,11 +46,21 @@
     .link-arrow:after{content:"→";font-size:16px;transition:transform .25s}
     .link-arrow:hover:after{transform:translateX(6px)}
 
+
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.18;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E")}
+    .hinano-mark{width:78px;height:78px;margin-bottom:26px;position:relative}
+    .hinano-mark:before,.hinano-mark:after{content:"";position:absolute;left:50%;top:7px;width:29px;height:53px;border:1.5px solid currentColor;border-radius:70% 0 70% 0;transform-origin:50% 100%}
+    .hinano-mark:before{transform:translateX(-50%) rotate(-45deg)}
+    .hinano-mark:after{transform:translateX(-50%) rotate(45deg)}
+    .hero .hinano-mark{color:rgba(255,255,255,.9)}
+    .poster-words{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;font-size:9px;text-transform:uppercase;letter-spacing:.28em;color:#796657}
+
     /* NAV */
     .site-header{position:fixed;inset:0 0 auto 0;height:86px;z-index:50;color:#fff;transition:.35s}
     .site-header.scrolled{background:rgba(251,248,243,.94);backdrop-filter:blur(14px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
     .nav{height:86px;display:flex;align-items:center;justify-content:space-between}
-    .brand{font-family:var(--serif);font-size:28px;letter-spacing:.18em}
+    .brand{font-family:var(--sans);font-size:24px;font-weight:400;letter-spacing:.32em}
     .nav-links{display:flex;align-items:center;gap:34px;font-size:11px;text-transform:uppercase;letter-spacing:.15em}
     .nav-book{border-bottom:1px solid currentColor;padding-bottom:4px}
     .menu-toggle{display:none;background:none;border:0;color:inherit;width:44px;height:44px;padding:0}
@@ -255,6 +265,7 @@
   </style>
 </head>
 <body>
+<!-- HINANO V2 – Testversion für Pasing Wellness. Buchungsstrategie: Treatwell. -->
 
 <header class="site-header" id="header">
   <div class="container nav">
@@ -264,7 +275,7 @@
       <a href="#signatures">Signatures</a>
       <a href="#people">People</a>
       <a href="#finder">Hands Finder</a>
-      <a class="nav-book" href="#booking">Termin buchen</a>
+      <a class="nav-book" href="#booking">Auf Treatwell buchen</a>
     </nav>
     <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span></button>
   </div>
@@ -275,19 +286,19 @@
   <a href="#signatures">Signatures</a>
   <a href="#people">People</a>
   <a href="#finder">Hands Finder</a>
-  <a href="#booking">Termin buchen</a>
+  <a href="#booking">Auf Treatwell buchen</a>
 </div>
 
 <main id="top">
   <section class="hero">
     <div class="container hero-inner">
       <div>
-        <div class="eyebrow">Hinano · München Isartor</div>
+        <div class="hinano-mark" aria-hidden="true"></div><div class="eyebrow">Hinano · München Isartor</div>
         <h1 class="display">Zeit, dass ich mich spüre.</h1>
-        <p class="hero-copy">Berührung, die nicht einfach einem Ablauf folgt – sondern dem, was Ihr Körper und Ihr Moment gerade brauchen.</p>
+        <p class="hero-copy">Individuelle Massagen. Echte Menschen. Ein geschützter Raum, in dem Sie loslassen und sich wieder spüren können.</p>
         <div class="hero-actions">
-          <a class="button light" href="#experience">Hinano entdecken</a>
-          <a class="button light" href="#booking">Termin buchen</a>
+          <a class="button light" href="#experience">Ein Ort für Sie</a>
+          <a class="button light" href="#booking">Auf Treatwell buchen</a>
         </div>
       </div>
       <div class="hero-meta">Zweibrückenstraße 8 · 80331 München</div>
@@ -301,7 +312,7 @@
         <div class="eyebrow">The Hinano Experience</div>
         <h2 class="section-title">Nicht einfach Massage. Ihr Moment.</h2>
         <p class="lead">Hinano verbindet erfahrene Hände, individuelle Körperarbeit und die Ruhe einer modernen Boutique-Wellness-Marke.</p>
-        <p>Im Mittelpunkt steht nicht die Frage, welche Massage auf einer Liste steht. Sondern: Was brauchen Sie heute? Entspannung, Balance, neue Energie oder gezielte Regeneration.</p>
+        <p>Im Mittelpunkt steht nicht die Frage, welche Massage auf einer Liste steht. Sondern: Was brauchen Sie heute? Entspannung, Balance, neue Energie oder gezielte Regeneration.</p><div class="poster-words"><span>Massage</span><span>Entspannung</span><span>Regeneration</span><span>Balance</span><span>Energie</span></div>
         <div class="principles">
           <div class="principle"><span>01</span><div><strong>Zeit</strong><br><span>Raum zum Ankommen und Loslassen.</span></div></div>
           <div class="principle"><span>02</span><div><strong>Berührung</strong><br><span>Erfahren, aufmerksam und passend zu Ihrem Bedürfnis.</span></div></div>
@@ -417,7 +428,7 @@
             <div id="finderResult"></div>
             <div class="finder-actions">
               <button class="button" id="finderRestart">Neu starten</button>
-              <a class="button solid" href="#booking">Zur Buchung</a>
+              <a class="button solid" href="#booking">Zu Treatwell</a>
             </div>
             <p class="finder-note">Prototyp: Die finale Logik wird später mit den vollständigen Treatments, Personen und echten Buchungsdaten verknüpft.</p>
           </div>
@@ -461,7 +472,7 @@
       <div class="eyebrow">Hinano Gift</div>
       <h2 class="section-title">Zeit verschenken.</h2>
       <p class="lead">Ein Hinano Gutschein soll sich nicht wie ein Coupon anfühlen, sondern wie die Einladung zu einem persönlichen Moment.</p>
-      <p>Das spätere Gutscheinsystem wird erst nach Auswahl der geeigneten technischen Lösung angebunden.</p>
+      <p>Schenken Sie keinen Gegenstand, sondern Zeit zum Ankommen, Loslassen und Auftanken. Die technische Gutscheinlösung wird vor dem Produktivstart sauber angebunden.</p>
       <span class="link-arrow" aria-disabled="true">Gutscheine in Vorbereitung</span>
     </div>
     <div class="gift-visual" role="img" aria-label="Hochwertige Geschenk-Atmosphäre"></div>
@@ -480,11 +491,11 @@
         </div>
       </div>
       <div class="booking-box">
-        <div class="eyebrow">Online Booking</div>
-        <h3>Bereit für Ihre Auszeit?</h3>
-        <p>Die produktive Buchung wird nach Prüfung von Treatwell bzw. einer geeigneten professionellen Lösung angebunden. Im Prototyp bleibt der CTA bewusst ohne fingierte Verfügbarkeit.</p>
-        <button class="button light" type="button" disabled style="opacity:.55;cursor:not-allowed">Buchung wird angebunden</button>
-        <div class="soft-note">Keine erfundenen Preise, Zeiten oder freien Termine.</div>
+        <div class="eyebrow">Booking · Treatwell</div>
+        <h3>Ihren Hinano-Moment buchen.</h3>
+        <p>Alle Hinano-Termine sollen künftig über Treatwell laufen. Sobald der finale Hinano-Treatwell-Link vorliegt, führt jeder Buchungs-CTA der Website direkt dorthin.</p>
+        <button class="button light" type="button" disabled style="opacity:.58;cursor:not-allowed">Treatwell-Link folgt</button>
+        <div class="soft-note">Demo: Noch kein erfundener Buchungslink. Der echte Hinano-Treatwell-Link wird nach Übernahme der Daten eingesetzt.</div>
       </div>
     </div>
   </section>
