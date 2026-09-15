@@ -98,3 +98,7 @@ Cloudflare-Pages-Projekt sicherer.
 - Vier kurze Fragen erzeugen ein gewichtetes Matching und zeigen zwei passende Persönlichkeiten.
 - Noch keine KI und keine externe Abhängigkeit: Matching läuft vollständig im Browser.
 - Treatments, Prozentwerte und Profile sind ausdrücklich Demo-/Konzeptstand und müssen vor Livegang finalisiert werden.
+
+
+## Logo-Update
+Das neue Hinano-Logo ist lokal eingebunden. Für Header/Hero/Footer werden transparente Varianten aus `assets/` verwendet, damit keine weißen Rechtecke entstehen.
