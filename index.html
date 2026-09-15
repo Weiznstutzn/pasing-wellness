@@ -48,12 +48,12 @@ header{height:82px;background:rgba(247,239,228,.96);display:flex;align-items:cen
 /* first experience section / editorial */
 .intro{padding:clamp(110px,12vw,170px) 0;background:#f7efe4}
 .intro-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(330px,.72fr);gap:clamp(70px,10vw,150px);align-items:start}
-.intro-copy{padding:32px 0 0}
-.intro-copy .kicker{letter-spacing:.22em;margin-bottom:34px}
-.intro-copy h2{font-size:clamp(62px,7.2vw,108px);line-height:.91;letter-spacing:-.035em;max-width:760px;margin:0 0 44px;text-transform:uppercase}
+.intro-copy{padding:20px 0 0}
+.intro-copy .kicker{letter-spacing:.22em;margin-bottom:26px}
+.intro-copy h2{font-size:clamp(58px,6.7vw,98px);line-height:.93;letter-spacing:-.035em;max-width:760px;margin:0 0 34px;text-transform:none}
 .intro-copy p{max-width:600px;font-family:var(--sans);font-size:clamp(18px,1.55vw,22px);line-height:1.62;margin:0;color:#52392a}
 .intro-copy .rule{margin-top:44px}
-.room{min-height:620px;background:linear-gradient(rgba(67,43,28,.04),rgba(67,43,28,.10)),url("masseurin.png") center 24%/cover no-repeat;position:relative;margin-top:95px}
+.room{min-height:590px;background:linear-gradient(rgba(67,43,28,.04),rgba(67,43,28,.10)),url("masseurin.png") center 24%/cover no-repeat;position:relative;margin-top:95px}
 .room:after{content:"";position:absolute;inset:0;border:1px solid rgba(59,36,23,.10);pointer-events:none}
 .room-words{display:none}
 
@@ -168,13 +168,6 @@ footer{padding:90px 0 34px;background:#efe3d3}
 
 
 /* V4 — Hinano reference identity */
-.brand-moment{position:relative;overflow:hidden;min-height:760px;display:grid;place-items:center;background:linear-gradient(135deg,#f8f0e4 0%,#f1e2ce 52%,#f7eee2 100%);text-align:center}
-.brand-moment:before,.brand-moment:after,.booking:before,footer:before{content:"";position:absolute;pointer-events:none;filter:blur(12px);opacity:.16;background:radial-gradient(ellipse at center,rgba(80,55,35,.46) 0 12%,transparent 13%),radial-gradient(ellipse at 30% 25%,rgba(80,55,35,.32) 0 8%,transparent 9%);width:440px;height:680px;transform:rotate(-24deg);mask-image:linear-gradient(to bottom,transparent 2%,#000 24%,#000 78%,transparent 100%)}
-.brand-moment:before{left:-150px;top:20px}.brand-moment:after{right:-160px;bottom:-90px;transform:rotate(28deg) scale(.85)}
-.brand-inner{position:relative;z-index:1;padding:120px 24px}
-.brand-logo{width:min(460px,66vw);height:auto;margin:0 auto 32px;object-fit:contain}
-.brand-claim{font-family:var(--sans);font-size:11px;letter-spacing:.34em;text-transform:uppercase;margin:0}
-.brand-rule{width:54px;height:1px;background:var(--brown);margin:26px auto 0}
 .intro{background:linear-gradient(115deg,#f8f0e5 0%,#f4e8d8 100%);position:relative;overflow:hidden}
 .intro:after{content:"";position:absolute;right:-90px;top:80px;width:340px;height:500px;background:radial-gradient(ellipse at 40% 30%,rgba(84,56,37,.14),transparent 18%),radial-gradient(ellipse at 65% 55%,rgba(84,56,37,.10),transparent 17%);filter:blur(18px);transform:rotate(22deg);pointer-events:none}
 .section-head h2,.tradition-copy h2,.finder h2{ text-transform:none }
@@ -192,7 +185,16 @@ footer:before{left:-160px;bottom:-250px;transform:rotate(-30deg);opacity:.10}
 .footer-logo-block{grid-column:1/-1;text-align:center;padding:0 0 72px;margin-bottom:70px;border-bottom:1px solid var(--line);position:relative;z-index:1}
 .footer-logo{width:min(260px,52vw);margin:0 auto 20px}
 .footer-claim{font-size:9px;letter-spacing:.3em;text-transform:uppercase}
-@media(max-width:520px){.brand-moment{min-height:610px}.brand-inner{padding:90px 18px}.brand-logo{width:min(360px,82vw)}.brand-claim{font-size:9px;line-height:1.8}.booking h2{font-size:clamp(58px,16vw,76px)}.footer-logo-block{padding-bottom:55px;margin-bottom:55px}}
+@media(max-width:520px){.booking h2{font-size:clamp(58px,16vw,76px)}.footer-logo-block{padding-bottom:55px;margin-bottom:55px}.intro-brand{margin:0 0 30px}.intro-brand img{width:min(230px,64vw)}.intro-brand-claim{font-size:8px;letter-spacing:.25em}}
+
+
+/* brand integrated into Experience — no standalone logo viewport */
+.intro-brand{margin:0 0 34px;display:inline-flex;flex-direction:column;align-items:flex-start}
+.intro-brand img{display:block;width:min(250px,28vw);height:auto;object-fit:contain}
+.intro-brand-claim{margin-top:14px;font-family:var(--sans);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--brown2);white-space:nowrap}
+.intro{position:relative;overflow:hidden}
+.intro:before{content:"";position:absolute;right:-170px;top:-150px;width:420px;height:560px;opacity:.055;filter:blur(18px);background:radial-gradient(ellipse at 42% 20%,#4b3324 0 7%,transparent 8%),radial-gradient(ellipse at 60% 38%,#4b3324 0 9%,transparent 10%),radial-gradient(ellipse at 35% 58%,#4b3324 0 8%,transparent 9%);transform:rotate(24deg);pointer-events:none}
+.intro-grid{position:relative;z-index:1}
 
 </style>
 </head>
@@ -226,6 +228,10 @@ footer:before{left:-160px;bottom:-250px;transform:rotate(-30deg);opacity:.10}
 <section class="intro" id="experience">
  <div class="wrap intro-grid">
   <div class="intro-copy">
+   <div class="intro-brand">
+    <img src="assets/hinano-logo-header.png" alt="Hinano Lotus und Hände Logo">
+    <div class="intro-brand-claim">Zeit, dass ich mich spüre.</div>
+   </div>
    <div class="kicker">Das Hinano Erlebnis</div>
    <h2>Keine Massage<br>ist wie die andere.</h2>
    <p>Dein Körper bestimmt, was er braucht. Unsere Therapeutinnen verbinden traditionelle Thai-Techniken mit Erfahrung, Intuition und einer Behandlung, die sich an dir orientiert.</p>
@@ -235,13 +241,6 @@ footer:before{left:-160px;bottom:-250px;transform:rotate(-30deg);opacity:.10}
  </div>
 </section>
 
-<section class="brand-moment" aria-label="Hinano Markenwelt">
- <div class="brand-inner">
-  <img class="brand-logo" src="assets/hinano-logo-transparent.png" alt="Hinano">
-  <p class="brand-claim">Zeit, dass ich mich spüre.</p>
-  <div class="brand-rule"></div>
- </div>
-</section>
 
 <section class="treatments" id="treatments">
  <div class="wrap">
@@ -336,7 +335,7 @@ footer:before{left:-160px;bottom:-250px;transform:rotate(-30deg);opacity:.10}
 
 <footer id="people">
  <div class="wrap">
-  <div class="footer-logo-block"><img class="footer-logo" src="assets/hinano-logo-transparent.png" alt="Hinano"><div class="footer-claim">Zeit, dass ich mich spüre.</div></div><div class="footer-top">
+  <div class="footer-logo-block"><img class="footer-logo" src="assets/hinano-logo-header.png" alt="Hinano"><div class="footer-claim">Zeit, dass ich mich spüre.</div></div><div class="footer-top">
    <div class="footer-brand">HINANO</div>
    <div><div class="footer-label">Studio</div><div class="footer-info">Zweibrückenstraße 8<br>80331 München<br>Im Hinterhof</div></div>
    <div><div class="footer-label">Hinano</div><div class="footer-links"><span>Kontakt</span><a href="#">Datenschutz</a><a href="#">Impressum</a></div></div>
