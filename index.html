@@ -33,8 +33,8 @@ header{height:82px;background:rgba(247,239,228,.96);display:flex;align-items:cen
 
 /* hero / reduced luxury composition */
 .hero{height:calc(100svh - 82px);min-height:650px;max-height:900px;position:relative;overflow:hidden;background:#d8c2aa}
-.hero-bg{position:absolute;inset:0;background-image:url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2400&q=92");background-size:cover;background-position:center 48%;filter:saturate(.58) sepia(.13) brightness(.82) contrast(.96);transform:scale(1.01)}
-.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(34,22,15,.50) 0%,rgba(34,22,15,.30) 36%,rgba(34,22,15,.08) 62%,rgba(34,22,15,.12) 100%)}
+.hero-bg{position:absolute;inset:0;background-image:url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2400&q=92");background-size:cover;background-position:center 48%;filter:saturate(.48) sepia(.26) brightness(1.04) contrast(.88);transform:scale(1.01)}
+.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(57,36,23,.34) 0%,rgba(57,36,23,.18) 38%,rgba(246,232,211,.06) 70%,rgba(246,232,211,.12) 100%)}
 .hero-content{position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;padding:0 0 clamp(70px,10vh,110px)}
 .hero-editorial{width:min(620px,58vw);color:#fffaf3;text-align:left}
 .hero-eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:24px;opacity:.92}
@@ -166,6 +166,34 @@ footer{padding:90px 0 34px;background:#efe3d3}
  .footer-bottom{flex-direction:column;gap:12px}
 }
 
+
+/* V4 — Hinano reference identity */
+.brand-moment{position:relative;overflow:hidden;min-height:760px;display:grid;place-items:center;background:linear-gradient(135deg,#f8f0e4 0%,#f1e2ce 52%,#f7eee2 100%);text-align:center}
+.brand-moment:before,.brand-moment:after,.booking:before,footer:before{content:"";position:absolute;pointer-events:none;filter:blur(12px);opacity:.16;background:radial-gradient(ellipse at center,rgba(80,55,35,.46) 0 12%,transparent 13%),radial-gradient(ellipse at 30% 25%,rgba(80,55,35,.32) 0 8%,transparent 9%);width:440px;height:680px;transform:rotate(-24deg);mask-image:linear-gradient(to bottom,transparent 2%,#000 24%,#000 78%,transparent 100%)}
+.brand-moment:before{left:-150px;top:20px}.brand-moment:after{right:-160px;bottom:-90px;transform:rotate(28deg) scale(.85)}
+.brand-inner{position:relative;z-index:1;padding:120px 24px}
+.brand-logo{width:min(460px,66vw);height:auto;margin:0 auto 32px;object-fit:contain}
+.brand-claim{font-family:var(--sans);font-size:11px;letter-spacing:.34em;text-transform:uppercase;margin:0}
+.brand-rule{width:54px;height:1px;background:var(--brown);margin:26px auto 0}
+.intro{background:linear-gradient(115deg,#f8f0e5 0%,#f4e8d8 100%);position:relative;overflow:hidden}
+.intro:after{content:"";position:absolute;right:-90px;top:80px;width:340px;height:500px;background:radial-gradient(ellipse at 40% 30%,rgba(84,56,37,.14),transparent 18%),radial-gradient(ellipse at 65% 55%,rgba(84,56,37,.10),transparent 17%);filter:blur(18px);transform:rotate(22deg);pointer-events:none}
+.section-head h2,.tradition-copy h2,.finder h2{ text-transform:none }
+.treatment-copy h3{font-style:normal}.treatment-row:nth-child(2) .treatment-copy h3{font-style:italic}
+.tradition{background:linear-gradient(120deg,#eadbc8,#f2e6d7)}
+.finder{background:#f8f0e5}
+.booking{position:relative;overflow:hidden;background:linear-gradient(135deg,#efe0cc,#f8f0e5);color:var(--brown)}
+.booking:before{right:-130px;top:-130px;transform:rotate(31deg);opacity:.13}
+.booking .kicker{color:var(--brown2)}
+.booking h2{text-transform:none;font-size:clamp(66px,8vw,112px)}
+.booking h2 em{font-style:italic}
+.booking p{color:#5b4334}.booking .text-link{color:var(--brown);border-color:var(--brown)}
+footer{position:relative;overflow:hidden;background:#f3e6d6;padding-top:110px}
+footer:before{left:-160px;bottom:-250px;transform:rotate(-30deg);opacity:.10}
+.footer-logo-block{grid-column:1/-1;text-align:center;padding:0 0 72px;margin-bottom:70px;border-bottom:1px solid var(--line);position:relative;z-index:1}
+.footer-logo{width:min(260px,52vw);margin:0 auto 20px}
+.footer-claim{font-size:9px;letter-spacing:.3em;text-transform:uppercase}
+@media(max-width:520px){.brand-moment{min-height:610px}.brand-inner{padding:90px 18px}.brand-logo{width:min(360px,82vw)}.brand-claim{font-size:9px;line-height:1.8}.booking h2{font-size:clamp(58px,16vw,76px)}.footer-logo-block{padding-bottom:55px;margin-bottom:55px}}
+
 </style>
 </head>
 <body>
@@ -207,12 +235,19 @@ footer{padding:90px 0 34px;background:#efe3d3}
  </div>
 </section>
 
+<section class="brand-moment" aria-label="Hinano Markenwelt">
+ <div class="brand-inner">
+  <img class="brand-logo" src="assets/hinano-logo-transparent.png" alt="Hinano">
+  <p class="brand-claim">Zeit, dass ich mich spüre.</p>
+  <div class="brand-rule"></div>
+ </div>
+</section>
 
 <section class="treatments" id="treatments">
  <div class="wrap">
   <div class="section-head">
    <div class="kicker">Hinano Treatments</div>
-   <h2>Behandlungen,<br>die bei dir beginnen.</h2>
+   <h2>Massagen,<br><em>die mehr sind.</em></h2>
   </div>
   <div class="treatment-list">
    <article class="treatment-row">
@@ -290,10 +325,10 @@ footer{padding:90px 0 34px;background:#efe3d3}
  <div class="wrap">
   <div class="booking-inner">
    <div class="kicker">Dein Moment</div>
-   <h2>Zeit für dich.</h2>
+   <h2>Ein Ort<br><em>für dich.</em></h2>
    <p>Wähle deine Behandlung und finde deinen passenden Termin.</p>
    <a class="text-link" href="#" aria-label="Treatwell-Link wird ergänzt">Termin buchen →</a>
-   <p class="booking-note">Online-Buchung über Treatwell.</p>
+   <p class="booking-note">Online-Buchung über Treatwell.</p><p class="booking-note" style="margin-top:44px!important;letter-spacing:.24em;text-transform:uppercase">Ankommen · Loslassen · Auftanken · Du sein</p>
   </div>
  </div>
 </section>
@@ -301,7 +336,7 @@ footer{padding:90px 0 34px;background:#efe3d3}
 
 <footer id="people">
  <div class="wrap">
-  <div class="footer-top">
+  <div class="footer-logo-block"><img class="footer-logo" src="assets/hinano-logo-transparent.png" alt="Hinano"><div class="footer-claim">Zeit, dass ich mich spüre.</div></div><div class="footer-top">
    <div class="footer-brand">HINANO</div>
    <div><div class="footer-label">Studio</div><div class="footer-info">Zweibrückenstraße 8<br>80331 München<br>Im Hinterhof</div></div>
    <div><div class="footer-label">Hinano</div><div class="footer-links"><span>Kontakt</span><a href="#">Datenschutz</a><a href="#">Impressum</a></div></div>
