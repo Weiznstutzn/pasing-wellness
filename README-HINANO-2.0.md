@@ -102,3 +102,11 @@ Cloudflare-Pages-Projekt sicherer.
 
 ## Logo-Update
 Das neue Hinano-Logo ist lokal eingebunden. Für Header/Hero/Footer werden transparente Varianten aus `assets/` verwendet, damit keine weißen Rechtecke entstehen.
+
+## V4 Hero Refinement
+- Hero bewusst beruhigt.
+- Hinano-Logo als zentrale Markeninszenierung.
+- Große konkurrierende Hero-Headline entfernt.
+- Kurze Botschaft: „Individuelle Massagen. Echte Menschen. Ein Moment, der nur Ihnen gehört.“
+- „Ein Ort für Sie.“ in den folgenden hellen Editorial-Bereich verschoben.
+- Treatwell bleibt zentraler Buchungsweg.

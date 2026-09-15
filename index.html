@@ -49,11 +49,7 @@
 
     body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.18;
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E")}
-    .hinano-mark{width:78px;height:78px;margin-bottom:26px;position:relative}
-    .hinano-mark:before,.hinano-mark:after{content:"";position:absolute;left:50%;top:7px;width:29px;height:53px;border:1.5px solid currentColor;border-radius:70% 0 70% 0;transform-origin:50% 100%}
-    .hinano-mark:before{transform:translateX(-50%) rotate(-45deg)}
-    .hinano-mark:after{transform:translateX(-50%) rotate(45deg)}
-    .hero .hinano-mark{color:rgba(255,255,255,.9)}
+    .hero
     .poster-words{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;font-size:9px;text-transform:uppercase;letter-spacing:.28em;color:#796657}
 
 
@@ -68,6 +64,32 @@
       .site-header.scrolled .brand-logo{height:40px}
       .hero-logo{width:min(330px,82vw)}
       .hero-logo-wrap{margin-bottom:22px}
+    }
+
+
+    /* V4 refined hero composition */
+    .hero-brand-lockup{margin:0 0 30px}
+    .hero-logo-clean{
+      width:min(355px,58vw);
+      height:auto;
+      display:block;
+      filter:brightness(0) invert(1);
+      opacity:.97;
+    }
+    .hero-location{margin-top:4px;margin-bottom:24px}
+    .hero-copy-refined{
+      max-width:540px;
+      font-family:var(--sans);
+      font-size:clamp(18px,1.65vw,22px);
+      line-height:1.55;
+      letter-spacing:.01em;
+      margin-bottom:34px;
+    }
+    #experience .section-title em{font-weight:400}
+    @media(max-width:640px){
+      .hero-logo-clean{width:min(300px,78vw)}
+      .hero-brand-lockup{margin-bottom:24px}
+      .hero-copy-refined{font-size:17px}
     }
 
     /* NAV */
@@ -307,11 +329,13 @@
   <section class="hero">
     <div class="container hero-inner">
       <div>
-        <div class="hero-logo-wrap"><img class="hero-logo" src="assets/hinano-logo-transparent.png" alt="Hinano – Zeit, dass ich mich spüre."></div><div class="eyebrow">Massage · München Isartor</div>
-        <h1 class="display">Ein Ort für Sie.</h1>
-        <p class="hero-copy">Individuelle Massagen. Echte Menschen. Ein geschützter Raum, in dem Sie loslassen und sich wieder spüren können.</p>
+        <div class="hero-brand-lockup">
+          <img class="hero-logo-clean" src="assets/hinano-logo-transparent.png" alt="Hinano – Zeit, dass ich mich spüre.">
+        </div>
+        <div class="eyebrow hero-location">Massage · München Isartor</div>
+        <p class="hero-copy hero-copy-refined">Individuelle Massagen. Echte Menschen.<br>Ein Moment, der nur Ihnen gehört.</p>
         <div class="hero-actions">
-          <a class="button light" href="#experience">Ein Ort für Sie</a>
+          <a class="button light" href="#experience">Treatments entdecken</a>
           <a class="button light" href="#booking">Auf Treatwell buchen</a>
         </div>
       </div>
@@ -324,7 +348,7 @@
     <div class="container experience-grid">
       <div class="experience-copy">
         <div class="eyebrow">The Hinano Experience</div>
-        <h2 class="section-title">Nicht einfach Massage. Ihr Moment.</h2>
+        <h2 class="section-title">Ein Ort <em>für Sie.</em></h2>
         <p class="lead">Hinano verbindet erfahrene Hände, individuelle Körperarbeit und die Ruhe einer modernen Boutique-Wellness-Marke.</p>
         <p>Im Mittelpunkt steht nicht die Frage, welche Massage auf einer Liste steht. Sondern: Was brauchen Sie heute? Entspannung, Balance, neue Energie oder gezielte Regeneration.</p><div class="poster-words"><span>Massage</span><span>Entspannung</span><span>Regeneration</span><span>Balance</span><span>Energie</span></div>
         <div class="principles">
