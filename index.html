@@ -56,6 +56,20 @@
     .hero .hinano-mark{color:rgba(255,255,255,.9)}
     .poster-words{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;font-size:9px;text-transform:uppercase;letter-spacing:.28em;color:#796657}
 
+
+    .brand-logo{height:58px;width:auto;display:block;transition:.3s ease}
+    .site-header:not(.scrolled) .brand-logo{filter:brightness(0) invert(1);opacity:.96}
+    .site-header.scrolled .brand-logo{height:50px}
+    .hero-logo-wrap{margin-bottom:30px}
+    .hero-logo{width:min(440px,72vw);height:auto;display:block;filter:brightness(0) invert(1);opacity:.96}
+    .footer-logo{width:170px;height:auto;display:block;filter:brightness(0) invert(1);opacity:.92}
+    @media(max-width:640px){
+      .brand-logo{height:44px}
+      .site-header.scrolled .brand-logo{height:40px}
+      .hero-logo{width:min(330px,82vw)}
+      .hero-logo-wrap{margin-bottom:22px}
+    }
+
     /* NAV */
     .site-header{position:fixed;inset:0 0 auto 0;height:86px;z-index:50;color:#fff;transition:.35s}
     .site-header.scrolled{background:rgba(251,248,243,.94);backdrop-filter:blur(14px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
@@ -265,11 +279,11 @@
   </style>
 </head>
 <body>
-<!-- HINANO V2 – Testversion für Pasing Wellness. Buchungsstrategie: Treatwell. -->
+<!-- HINANO V3 – echtes bereitgestelltes Hinano-Logo integriert; Testversion für Pasing Wellness. Buchungsstrategie: Treatwell. -->
 
 <header class="site-header" id="header">
   <div class="container nav">
-    <a class="brand" href="#top" aria-label="Hinano Startseite">HINANO</a>
+    <a class="brand" href="#top" aria-label="Hinano Startseite"><img class="brand-logo" src="assets/hinano-logo.png" alt="Hinano"></a>
     <nav class="nav-links" aria-label="Hauptnavigation">
       <a href="#experience">Experience</a>
       <a href="#signatures">Signatures</a>
@@ -293,7 +307,7 @@
   <section class="hero">
     <div class="container hero-inner">
       <div>
-        <div class="hinano-mark" aria-hidden="true"></div><div class="eyebrow">Hinano · München Isartor</div>
+        <div class="hero-logo-wrap"><img class="hero-logo" src="assets/hinano-logo.png" alt="Hinano – Zeit, dass ich mich spüre."></div><div class="eyebrow">Massage · München Isartor</div>
         <h1 class="display">Zeit, dass ich mich spüre.</h1>
         <p class="hero-copy">Individuelle Massagen. Echte Menschen. Ein geschützter Raum, in dem Sie loslassen und sich wieder spüren können.</p>
         <div class="hero-actions">
@@ -503,7 +517,7 @@
 
 <footer>
   <div class="container footer-inner">
-    <div class="footer-brand">HINANO</div>
+    <div><img class="footer-logo" src="assets/hinano-logo.png" alt="Hinano"></div>
     <div>Zweibrückenstraße 8 · 80331 München</div>
     <div class="footer-links"><span>Impressum · vor Go-Live</span><span>Datenschutz · vor Go-Live</span></div>
   </div>
