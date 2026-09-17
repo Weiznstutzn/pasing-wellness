@@ -1,0 +1,1 @@
+V4.2: Basis V4.1 Korrektur. Original-Hero, Experience, Treatments, Thai-Tradition, Hands Finder, Buchung und Footer unverändert. Neues Empfangsraumfoto als lokale Datei assets/hinano-empfangsraum.png eingebunden; eigenständige responsive Editorial-Sektion zwischen Tradition und Hands Finder. Keine neuen Bilder generiert.
