@@ -1,193 +1,52 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hinano Rituals – Treatments</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    :root {
-      --bg-dark: #4a4039;
-      --border-color: rgba(255, 255, 255, 0.22);
-      --text-muted: #d6c9bd;
-      --text-light: #f7f3ed;
-      --text-body: #ddd4cb;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.6;
-    }
-
-    /* Container für die 4 Behandlungs-Felder */
-    .cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-top: 1px solid var(--border-color);
-      border-left: 1px solid var(--border-color);
-      border-right: 1px solid var(--border-color);
-      max-width: 1400px;
-      margin: 40px auto;
-    }
-
-    /* Einheitliche Abstände für alle 4 Felder */
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f3efe8"><title>Hinano Rituals · Massage München Isartor</title><meta name="description" content="Hinano Rituals in München am Isartor – bewusste Auszeit, tiefgehende Entspannung und ausgewählte Massagerituale."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><style>
+  /* Einheitliche Randabstände für alle 4 Behandlungsfelder */
+  .cards article {
+    padding: 48px 4vw 52px 4vw !important;
+  }
+  .cards article:nth-child(even) {
+    padding-left: 4vw !important;
+  }
+  @media (max-width: 900px) {
     .cards article {
-      display: flex;
-      flex-direction: column;
-      /* Oben 48px, Rechts 48px, Unten 52px, Links 48px – für alle 4 Felder identisch */
-      padding: 48px 48px 52px 48px;
-      border-bottom: 1px solid var(--border-color);
-      background: transparent;
+      padding: 36px 20px 40px 20px !important;
     }
-
-    /* Trennlinie zwischen linker und rechter Spalte */
-    .cards article:nth-child(odd) {
-      border-right: 1px solid var(--border-color);
-    }
-
-    /* Nummerierung (01, 02, ...) */
-    .cards article > span {
-      display: block;
-      color: var(--text-muted);
-      font-size: 13px;
-      letter-spacing: 0.18em;
-      margin-bottom: 18px;
-    }
-
-    /* Überschriften */
-    .cards h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(30px, 3vw, 42px);
-      font-weight: 400;
-      line-height: 1.15;
-      margin-bottom: 8px;
-      color: var(--text-light);
-    }
-
-    /* Ritual-Untertitel */
-    .cards .ritual-name {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-
-    /* Beschreibungstext */
-    .cards .description {
-      font-size: 15px;
-      color: var(--text-body);
-      max-width: 480px;
-      margin-bottom: 32px;
-      line-height: 1.6;
-      font-weight: 300;
-    }
-
-    /* Preiszeile */
-    .cards .prices {
-      font-size: 13px;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
-      margin-top: auto;
-      margin-bottom: 24px;
-    }
-
-    .cards .prices i {
-      font-style: normal;
-      margin: 0 6px;
-      opacity: 0.6;
-    }
-
-    /* Buchen-Link */
-    .cards a {
-      align-self: flex-start;
-      color: var(--text-light);
-      text-decoration: none;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .cards a:hover {
-      opacity: 0.75;
-      transform: translateX(3px);
-    }
-
-    /* Mobil-Ansicht (unter 860px einspaltig) */
-    @media (max-width: 860px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
-      .cards article:nth-child(odd) {
-        border-right: 0;
-      }
-      .cards article {
-        padding: 36px 24px 40px 24px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <main>
-    <section class="treatments" id="treatments">
-      <div class="cards">
-        
-        <!-- Feld 01 -->
-        <article>
-          <span>01</span>
-          <h3>Wellness- &amp; Entspannungsmassage</h3>
-          <p class="ritual-name">Hinano Calm Ritual</p>
-          <p class="description">Eine ruhige, wohltuende Massage zum Loslassen, Abschalten und Entspannen.</p>
-          <p class="prices">60 Min / 65 € <i>—</i> 90 Min / 90 € <i>—</i> 120 Min / 120 €</p>
-          <a href="#buchen">Buchen →</a>
-        </article>
-
-        <!-- Feld 02 -->
-        <article>
-          <span>02</span>
-          <h3>Ganzkörpermassage</h3>
-          <p class="ritual-name">Deep Release Ritual</p>
-          <p class="description">Eine umfassende Massage für den ganzen Körper – ideal für eine ausgedehnte Wohlfühlpause.</p>
-          <p class="prices">60 Min / 70 € <i>—</i> 90 Min / 95 € <i>—</i> 120 Min / 125 €</p>
-          <a href="#buchen">Buchen →</a>
-        </article>
-
-        <!-- Feld 03 -->
-        <article>
-          <span>03</span>
-          <h3>Thai-Aromaölmassage</h3>
-          <p class="ritual-name">Botanical Aroma Ritual</p>
-          <p class="description">Sanfte Massage mit wohltuendem Öl für ein besonders entspanntes Körpergefühl.</p>
-          <p class="prices">60 Min / 70 € <i>—</i> 90 Min / 95 € <i>—</i> 120 Min / 125 €</p>
-          <a href="#buchen">Buchen →</a>
-        </article>
-
-        <!-- Feld 04 -->
-        <article>
-          <span>04</span>
-          <h3>Thai-Massage</h3>
-          <p class="ritual-name">Traditional Nuad Ritual</p>
-          <p class="description">Traditionelle thailändische Techniken mit gezieltem Druck und wohltuenden Dehnungen.</p>
-          <p class="prices">60 Min / 75 € <i>—</i> 90 Min / 105 € <i>—</i> 120 Min / 135 €</p>
-          <a href="#buchen">Buchen →</a>
-        </article>
-
-      </div>
-    </section>
-  </main>
-
-</body>
-</html>
+  }
+</style></head><body>
+<header class="site-header"><a class="brand" href="#top" aria-label="Hinano Rituals Startseite"><img src="assets/hinano-logo-clean.png" alt="Hinano Rituals" width="138" height="34"></a><nav><a href="#treatments">Treatments</a><a href="#about">Über Hinano</a><a href="#team">Team</a><a href="#studio">Studio</a><a href="#contact">Kontakt</a></nav><a class="book" href="#buchen">Buchen</a></header>
+<main>
+<section class="hero" id="top"><div class="hero-card"><p class="eyebrow">Raum für Entschleunigung · Isartor München</p><h1>Ein Ort, an dem du ankommen darfst.</h1><p class="hero-text">Ausgewählte Massagerituale für tiefe Entspannung, Regeneration und innere Ruhe. Gehobenes Ambiente mitten in München – achtsam, warm und reduziert auf das Wesentliche.</p><div class="hero-actions"><a class="btn primary" href="#treatments">Treatments entdecken</a><a class="btn secondary" href="#buchen">Termin anfragen</a></div><p class="location">Zweibrückenstraße 8 · 80331 München (nahe Isartor)</p></div></section>
+<section class="statement"><p class="quiet">Der Moment zwischen zwei Gedanken</p><p class="big">Keine Hektik. Kein lauter Alltag. Nur Wärme, fließende Griffe und Zeit für deinen Körper.</p></section>
+<section class="treatments" id="treatments"><div class="section-title"><p class="eyebrow">Unser Angebot</p><h2>Wähle deinen Moment.</h2><p>Individuell auf deine Bedürfnisse abgestimmt. Professionell ausgeführt. In einem stilvollen, ruhigen Ambiente.</p></div><div class="cards">
+<article><span>01</span><h3>Wellness- &amp; Entspannungsmassage</h3><p class="ritual-name">Hinano Calm Ritual</p><p>Eine ruhige, wohltuende Massage zum Loslassen, Abschalten und Entspannen.</p><p class="prices">60 Min / 65 € <i>—</i> 90 Min / 90 € <i>—</i> 120 Min / 120 €</p><a href="#buchen">Buchen →</a></article>
+<article><span>02</span><h3>Ganzkörpermassage</h3><p class="ritual-name">Deep Release Ritual</p><p>Eine umfassende Massage für den ganzen Körper – ideal für eine ausgedehnte Wohlfühlpause.</p><p class="prices">60 Min / 70 € <i>—</i> 90 Min / 95 € <i>—</i> 120 Min / 125 €</p><a href="#buchen">Buchen →</a></article>
+<article><span>03</span><h3>Thai-Aromaölmassage</h3><p class="ritual-name">Botanical Aroma Ritual</p><p>Sanfte Massage mit wohltuendem Öl für ein besonders entspanntes Körpergefühl.</p><p class="prices">60 Min / 70 € <i>—</i> 90 Min / 95 € <i>—</i> 120 Min / 125 €</p><a href="#buchen">Buchen →</a></article>
+<article><span>04</span><h3>Thai-Massage</h3><p class="ritual-name">Traditional Nuad Ritual</p><p>Traditionelle thailändische Techniken mit gezieltem Druck und wohltuenden Dehnungen.</p><p class="prices">60 Min / 75 € <i>—</i> 90 Min / 105 € <i>—</i> 120 Min / 135 €</p><a href="#buchen">Buchen →</a></article>
+</div><div class="offer"><span>Zur Wiedereröffnung</span><strong>Ein Willkommen für dich.</strong><p>10 % auf alle Massagen ab 60 Minuten · gültig bis 31.10.2026</p></div></section>
+<section class="experience" id="about"><div class="section-title"><p class="eyebrow">Das Hinano Erlebnis</p><h2>Mehr als eine Massage. Eine Haltung.</h2></div><div class="experience-grid">
+<article><h3>Warme Atmosphäre</h3><p>Erlesene Materialien, sanftes Licht und dezente Düfte schaffen einen Rückzugsort, der schon beim Eintreten beruhigt.</p></article>
+<article><h3>Feines Handwerk</h3><p>Jede Behandlung folgt einer präzisen Choreografie aus Berührung, Druck und Dehnung – individuell abgestimmt.</p></article>
+<article><h3>Natürliche Öle</h3><p>Wir verwenden hochwertige, naturreine Pflanzenöle, die die Haut nähren und die Sinne sanft umhüllen.</p></article>
+<article><h3>Stille &amp; Respekt</h3><p>Deine Zeit gehört dir. Wir achten deine Privatsphäre und schenken dir Raum für ungestörte Erholung.</p></article>
+</div></section>
+<section class="team" id="team"><div class="section-title"><p class="eyebrow">Unser Team</p><h2>Erfahrene Hände. Achtsame Begleitung.</h2><p>Hinter Hinano Rituals steht jahrelange Praxis in traditionellen und modernen Massagetechniken – mit Feingefühl für jeden Menschen.</p></div><div class="team-grid">
+<article class="team-card"><div class="team-avatar"><span>L</span></div><h3>Ladda</h3><p class="team-role">Gründerin &amp; Senior Therapeutin</p><p>Über 15 Jahre Erfahrung in traditioneller Thai-Massage und ganzheitlicher Körperarbeit. Ausgebildet in Bangkok und München.</p></article>
+<article class="team-card"><div class="team-avatar"><span>S</span></div><h3>Somying</h3><p class="team-role">Aroma- &amp; Entspannungsspezialistin</p><p>Spezialisiert auf sanfte Ölrituale, Tiefenentspannung und individuelle Druckabstimmung. Empathisch, ruhig und präzise.</p></article>
+</div></section>
+<section class="studio" id="studio"><div class="section-title"><p class="eyebrow">Einblicke</p><h2>Dein Raum im Herzen Münchens.</h2></div>
+<div class="gallery-new">
+<figure class="gallery-item-featured"><img src="assets/hinano-empfangsraum.png" alt="Empfangsbereich Hinano Rituals München" loading="lazy"><figcaption>Empfangsbereich · Zweibrückenstraße 8, Isartor München</figcaption></figure>
+<div class="gallery-sub-grid">
+<figure class="gallery-sub-item"><img src="assets/studio-detail-1.jpg" alt="Behandlungsraum mit Liege und warmem Licht" loading="lazy"><figcaption>Behandlungsraum 1 · Rückzugsort für Entspannung</figcaption></figure>
+<figure class="gallery-sub-item"><img src="assets/studio-detail-2.jpg" alt="Traditioneller Massageplatz mit Bodenmatte" loading="lazy"><figcaption>Behandlungsraum 2 · Nuad Thai Tradition</figcaption></figure>
+</div>
+</div>
+</section>
+<section class="booking" id="buchen"><div class="booking-box"><p class="eyebrow">Reservierung</p><h2>Schenke dir diese Zeit.</h2><p class="intro">Wähle deine bevorzugte Kontaktaufnahme. Wir bestätigen deinen Wunschtermin zeitnah und persönlich.</p><div class="direct-grid"><a class="direct-card" href="tel:+498923759900"><small>Direkt anrufen</small><strong>089 / 237 599 00</strong><span>Für kurzfristige Termine</span></a><a class="direct-card" href="https://wa.me/4917612345678" target="_blank" rel="noopener"><small>WhatsApp</small><strong>Nachricht senden</strong><span>Schnell und unkompliziert</span></a><a class="direct-card" href="mailto:hallo@hinano-rituals.de?subject=Terminanfrage"><small>E-Mail</small><strong>hallo@hinano-rituals.de</strong><span>Mit Wunschzeit &amp; Ritual</span></a></div><div class="booking-notice"><strong>Online-Buchungssystem</strong><p>Unser digitales Buchungstool wird in Kürze freigeschaltet. Bis dahin erreichst du uns jederzeit telefonisch oder per Nachricht.</p></div></div></section>
+<section class="contact" id="contact"><div class="section-title"><p class="eyebrow">Besuch uns</p><h2>Zweibrückenstraße 8 · Isartor</h2></div><div class="contact-grid">
+<div><b>Adresse</b><p>Hinano Rituals<br>Zweibrückenstraße 8<br>80331 München</p></div>
+<div><b>Öffnungszeiten</b><p>Montag – Samstag<br>10:00 – 20:00 Uhr<br>Sonntag nach Vereinbarung</p></div>
+<div><b>Anfahrt</b><p>S-Bahn Isartor (alle Linien)<br>Tram 16 / 18 Isartor<br>Parkhäuser in Gehweite</p></div>
+</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Zweibr%C3%BCckenstra%C3%9Fe+8%2C+80331+M%C3%BCnchen" target="_blank" rel="noopener">Route in Google Maps →</a></section>
+</main>
+<footer><img src="assets/hinano-logo-transparent.png" alt="Hinano Rituals"><p>Zeit, dich wieder zu spüren.</p><div><span>© 2026 Hinano</span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></footer>
+<div class="notice" role="status">Die Online-Reservierung wird in Kürze freigeschaltet.</div><script src="script.js"></script></body></html>
