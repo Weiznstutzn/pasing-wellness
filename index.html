@@ -26,7 +26,7 @@
               cognacDark: '#8F653E',
               gold: '#C5A880',
               dark: '#1C1917',
-              charcoal: '#292524',
+              charcoal: '#24201E',
               muted: '#78716C'
             }
           },
@@ -40,10 +40,22 @@
   </script>
 
   <style>
-    /* Sanftes Ausblenden und subtile Details */
     ::selection {
       background-color: #EADBCE;
       color: #1C1917;
+    }
+    /* Präzise Ausschnitte der 4 Therapeuten aus dem 2x2 Grid-Bild */
+    .avatar-nang {
+      object-position: 7% 12%;
+    }
+    .avatar-natascha {
+      object-position: 59% 12%;
+    }
+    .avatar-sissi {
+      object-position: 7% 88%;
+    }
+    .avatar-wezz {
+      object-position: 59% 88%;
     }
   </style>
 </head>
@@ -54,7 +66,7 @@
   <header class="fixed top-0 left-0 w-full z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-sand/40 transition-all duration-300">
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
       
-      <!-- Hinano Brandmark / Logo Text -->
+      <!-- Brand Logo -->
       <a href="#" class="flex items-center gap-3 group">
         <img src="assets/hinano-logo-transparent.png" alt="Hinano Logo" class="h-9 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'">
         <span class="font-serif text-2xl tracking-[0.25em] font-light text-brand-dark uppercase">Hinano</span>
@@ -73,7 +85,7 @@
 
       <!-- CTA Button Rechts -->
       <div class="hidden md:block">
-        <a href="#booking" class="inline-flex items-center justify-center px-6 py-2.5 bg-brand-dark text-brand-cream text-xs uppercase tracking-[0.2em] font-medium hover:bg-brand-cognac transition-all duration-300 rounded-none">
+        <a href="#booking" class="inline-flex items-center justify-center px-6 py-2.5 bg-brand-dark text-brand-cream text-xs uppercase tracking-[0.2em] font-medium hover:bg-brand-cognac transition-all duration-300">
           Buchen
         </a>
       </div>
@@ -136,7 +148,7 @@
             </div>
             <div>
               <p class="font-medium text-brand-dark">Atmosphäre</p>
-              <p class="mt-0.5">Ruhe & diskreter Premium-Komfort</p>
+              <p class="mt-0.5">Diskreter Premium-Komfort</p>
             </div>
           </div>
         </div>
@@ -150,7 +162,6 @@
               class="w-full h-full object-cover object-center scale-[1.02] hover:scale-105 transition-transform duration-700"
             >
           </div>
-          <!-- Subtiler Deko-Rahmen -->
           <div class="absolute -bottom-4 -left-4 w-28 h-28 border-l border-b border-brand-gold/60 -z-10 hidden sm:block"></div>
         </div>
       </div>
@@ -261,11 +272,11 @@
         <div class="bg-brand-cream border border-brand-sand/60 p-8 sm:p-10 flex flex-col justify-between hover:border-brand-cognac/80 transition-all duration-300">
           <div>
             <div class="flex justify-between items-start gap-4">
-              <h3 class="font-serif text-2xl sm:text-3xl font-light text-brand-dark">Deep Relax & Regeneration</h3>
-              <span class="text-xs tracking-[0.2em] uppercase font-medium text-brand-muted">Fokussiert</span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-light text-brand-dark">Deep Relax & Körperarbeit</h3>
+              <span class="text-xs tracking-[0.2em] uppercase font-medium text-brand-muted">Intensiv</span>
             </div>
             <p class="text-brand-muted text-sm font-light leading-relaxed mt-4">
-              Konzentrierte Tiefengewebsmassage mit Fokus auf Nacken, Schultern und Rücken. Speziell entwickelt für Vielsitzer und Menschen mit chronischen Spannungszuständen.
+              Konzentrierte Tiefengewebsmassage mit Fokus auf Nacken, Schultern und Rücken. Speziell entwickelt für Vielsitzer und Menschen mit tief sitzenden Spannungszuständen.
             </p>
             <div class="flex items-center gap-6 mt-6 pt-6 border-t border-brand-sand/40 text-xs text-brand-muted uppercase tracking-wider">
               <span>60 / 90 / 120 Min.</span>
@@ -352,10 +363,8 @@
         </p>
       </div>
 
-      <!-- Galerie Grid: 4 hochwertige Fotos aus den Assets -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
         
-        <!-- Bild 1: Behandlungsraum (groß) -->
         <div class="lg:col-span-7 aspect-[16/10] bg-brand-card overflow-hidden border border-brand-sand/50">
           <img 
             src="assets/behandlungsraum.png" 
@@ -364,7 +373,6 @@
           >
         </div>
 
-        <!-- Bild 2: Detail 1 -->
         <div class="lg:col-span-5 aspect-[16/10] lg:aspect-auto bg-brand-card overflow-hidden border border-brand-sand/50">
           <img 
             src="assets/studio-detail-1.jpg" 
@@ -373,7 +381,6 @@
           >
         </div>
 
-        <!-- Bild 3: Detail 2 -->
         <div class="lg:col-span-5 aspect-[16/10] lg:aspect-auto bg-brand-card overflow-hidden border border-brand-sand/50">
           <img 
             src="assets/studio-detail-2.jpg" 
@@ -382,7 +389,6 @@
           >
         </div>
 
-        <!-- Bild 4: Empfangsraum -->
         <div class="lg:col-span-7 aspect-[16/10] bg-brand-card overflow-hidden border border-brand-sand/50">
           <img 
             src="assets/hinano-empfangsraum.png" 
@@ -397,40 +403,98 @@
   </section>
 
 
-  <!-- ================= 6. UNSERE THERAPEUTEN ================= -->
-  <section id="team" class="py-20 md:py-28 bg-brand-card/30 border-t border-brand-sand/40">
+  <!-- ================= 6. UNSERE THERAPEUTEN (ECHTES TEAM) ================= -->
+  <section id="team" class="py-24 md:py-32 bg-brand-charcoal text-brand-cream border-t border-brand-dark">
     <div class="max-w-6xl mx-auto px-6">
       
-      <div class="text-center max-w-xl mx-auto mb-16 space-y-2">
-        <span class="text-xs uppercase tracking-[0.3em] text-brand-cognac font-medium">Vertrauen & Handwerk</span>
-        <h2 class="font-serif text-4xl sm:text-5xl font-light text-brand-dark">Unsere Therapeuten</h2>
-        <p class="text-brand-muted text-sm font-light">
-          Ausgebildete Meister ihres Fachs mit Feingefühl, Empathie und langjähriger Erfahrung.
+      <div class="text-center max-w-xl mx-auto mb-20 space-y-3">
+        <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Vertrauen & Handwerk</span>
+        <h2 class="font-serif text-4xl sm:text-5xl font-light text-brand-cream">Unsere Therapeuten</h2>
+        <p class="text-stone-400 text-sm font-light">
+          Mit sicherem Gespür, jahrelanger Erfahrung und individueller Aufmerksamkeit für deinen Körper.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 max-w-5xl mx-auto">
         
-        <!-- Therapeut 1 -->
-        <div class="bg-brand-cream p-8 border border-brand-sand/60 space-y-4">
-          <div class="space-y-1">
-            <h3 class="font-serif text-2xl font-light text-brand-dark">Meisterin Areeya</h3>
-            <p class="text-xs uppercase tracking-[0.2em] text-brand-cognac font-medium">Signature & Traditionelle Thai Massage</p>
+        <!-- Therapeut 1: Nang -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 group">
+          <div class="relative w-36 h-36 flex-shrink-0 rounded-full overflow-hidden border-2 border-brand-gold/40 shadow-lg">
+            <img 
+              src="assets/team.jpg" 
+              alt="Nang — Thai-Massage & Entspannung" 
+              class="w-full h-full object-cover scale-[2.2] avatar-nang transition-transform duration-500 group-hover:scale-[2.3]"
+            >
           </div>
-          <p class="text-brand-muted text-sm font-light leading-relaxed">
-            Über 12 Jahre Praxis in zertifizierten Wellbeing- und Heilritualen. Sie verbindet energetische Tiefenarbeit mit intuitiver Gelassenheit und punktgenauer Lösung von Verspannungen.
-          </p>
+          <div class="space-y-3 text-center sm:text-left">
+            <div>
+              <h3 class="font-serif text-3xl font-light text-brand-cream">Nang</h3>
+              <p class="text-[11px] uppercase tracking-[0.22em] text-brand-gold font-medium mt-1">Thai-Massage · Entspannung</p>
+            </div>
+            <p class="text-stone-300 text-xs sm:text-sm font-light leading-relaxed">
+              Nang verbindet traditionelle Thai-Massage mit gezieltem Druck und einem feinen Gespür für den Körper. Ihre kraftvolle, präzise Behandlung konzentriert sich besonders auf Füße, Kopf und Nacken – für spürbare Entspannung und ein leichteres Körpergefühl.
+            </p>
+          </div>
         </div>
 
-        <!-- Therapeut 2 -->
-        <div class="bg-brand-cream p-8 border border-brand-sand/60 space-y-4">
-          <div class="space-y-1">
-            <h3 class="font-serif text-2xl font-light text-brand-dark">Therapeutin Mali</h3>
-            <p class="text-xs uppercase tracking-[0.2em] text-brand-cognac font-medium">Aromaöl & Deep Relax</p>
+        <!-- Therapeut 2: Natascha -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 group">
+          <div class="relative w-36 h-36 flex-shrink-0 rounded-full overflow-hidden border-2 border-brand-gold/40 shadow-lg">
+            <img 
+              src="assets/team.jpg" 
+              alt="Natascha — Wellness & Intensive Körperarbeit" 
+              class="w-full h-full object-cover scale-[2.2] avatar-natascha transition-transform duration-500 group-hover:scale-[2.3]"
+            >
           </div>
-          <p class="text-brand-muted text-sm font-light leading-relaxed">
-            Spezialisiert auf ganzheitliche Stressreduktion und sensitive Faszientechniken. Ihre Behandlungen schenken unmittelbare Leichtigkeit und tiefe mentale Ruhe.
-          </p>
+          <div class="space-y-3 text-center sm:text-left">
+            <div>
+              <h3 class="font-serif text-3xl font-light text-brand-cream">Natascha</h3>
+              <p class="text-[11px] uppercase tracking-[0.22em] text-brand-gold font-medium mt-1">Wellness · Intensive Körperarbeit</p>
+            </div>
+            <p class="text-stone-300 text-xs sm:text-sm font-light leading-relaxed">
+              Natascha arbeitet intensiv und zugleich achtsam. Mit gezielten Griffen löst sie verspannte Muskulatur und schenkt Nacken, Kopf und Füßen besondere Aufmerksamkeit – präzise Körperarbeit verbunden mit Ruhe und sicherem Gespür.
+            </p>
+          </div>
+        </div>
+
+        <!-- Therapeut 3: Sissi -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 group">
+          <div class="relative w-36 h-36 flex-shrink-0 rounded-full overflow-hidden border-2 border-brand-gold/40 shadow-lg">
+            <img 
+              src="assets/team.jpg" 
+              alt="Sissi — Balance & Gezielte Körperarbeit" 
+              class="w-full h-full object-cover scale-[2.2] avatar-sissi transition-transform duration-500 group-hover:scale-[2.3]"
+            >
+          </div>
+          <div class="space-y-3 text-center sm:text-left">
+            <div>
+              <h3 class="font-serif text-3xl font-light text-brand-cream">Sissi</h3>
+              <p class="text-[11px] uppercase tracking-[0.22em] text-brand-gold font-medium mt-1">Balance · Gezielte Körperarbeit</p>
+            </div>
+            <p class="text-stone-300 text-xs sm:text-sm font-light leading-relaxed">
+              Sissi verbindet langjährige Erfahrung mit präziser Körperwahrnehmung. Sie stimmt ihre Behandlung darauf ab, wo Spannung sitzt oder Beweglichkeit fehlt – mit dem Ziel, Leichtigkeit, Bewegungsfreiheit und ein ausgeglicheneres Körpergefühl zu schaffen.
+            </p>
+          </div>
+        </div>
+
+        <!-- Therapeut 4: Wezz -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 group">
+          <div class="relative w-36 h-36 flex-shrink-0 rounded-full overflow-hidden border-2 border-brand-gold/40 shadow-lg">
+            <img 
+              src="assets/team.jpg" 
+              alt="Wezz — Regeneration & Intensive Massage" 
+              class="w-full h-full object-cover scale-[2.2] avatar-wezz transition-transform duration-500 group-hover:scale-[2.3]"
+            >
+          </div>
+          <div class="space-y-3 text-center sm:text-left">
+            <div>
+              <h3 class="font-serif text-3xl font-light text-brand-cream">Wezz</h3>
+              <p class="text-[11px] uppercase tracking-[0.22em] text-brand-gold font-medium mt-1">Regeneration · Intensive Massage</p>
+            </div>
+            <p class="text-stone-300 text-xs sm:text-sm font-light leading-relaxed">
+              Wezz steht für kraftvolle, gezielte Körperarbeit mit viel Aufmerksamkeit für den einzelnen Menschen. Seine intensive Massage verbindet kräftige Griffe mit körperorientierter Arbeit – für gelöste Verspannungen, neue Beweglichkeit und Regeneration.
+            </p>
+          </div>
         </div>
 
       </div>
@@ -447,7 +511,7 @@
         <span class="text-xs uppercase tracking-[0.3em] text-brand-cognac font-medium">Transparenz</span>
         <h2 class="font-serif text-4xl sm:text-5xl font-light text-brand-dark">Preise</h2>
         <p class="text-brand-muted text-sm font-light">
-          Alle Massagen beinhalten ein kurzes Vorgespräch, Bio-Aromaöle und Erfrischungstee.
+          Alle Massagen beinhalten ein Vorgespräch, Bio-Aromaöle und Erfrischungstee.
         </p>
       </div>
 
@@ -482,7 +546,7 @@
               <td class="py-5 px-6 text-center text-brand-muted">€ 149</td>
             </tr>
             <tr class="hover:bg-brand-card/20 transition-colors">
-              <td class="py-5 px-6 font-normal">Deep Relax & Regeneration</td>
+              <td class="py-5 px-6 font-normal">Deep Relax & Körperarbeit</td>
               <td class="py-5 px-6 text-center text-brand-muted">€ 85</td>
               <td class="py-5 px-6 text-center text-brand-muted">€ 120</td>
               <td class="py-5 px-6 text-center text-brand-muted">€ 155</td>
@@ -512,11 +576,10 @@
       </h2>
       
       <p class="text-brand-muted text-base font-light max-w-lg mx-auto">
-        Wähle deine Behandlung und deinen Wunschtermin direkt und bequem online über unser Buchungssystem.
+        Wähle deine Behandlung, deine/n Wunschtherapeuten/in und deinen Termin direkt online über unser Buchungssystem.
       </p>
 
       <div class="pt-4">
-        <!-- Hier Treatwell-Link deines Cousins einfügen -->
         <a 
           href="https://www.treatwell.de" 
           target="_blank" 
@@ -582,7 +645,7 @@
           </div>
         </div>
 
-        <!-- Google Maps Embed / Karten-Container -->
+        <!-- Google Maps Embed -->
         <div class="relative aspect-square sm:aspect-[4/3] lg:aspect-square bg-brand-card border border-brand-sand overflow-hidden">
           <iframe 
             title="Hinano Isartor München Anfahrt"
@@ -632,7 +695,7 @@
     </div>
   </footer>
 
-  <!-- Einfaches Vanilla-JS Skript für mobile Navigation -->
+  <!-- Vanilla JS für Mobile Menü -->
   <script>
     const mobileToggle = document.getElementById('mobile-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -641,7 +704,6 @@
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Menü bei Klick auf Links automatisch schließen
     document.querySelectorAll('#mobile-menu a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
