@@ -1,14 +1,17 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f3efe8"><title>Hinano Rituals · Massage München Isartor</title><meta name="description" content="Hinano Rituals in München am Isartor – bewusste Auszeit, tiefgehende Entspannung und ausgewählte Massagerituale."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><style>
-  /* Einheitliche Randabstände für alle 4 Behandlungsfelder */
-  .cards article {
-    padding: 48px 4vw 52px 4vw !important;
-  }
+  /* Gleicht die linken Behandlungsfelder exakt an die rechten an */
+  .cards article,
+  .cards article:nth-child(odd),
   .cards article:nth-child(even) {
-    padding-left: 4vw !important;
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
   }
   @media (max-width: 900px) {
-    .cards article {
-      padding: 36px 20px 40px 20px !important;
+    .cards article,
+    .cards article:nth-child(odd),
+    .cards article:nth-child(even) {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
     }
   }
 </style></head><body>
