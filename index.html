@@ -1,47 +1,57 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f3efe8"><title>Hinano Rituals · Massage München Isartor</title><meta name="description" content="Hinano Rituals in München am Isartor – bewusste Auszeit, tiefgehende Entspannung und ausgewählte Massagerituale."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><style>
-  /* Korrektur: Gleicher Randabstand links & rechts für alle 4 Karten */
-  .treatments .cards article,
-  .treatments .cards article:nth-child(odd),
-  .treatments .cards article:nth-child(even) {
-    padding-left: 5vw !important;
-    padding-right: 5vw !important;
+  /* Fix: Einheitliche Randabstände und Textpositionen für alle 4 Behandlungsfelder */
+  @media (min-width: 901px) {
+    .treatments .cards {
+      border: 1px solid rgba(197, 168, 128, 0.45) !important;
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+    }
+    .treatments .cards article {
+      padding: 48px 4.5vw 52px 4.5vw !important;
+      border: 0 !important;
+      border-bottom: 1px solid rgba(197, 168, 128, 0.45) !important;
+      background: transparent !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    .treatments .cards article:nth-child(odd) {
+      border-right: 1px solid rgba(197, 168, 128, 0.45) !important;
+    }
+    .treatments .cards article:nth-child(even) {
+      padding-left: 4.5vw !important;
+      padding-right: 4.5vw !important;
+    }
+    .treatments .cards article:nth-last-child(-n+2) {
+      border-bottom: 0 !important;
+    }
   }
 </style></head><body>
-<header class="site-header"><a class="brand" href="#top" aria-label="Hinano Rituals Startseite"><img src="assets/hinano-logo-clean.png" alt="Hinano Rituals" width="138" height="34"></a><nav><a href="#treatments">Treatments</a><a href="#about">Über Hinano</a><a href="#team">Team</a><a href="#studio">Studio</a><a href="#contact">Kontakt</a></nav><a class="book" href="#buchen">Buchen</a></header>
-<main>
-<section class="hero" id="top"><div class="hero-card"><p class="eyebrow">Raum für Entschleunigung · Isartor München</p><h1>Ein Ort, an dem du ankommen darfst.</h1><p class="hero-text">Ausgewählte Massagerituale für tiefe Entspannung, Regeneration und innere Ruhe. Gehobenes Ambiente mitten in München – achtsam, warm und reduziert auf das Wesentliche.</p><div class="hero-actions"><a class="btn primary" href="#treatments">Treatments entdecken</a><a class="btn secondary" href="#buchen">Termin anfragen</a></div><p class="location">Zweibrückenstraße 8 · 80331 München (nahe Isartor)</p></div></section>
-<section class="statement"><p class="quiet">Der Moment zwischen zwei Gedanken</p><p class="big">Keine Hektik. Kein lauter Alltag. Nur Wärme, fließende Griffe und Zeit für deinen Körper.</p></section>
+<header class="site-header"><a class="brand" href="#top" aria-label="Hinano Startseite"><img src="assets/hinano-logo-transparent.png" alt="Hinano Rituals"></a><nav><a href="#treatments">Treatments</a><a href="#hinano">Über Hinano</a><a href="#team">Team</a><a href="#studio">Studio</a><a href="#kontakt">Kontakt</a></nav><a class="book small" href="#buchen">Buchen</a><button class="menu" aria-label="Menü öffnen">Menü</button></header>
+<div class="mobile-nav"><a href="#treatments">Treatments</a><a href="#hinano">Über Hinano</a><a href="#team">Team</a><a href="#studio">Studio</a><a href="#kontakt">Kontakt</a><a href="#buchen">Termin buchen</a></div>
+<main id="top">
+<section class="hero"><div class="hero-copy"><p class="eyebrow">Massage &amp; Wellbeing · München Isartor</p><h1>Zeit, dich<br><em>wieder zu spüren.</em></h1><p class="lead">Premium Massagen &amp; Wellbeing im Herzen Münchens. Ein Ort zum Ankommen, Loslassen und Auftanken.</p><div class="actions"><a class="book" href="#buchen">Jetzt Termin buchen</a><a class="quiet" href="#treatments">Treatments entdecken</a></div><p class="location">Zweibrückenstraße 8 · 80331 München</p></div><div class="hero-image"><img src="assets/studio-eingang.png" alt="Eingang des Hinano Studios am Isartor"></div></section>
+<section class="statement" id="hinano"><p class="eyebrow">Hinano Rituals</p><h2>Massagen,<br>die mehr bewirken.</h2><p>Hinano ist ein Ort für bewusste Auszeit, tiefgehende Entspannung und neue Energie. Mit ausgewählten Massageritualen verbinden wir traditionelle Techniken mit einem modernen Wellbeing-Erlebnis.</p><div class="pillars"><span>Berührung</span><span>Balance</span><span>Bewusstsein</span></div></section>
 <section class="treatments" id="treatments"><div class="section-title"><p class="eyebrow">Unser Angebot</p><h2>Wähle deinen Moment.</h2><p>Individuell auf deine Bedürfnisse abgestimmt. Professionell ausgeführt. In einem stilvollen, ruhigen Ambiente.</p></div><div class="cards">
-<article><span>01</span><h3>Wellness- & Entspannungsmassage</h3><p class="ritual-name">Hinano Calm Ritual</p><p>Eine ruhige, wohltuende Massage zum Loslassen, Abschalten und Entspannen.</p><p class="prices">60 Min / 65 € <i>—</i> 90 Min / 90 € <i>—</i> 120 Min / 120 €</p><a href="#buchen">Buchen →</a></article>
+<article><span>01</span><h3>Wellness- &amp; Entspannungsmassage</h3><p class="ritual-name">Hinano Calm Ritual</p><p>Eine ruhige, wohltuende Massage zum Loslassen, Abschalten und Entspannen.</p><p class="prices">60 Min / 65 € <i>—</i> 90 Min / 90 € <i>—</i> 120 Min / 120 €</p><a href="#buchen">Buchen →</a></article>
 <article><span>02</span><h3>Ganzkörpermassage</h3><p class="ritual-name">Deep Release Ritual</p><p>Eine umfassende Massage für den ganzen Körper – ideal für eine ausgedehnte Wohlfühlpause.</p><p class="prices">60 Min / 70 € <i>—</i> 90 Min / 95 € <i>—</i> 120 Min / 125 €</p><a href="#buchen">Buchen →</a></article>
 <article><span>03</span><h3>Thai-Aromaölmassage</h3><p class="ritual-name">Botanical Aroma Ritual</p><p>Sanfte Massage mit wohltuendem Öl für ein besonders entspanntes Körpergefühl.</p><p class="prices">60 Min / 70 € <i>—</i> 90 Min / 95 € <i>—</i> 120 Min / 125 €</p><a href="#buchen">Buchen →</a></article>
 <article><span>04</span><h3>Thai-Massage</h3><p class="ritual-name">Traditional Nuad Ritual</p><p>Traditionelle thailändische Techniken mit gezieltem Druck und wohltuenden Dehnungen.</p><p class="prices">60 Min / 75 € <i>—</i> 90 Min / 105 € <i>—</i> 120 Min / 135 €</p><a href="#buchen">Buchen →</a></article>
 </div><div class="offer"><span>Zur Wiedereröffnung</span><strong>Ein Willkommen für dich.</strong><p>10 % auf alle Massagen ab 60 Minuten · gültig bis 31.10.2026</p></div></section>
-<section class="experience" id="about"><div class="section-title"><p class="eyebrow">Das Hinano Erlebnis</p><h2>Mehr als eine Massage. Eine Haltung.</h2></div><div class="experience-grid">
-<article><h3>Warme Atmosphäre</h3><p>Erlesene Materialien, sanftes Licht und dezente Düfte schaffen einen Rückzugsort, der schon beim Eintreten beruhigt.</p></article>
-<article><h3>Feines Handwerk</h3><p>Jede Behandlung folgt einer präzisen Choreografie aus Berührung, Druck und Dehnung – individuell abgestimmt.</p></article>
-<article><h3>Natürliche Öle</h3><p>Wir verwenden hochwertige, naturreine Pflanzenöle, die die Haut nähren und die Sinne sanft umhüllen.</p></article>
-<article><h3>Stille & Respekt</h3><p>Deine Zeit gehört dir. Wir achten deine Privatsphäre und schenken dir Raum für ungestörte Erholung.</p></article>
+<section class="experience"><div><p class="eyebrow">Das Hinano-Erlebnis</p><h2>Ruhe ist Luxus.</h2></div><div class="experience-grid"><article><b>Balance</b><p>Raum, um wieder bei dir anzukommen.</p></article><article><b>Relaxation</b><p>Bewusst loslassen und den Alltag draußen lassen.</p></article><article><b>Regeneration</b><p>Gezielte Körperarbeit für neue Energie.</p></article><article><b>Wellbeing</b><p>Ein Moment, der bleibt.</p></article></div></section>
+<section class="team" id="team"><div class="team-intro"><p class="eyebrow">Unser Team</p><h2>Erfahrene Hände.<br>Mit Feingefühl.</h2><p>Jede Massage trägt eine eigene Handschrift. Lerne unser Team und seine Schwerpunkte kennen.</p></div><div class="team-grid">
+<article class="team-card"><img src="assets/team-nang.png" alt="Nang – Spezialistin für Thai-Massage"><div><h3>Nang</h3><p class="team-role">Thai-Massage · Entspannung</p><p>Nang verbindet traditionelle Thai-Massage mit gezieltem Druck und einem feinen Gespür für den Körper. Ihre kraftvolle, präzise Behandlung konzentriert sich besonders auf Füße, Kopf und Nacken – für spürbare Entspannung und ein leichteres Körpergefühl.</p></div></article>
+<article class="team-card"><img src="assets/team-natascha.png" alt="Natascha – Massage und intensive Körperarbeit"><div><h3>Natascha</h3><p class="team-role">Wellness · intensive Körperarbeit</p><p>Natascha arbeitet intensiv und zugleich achtsam. Mit gezielten Griffen löst sie verspannte Muskulatur und schenkt Nacken, Kopf und Füßen besondere Aufmerksamkeit – präzise Körperarbeit verbunden mit Ruhe und sicherem Gespür.</p></div></article>
+<article class="team-card"><img src="assets/team-sissi.png" alt="Sissi – Spezialistin für Balance"><div><h3>Sissi</h3><p class="team-role">Balance · gezielte Körperarbeit</p><p>Sissi verbindet langjährige Erfahrung mit präziser Körperwahrnehmung. Sie stimmt ihre Behandlung darauf ab, wo Spannung sitzt oder Beweglichkeit fehlt – mit dem Ziel, Leichtigkeit, Bewegungsfreiheit und ein ausgeglicheneres Körpergefühl zu schaffen.</p></div></article>
+<article class="team-card"><img src="assets/team-wezz.png" alt="Wezz – Spezialist für intensive Körperarbeit"><div><h3>Wezz</h3><p class="team-role">Regeneration · intensive Massage</p><p>Wezz steht für kraftvolle, gezielte Körperarbeit mit viel Aufmerksamkeit für den einzelnen Menschen. Seine intensive Massage verbindet kräftige Griffe mit körperorientierter Arbeit – für gelöste Verspannungen, neue Beweglichkeit und Regeneration.</p></div></article>
 </div></section>
-<section class="team" id="team"><div class="section-title"><p class="eyebrow">Unser Team</p><h2>Erfahrene Hände. Achtsame Begleitung.</h2><p>Hinter Hinano Rituals steht jahrelange Praxis in traditionellen und modernen Massagetechniken – mit Feingefühl für jeden Menschen.</p></div><div class="team-grid">
-<article class="team-card"><div class="team-avatar"><span>L</span></div><h3>Ladda</h3><p class="team-role">Gründerin & Senior Therapeutin</p><p>Über 15 Jahre Erfahrung in traditioneller Thai-Massage und ganzheitlicher Körperarbeit. Ausgebildet in Bangkok und München.</p></article>
-<article class="team-card"><div class="team-avatar"><span>S</span></div><h3>Somying</h3><p class="team-role">Aroma- & Entspannungsspezialistin</p><p>Spezialisiert auf sanfte Ölrituale, Tiefenentspannung und individuelle Druckabstimmung. Empathisch, ruhig und präzise.</p></article>
+<section class="studio" id="studio"><div class="section-title"><p class="eyebrow">Das Studio</p><h2>Hier beginnt deine Auszeit.</h2><p>Warmes Licht, ruhige Farben und Raum zum Ankommen.</p></div><div class="gallery gallery-new">
+<figure class="gallery-reception"><img src="assets/studio-empfang-neu.png" alt="Empfangsbereich des Hinano Studios"><figcaption>Empfang · Ankommen</figcaption></figure>
+<figure class="gallery-treatment"><img src="assets/behandlungsraum.png" alt="Behandlungsraum im Hinano Studio"><figcaption>Behandlungsraum · Ruhe</figcaption></figure>
+<figure class="gallery-curtains"><img src="assets/studio-vorhaenge.png" alt="Massagebereich des Hinano Studios mit warmem Licht"><figcaption>Atmosphäre · Rückzug</figcaption></figure>
+<figure class="gallery-entrance"><img src="assets/studio-eingang.png" alt="Eingang des Hinano Studios"><figcaption>Isartor · München</figcaption></figure>
 </div></section>
-<section class="studio" id="studio"><div class="section-title"><p class="eyebrow">Einblicke</p><h2>Dein Raum im Herzen Münchens.</h2></div>
-<div class="gallery-new">
-<figure class="gallery-item-featured"><img src="assets/hinano-empfangsraum.png" alt="Empfangsbereich Hinano Rituals München" loading="lazy"><figcaption>Empfangsbereich · Zweibrückenstraße 8, Isartor München</figcaption></figure>
-<div class="gallery-sub-grid">
-<figure class="gallery-sub-item"><img src="assets/studio-detail-1.jpg" alt="Behandlungsraum mit Liege und warmem Licht" loading="lazy"><figcaption>Behandlungsraum 1 · Rückzugsort für Entspannung</figcaption></figure>
-<figure class="gallery-sub-item"><img src="assets/studio-detail-2.jpg" alt="Traditioneller Massageplatz mit Bodenmatte" loading="lazy"><figcaption>Behandlungsraum 2 · Nuad Thai Tradition</figcaption></figure>
-</div>
-</div>
-</section>
-<section class="booking" id="buchen"><div class="booking-box"><p class="eyebrow">Reservierung</p><h2>Schenke dir diese Zeit.</h2><p class="intro">Wähle deine bevorzugte Kontaktaufnahme. Wir bestätigen deinen Wunschtermin zeitnah und persönlich.</p><div class="direct-grid"><a class="direct-card" href="tel:+498923759900"><small>Direkt anrufen</small><strong>089 / 237 599 00</strong><span>Für kurzfristige Termine</span></a><a class="direct-card" href="https://wa.me/4917612345678" target="_blank" rel="noopener"><small>WhatsApp</small><strong>Nachricht senden</strong><span>Schnell und unkompliziert</span></a><a class="direct-card" href="mailto:hallo@hinano-rituals.de?subject=Terminanfrage"><small>E-Mail</small><strong>hallo@hinano-rituals.de</strong><span>Mit Wunschzeit & Ritual</span></a></div><div class="booking-notice"><strong>Online-Buchungssystem</strong><p>Unser digitales Buchungstool wird in Kürze freigeschaltet. Bis dahin erreichst du uns jederzeit telefonisch oder per Nachricht.</p></div></div></section>
-<section class="contact" id="contact"><div class="section-title"><p class="eyebrow">Besuch uns</p><h2>Zweibrückenstraße 8 · Isartor</h2></div><div class="contact-grid">
-<div><b>Adresse</b><p>Hinano Rituals<br>Zweibrückenstraße 8<br>80331 München</p></div>
-<div><b>Öffnungszeiten</b><p>Montag – Samstag<br>10:00 – 20:00 Uhr<br>Sonntag nach Vereinbarung</p></div>
-<div><b>Anfahrt</b><p>S-Bahn Isartor (alle Linien)<br>Tram 16 / 18 Isartor<br>Parkhäuser in Gehweite</p></div>
-</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Zweibr%C3%BCckenstra%C3%9Fe+8%2C+80331+M%C3%BCnchen" target="_blank" rel="noopener">Route in Google Maps →</a></section>
+<section class="booking" id="buchen"><img src="assets/hinano-logo-transparent.png" alt="Hinano Rituals"><p class="eyebrow">Dein Moment</p><h2>Fühl dich selbst.</h2><p>Wähle deine Behandlung und deinen Wunschtermin direkt online.</p><a class="book treatwell" href="#" data-placeholder="true">Jetzt Termin buchen</a><small>Die Online-Reservierung wird in Kürze freigeschaltet.</small></section>
+<section class="contact" id="kontakt"><div><p class="eyebrow">Anfahrt &amp; Kontakt</p><h2>Mitten in München.<br>Ein Moment für dich.</h2></div><div class="contact-grid"><div><b>Studio</b><p>Zweibrückenstraße 8<br>80331 München<br>Isartor · im Hinterhof</p></div><div><b>Kontakt</b><p><a href="tel:+498930907370">089 / 3090737-0</a><br><a href="mailto:info@hinano.de">info@hinano.de</a></p></div><div><b>Öffnungszeiten</b><p>Montag&nbsp;&nbsp;16:30 – 20:00 Uhr<br>Dienstag&nbsp;&nbsp;14:00 – 20:00 Uhr<br>Mittwoch&nbsp;&nbsp;14:00 – 20:00 Uhr<br>Donnerstag&nbsp;&nbsp;14:00 – 20:00 Uhr<br>Freitag&nbsp;&nbsp;11:00 – 20:00 Uhr<br>Samstag&nbsp;&nbsp;10:00 – 22:00 Uhr<br>Sonntag&nbsp;&nbsp;13:00 – 20:00 Uhr</p></div></div><a class="quiet" href="https://www.google.com/maps/search/?api=1&amp;query=Zweibr%C3%BCckenstra%C3%9Fe+8%2C+80331+M%C3%BCnchen" target="_blank" rel="noopener">Route in Google Maps →</a></section>
 </main>
 <footer><img src="assets/hinano-logo-transparent.png" alt="Hinano Rituals"><p>Zeit, dich wieder zu spüren.</p><div><span>© 2026 Hinano</span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></footer>
 <div class="notice" role="status">Die Online-Reservierung wird in Kürze freigeschaltet.</div><script src="script.js"></script></body></html>
