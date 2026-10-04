@@ -150,3 +150,29 @@ h1,h2,h3,
 @media(max-width:900px){
   .offer{grid-template-columns:1fr!important;gap:8px!important}
 }
+
+/* Treatment frame alignment only — 2026-10-04 */
+.cards{
+  border:1px solid rgba(197,168,128,.62)!important;
+  border-top:1px solid rgba(197,168,128,.62)!important;
+}
+.cards article{
+  border:0!important;
+  border-bottom:1px solid rgba(197,168,128,.62)!important;
+  padding:48px 5vw 52px 0;
+}
+.cards article:nth-child(odd){
+  border-right:1px solid rgba(197,168,128,.62)!important;
+}
+.cards article:nth-child(even){
+  padding-left:5vw;
+}
+.cards article:nth-last-child(-n+2){
+  border-bottom:0!important;
+}
+@media(max-width:900px){
+  .cards article:nth-child(odd){border-right:0!important}
+  .cards article:nth-last-child(-n+2){border-bottom:1px solid rgba(197,168,128,.62)!important}
+  .cards article:last-child{border-bottom:0!important}
+  .cards article:nth-child(even){padding-left:0}
+}
