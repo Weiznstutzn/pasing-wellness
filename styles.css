@@ -150,3 +150,6 @@ h1,h2,h3,
 @media(max-width:900px){
   .offer{grid-template-columns:1fr!important;gap:8px!important}
 }
+
+/* Header logo visibility adjustment only */
+.site-header .brand img{filter:brightness(.62) contrast(1.08);}
