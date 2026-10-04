@@ -33,3 +33,20 @@ h1,h2,h3,.statement h2,.experience h2,.booking h2,.contact h2,.team h2{font-fami
 .quiet{letter-spacing:.12em}.contact{background:var(--cream)}
 footer{background:var(--charcoal)}
 @media(min-width:900px){.team-grid{gap:4.5rem 5rem}.team-card{align-items:flex-start}.team-card img{width:180px;height:180px}.gallery-new{grid-template-columns:1.35fr .85fr}.gallery-reception{grid-row:span 2}}
+
+/* Hero balance refinement: copy leads, photography supports */
+@media(min-width:901px){
+  .hero{grid-template-columns:minmax(0,62%) minmax(340px,38%);gap:0;min-height:calc(92vh - 86px);align-items:stretch}
+  .hero-copy{padding:5.5vh 6vw 5vh 5vw;justify-content:center}
+  .hero-logo{width:min(330px,58%);margin-bottom:3.5vh}
+  .hero h1{font-size:clamp(58px,5.7vw,96px);max-width:720px}
+  .lead{max-width:560px;margin:22px 0 24px}
+  .location{margin-top:26px}
+  .hero-image{min-height:0;height:calc(92vh - 86px);margin:2.8vh 2.8vw 2.8vh 0;box-shadow:0 24px 55px rgba(28,25,23,.12)}
+  .hero-image img{object-position:center center}
+  .image-note{left:22px;bottom:22px}
+}
+@media(min-width:1400px){
+  .hero{grid-template-columns:minmax(0,64%) minmax(380px,36%)}
+  .hero-copy{padding-left:5vw;padding-right:7vw}
+}
