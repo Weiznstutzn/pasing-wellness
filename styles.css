@@ -50,3 +50,18 @@ footer{background:var(--charcoal)}
   .hero{grid-template-columns:minmax(0,64%) minmax(380px,36%)}
   .hero-copy{padding-left:5vw;padding-right:7vw}
 }
+
+/* Restored team presentation — 2026-10-04 */
+.team{display:block!important;background:#1d1b19!important;color:#fff!important;padding:0!important}
+.team-intro{display:none!important}
+.team-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:0!important;background:#514d48!important;border:1px solid #514d48!important}
+.team-card{display:grid!important;grid-template-columns:42% 58%!important;min-height:390px!important;background:#1d1b19!important;border:0!important;border-top:0!important;padding:0!important;align-items:stretch!important}
+.team-card:nth-child(1),.team-card:nth-child(2){border-bottom:1px solid #514d48!important}
+.team-card:nth-child(1),.team-card:nth-child(3){border-right:1px solid #514d48!important}
+.team-card img{display:block!important;width:100%!important;height:100%!important;min-height:390px!important;aspect-ratio:auto!important;object-fit:cover!important;object-position:center!important;border:0!important;box-shadow:none!important;background:#fff!important}
+.team-card>div{padding:38px 34px!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+.team-card h3{font-family:Georgia,'Times New Roman',serif!important;font-size:36px!important;font-weight:400!important;line-height:1!important;color:#fff!important;margin:0 0 8px!important}
+.team-role{font-family:Arial,Helvetica,sans-serif!important;text-transform:uppercase!important;letter-spacing:.14em!important;font-size:10px!important;color:#c5a880!important;margin:0 0 24px!important}
+.team-card p:last-child{font-family:Arial,Helvetica,sans-serif!important;color:#eee9e3!important;font-size:14px!important;line-height:1.65!important;margin:0!important}
+@media(max-width:1100px){.team-grid{grid-template-columns:1fr!important}.team-card{grid-template-columns:38% 62%!important}.team-card:nth-child(1),.team-card:nth-child(2),.team-card:nth-child(3){border-right:0!important;border-bottom:1px solid #514d48!important}}
+@media(max-width:650px){.team-card{display:block!important;min-height:0!important}.team-card img{height:auto!important;min-height:0!important;aspect-ratio:1/1!important}.team-card>div{padding:30px 25px 36px!important}.team-card h3{font-size:32px!important}}
