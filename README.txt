@@ -1,20 +1,13 @@
-HINANO REDESIGN – 04.10.2026
+HINANO REDESIGN
+Stand: 04.10.2026 – Studiofotos integriert
 
-Start: index.html
-Design: Luxury Minimalism / Onepager
+Start: index.html im Browser öffnen.
 
-Enthalten:
-- neues Hinano-Rituals-Logo
-- Hero, Hinano-Konzept, Treatments, Erlebnis, Team, Studio, Preise, Buchung, Kontakt
-- responsive Desktop/Mobil
-- Impressum- und Datenschutz-Grundseiten
+Neu integriert:
+- Außenansicht/Eingang als großes Hero-Foto
+- Empfang, Behandlungsraum, Massagebereich und Eingang als Studio-Galerie
+- Responsive Darstellung für Desktop, Tablet und Smartphone
 
-VOR LIVEGANG PRÜFEN/ERGÄNZEN:
-1. Echten Treatwell-Buchungslink in index.html einsetzen (Element class="treatwell").
-2. Preise/Treatments final bestätigen.
-3. Team-Namen und Spezialisierungen final bestätigen.
-4. Betreiberangaben im Impressum vervollständigen.
-5. Datenschutz an Hosting/Treatwell/weitere Dienste anpassen.
-6. Wiedereröffnungsaktion nach 31.10.2026 entfernen/aktualisieren.
-
-Die Seite verwendet keine externen Fonts oder Tracking-Skripte. Google Maps wird nur als externer Link geöffnet.
+Hinweis:
+Der finale Treatwell-Link ist weiterhin nicht hinterlegt und muss später ergänzt werden.
+Impressum/Datenschutz enthalten weiterhin vorbereitete Platzhalter für endgültige Rechtsangaben.
