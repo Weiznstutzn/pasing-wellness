@@ -153,3 +153,6 @@ h1,h2,h3,
 
 /* Header logo visibility adjustment only */
 .site-header .brand img{filter:brightness(.62) contrast(1.08);}
+
+/* Booking logo visibility: match header logo exactly */
+.booking > img{filter:brightness(.62) contrast(1.08);}
