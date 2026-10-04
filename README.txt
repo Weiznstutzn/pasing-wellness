@@ -1,16 +1,20 @@
-HINANO – Designsprache V3 mit neuem Logo
+HINANO REDESIGN – 04.10.2026
 
-Testversion für Pasing Wellness, nicht produktiv auf hinano.de.
+Start: index.html
+Design: Luxury Minimalism / Onepager
 
-Neu gegenüber V2:
-- das vom Nutzer bereitgestellte neue Hinano-Logo liegt lokal unter assets/hinano-logo.png
-- Logo sinnvoll im Header, Hero und Footer integriert
-- Hero nutzt das Logo als echte Markeninszenierung
-- Header nutzt eine kompaktere Darstellung
-- Footer nutzt das Logo dezent
-- Treatwell bleibt als künftiger zentraler Buchungsweg vorgesehen
-- noch kein erfundener Treatwell-Link
+Enthalten:
+- neues Hinano-Rituals-Logo
+- Hero, Hinano-Konzept, Treatments, Erlebnis, Team, Studio, Preise, Buchung, Kontakt
+- responsive Desktop/Mobil
+- Impressum- und Datenschutz-Grundseiten
 
-Upload:
-Den Inhalt der ZIP ins Pasing-Wellness-Testprojekt übernehmen. Wichtig:
-Nicht nur index.html hochladen, sondern auch den Ordner assets, sonst fehlt das Logo.
+VOR LIVEGANG PRÜFEN/ERGÄNZEN:
+1. Echten Treatwell-Buchungslink in index.html einsetzen (Element class="treatwell").
+2. Preise/Treatments final bestätigen.
+3. Team-Namen und Spezialisierungen final bestätigen.
+4. Betreiberangaben im Impressum vervollständigen.
+5. Datenschutz an Hosting/Treatwell/weitere Dienste anpassen.
+6. Wiedereröffnungsaktion nach 31.10.2026 entfernen/aktualisieren.
+
+Die Seite verwendet keine externen Fonts oder Tracking-Skripte. Google Maps wird nur als externer Link geöffnet.
