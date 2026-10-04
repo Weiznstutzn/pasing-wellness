@@ -93,3 +93,60 @@ footer{background:var(--charcoal)}
   .gallery-new .gallery-curtains img{object-position:center center!important}
   .gallery-new .gallery-entrance img{object-position:center center!important}
 }
+
+/* Premium typography + treatment refinement — requested 2026-10-04 */
+body,
+.site-header nav,
+.site-header .small,
+.book,
+.quiet,
+.eyebrow,
+.location,
+.cards p,
+.cards a,
+.team-role,
+.team-card p,
+.gallery-new figcaption,
+.contact-grid b,
+footer>div,
+.booking small,
+.notice{
+  font-family:"Plus Jakarta Sans",sans-serif!important;
+}
+body{font-weight:300}
+h1,h2,h3,
+.statement h2,.section-title h2,.experience h2,.booking h2,.contact h2,.team h2,
+.lead,.statement>p:not(.eyebrow),.section-title>p:last-child,
+.experience-grid b,.team-card h3,.contact-grid p,footer>p{
+  font-family:"Cormorant Garamond",serif!important;
+}
+.hero h1 em{font-style:italic;font-weight:300}
+.hero h1 br+*{font-style:normal}
+
+/* Keep header as the single brand mark in the hero area */
+.hero-logo{display:none!important}
+
+/* Team: preserve approved 2x2 layout, harmonize typography and soften portrait integration */
+.team-card h3{font-family:"Cormorant Garamond",serif!important;font-weight:400!important}
+.team-role{font-family:"Plus Jakarta Sans",sans-serif!important;font-weight:400!important}
+.team-card p:last-child{font-family:"Plus Jakarta Sans",sans-serif!important;font-weight:300!important}
+.team-card img{background:#eee7de!important;filter:saturate(.88) contrast(.97) brightness(.96)}
+
+/* Treatment nomenclature + quiet price typography */
+.ritual-name{margin:-10px 0 20px!important;color:var(--gold)!important;text-transform:uppercase;letter-spacing:.16em;font-size:10px!important;font-weight:400}
+.prices{display:block!important;margin:26px 0!important;color:#eee7de!important;font-size:12px!important;letter-spacing:.025em}
+.prices i{font-style:normal;color:rgba(238,231,222,.42);padding:0 9px}
+.prices b{border:0!important;padding:0!important;font-weight:300!important}
+
+/* Reopening message: editorial, not a sales banner */
+.offer{margin-top:64px!important;padding:28px 0!important;border:0!important;border-top:1px solid rgba(197,168,128,.35)!important;border-bottom:1px solid rgba(197,168,128,.35)!important;background:transparent!important;grid-template-columns:.8fr 1.25fr 2fr!important;gap:28px}
+.offer span{color:var(--gold);font-weight:400}
+.offer strong{font-family:"Cormorant Garamond",serif!important;font-size:28px!important;font-weight:400!important}
+.offer p{font-weight:300;color:#ddd4cb}
+
+/* Booking placeholder: guest-facing language only */
+.booking small{font-weight:300;letter-spacing:.02em}
+
+@media(max-width:900px){
+  .offer{grid-template-columns:1fr!important;gap:8px!important}
+}
