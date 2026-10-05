@@ -156,3 +156,17 @@ h1,h2,h3,
 
 /* Booking logo visibility: match header logo exactly */
 .booking > img{filter:brightness(.62) contrast(1.08);}
+
+/* Mobile treatment cards only — complete frames and consistent inner spacing */
+@media (max-width: 900px){
+  .treatments .cards{
+    border-top:0;
+    gap:12px;
+  }
+  .treatments .cards article,
+  .treatments .cards article:nth-child(odd),
+  .treatments .cards article:nth-child(even){
+    border:1px solid rgba(255,255,255,.25);
+    padding:40px 24px 44px 24px;
+  }
+}
