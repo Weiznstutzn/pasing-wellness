@@ -170,3 +170,19 @@ h1,h2,h3,
     padding:40px 24px 44px 24px;
   }
 }
+
+/* Mobile: prevent enlarged iPhone text from widening the treatment cards */
+@media (max-width: 900px){
+  .treatments .cards article{
+    min-width:0;
+  }
+  .treatments .cards h3{
+    min-width:0;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+  }
+  .treatments .cards .prices{
+    min-width:0;
+    overflow-wrap:anywhere;
+  }
+}
